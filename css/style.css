@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Custom Components & Animations (Tailwind overrides)
+   ========================================================================== */
+
+/* Navbar Scroll State */
+.scrolled {
+  background-color: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Glow Effects */
+.text-glow {
+  text-shadow: 0 0 40px rgba(0, 174, 239, 0.3);
+}
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(0, 174, 239, 0.4);
+}
+.bg-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 174, 239, 0.6);
+}
+
+/* Hero Background Animation */
+@keyframes breathing {
+  0% { transform: scale(1.05); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1.05); }
+}
+.hero-bg-anim {
+  animation: breathing 20s ease-in-out infinite;
+}
+
+/* Skill Chips */
+.skill-chip {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.875rem;
+  color: #A0A0B0;
+  transition: all 0.3s ease;
+}
+.skill-chip:hover {
+  border-color: #00AEEF;
+  color: #00AEEF;
+  background-color: rgba(0, 174, 239, 0.05);
+}
+
+/* Services Card */
+.service-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 174, 239, 0.3);
+  box-shadow: 0 10px 40px -10px rgba(0, 174, 239, 0.15);
+}
+.service-card:hover .icon-wrapper {
+  background-color: #00AEEF;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Reveal Animations */
+.reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.fade-up {
+  transform: translateY(40px);
+}
+.reveal.fade-right {
+  transform: translateX(-40px);
+}
+.reveal.fade-left {
+  transform: translateX(40px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+
+/* Filter Buttons */
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: transparent;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.filter-btn.active, .filter-btn:hover {
+  border-color: #00AEEF;
+  background-color: rgba(0, 174, 239, 0.1);
+  color: #fff;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
