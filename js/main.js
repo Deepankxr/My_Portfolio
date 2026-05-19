@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Theme ──
   const html = document.documentElement;
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  let savedTheme = 'dark';
+  try {
+    savedTheme = localStorage.getItem('theme') || 'dark';
+  } catch (e) {
+    console.warn('localStorage is not accessible, defaulting to dark theme:', e);
+  }
   html.setAttribute('data-theme', savedTheme);
 
   function updateThemeLabel() {
@@ -20,7 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+      try {
+        localStorage.setItem('theme', next);
+      } catch (e) {
+        console.warn('localStorage is not accessible, theme preference not saved:', e);
+      }
       updateThemeLabel();
     });
   });
@@ -101,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
+  }, { threshold: 0.01, rootMargin: '0px 0px -20px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
@@ -113,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labelObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.05 });
   document.querySelectorAll('.section-label-row').forEach(el => labelObserver.observe(el));
 
   // ── Full-width photo wipe animation (about page) ──
@@ -124,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         photoObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.02 });
   document.querySelectorAll('.about-section__full-photo, .about-section__side-photo').forEach(el => photoObserver.observe(el));
 
   // ── Tool chip stagger animation (about page) ──
@@ -137,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toolObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.02 });
   document.querySelectorAll('.tool-list').forEach(list => toolObserver.observe(list));
 
   // ── Count-up animation ──
@@ -168,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         countObserver.unobserve(el);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.1 });
   document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
 
   // ── Work card flip ──
