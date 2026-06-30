@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0B10">
+  <title>Thoughts | Deepankar Bhadrasen</title>
+  <meta name="description" content="Notes and essays on AI automation, agents, document intelligence, and building systems that ship, by Deepankar Bhadrasen.">
+  <meta name="author" content="Deepankar Bhadrasen">
+  <link rel="canonical" href="https://deepankar.xyz/thoughts.html">
+
+  <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deepankar.xyz/thoughts.html">
+  <meta property="og:title" content="Thoughts, Deepankar Bhadrasen">
+  <meta property="og:description" content="Notes and essays on AI automation, agents, and building systems that actually ship.">
+  <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ─── Navigation ─── -->
+  <header id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Deepankar Bhadrasen</a>
+        <nav class="nav-links">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="thoughts.html" class="nav-link">Thoughts</a>
+          <a href="index.html#contact" class="nav-link nav-link--cta">Work with Me</a>
+          <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+            <span class="theme-icon theme-icon--light">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon--dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </span>
+          </button>
+        </nav>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav>
+      <a href="about.html" class="mobile-menu__link">About</a>
+      <a href="thoughts.html" class="mobile-menu__link">Thoughts</a>
+      <a href="index.html#contact" class="mobile-menu__link">Work with Me</a>
+    </nav>
+    <button id="theme-toggle-mobile" class="theme-btn theme-btn--mobile">
+      Switch to <span class="theme-mode-label">Light</span> mode
+    </button>
+  </div>
+
+  <main class="about-main">
+
+    <!-- ─── Hero ─── -->
+    <section class="thoughts-hero">
+      <div class="container">
+        <p class="thoughts-kicker reveal"><span class="thoughts-kicker__dot" aria-hidden="true"></span> DEEPANKAR.XYZ · THOUGHTS</p>
+
+        <h1 class="thoughts-title reveal">Notes &amp; <em>Thoughts.</em></h1>
+
+        <p class="thoughts-intro reveal">
+          Field notes on AI automation, agents, and document intelligence: what
+          actually breaks in production, what scales, and how to ship systems that
+          do the work of entire teams.
+        </p>
+
+        <div class="thoughts-topics reveal">
+          <span class="topic-chip">AI Automation</span>
+          <span class="topic-chip">n8n</span>
+          <span class="topic-chip">AI Agents</span>
+          <span class="topic-chip">Document Intelligence</span>
+          <span class="topic-chip">Enterprise</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Article list ─── -->
+    <section class="thoughts-list-section">
+      <div class="container">
+        <div class="section-label-row reveal">
+          <span class="section-num">01</span>
+          <span class="section-tag">Latest writing</span>
+        </div>
+
+        <div class="thought-list">
+
+          <a class="thought-item reveal" href="#">
+            <span class="thought-num">01</span>
+            <span class="thought-body">
+              <span class="thought-title">Why most AI automations die in production</span>
+              <span class="thought-meta">Systems · 6 min read</span>
+            </span>
+            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a class="thought-item reveal" href="#">
+            <span class="thought-num">02</span>
+            <span class="thought-body">
+              <span class="thought-title">n8n or code? A decision framework</span>
+              <span class="thought-meta">Automation · 5 min read</span>
+            </span>
+            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a class="thought-item reveal" href="#">
+            <span class="thought-num">03</span>
+            <span class="thought-body">
+              <span class="thought-title">Designing AI agents that actually ship</span>
+              <span class="thought-meta">Agents · 8 min read</span>
+            </span>
+            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a class="thought-item reveal" href="#">
+            <span class="thought-num">04</span>
+            <span class="thought-body">
+              <span class="thought-title">From PDF chaos to clean data: document intelligence</span>
+              <span class="thought-meta">Document AI · 7 min read</span>
+            </span>
+            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a class="thought-item reveal" href="#">
+            <span class="thought-num">05</span>
+            <span class="thought-body">
+              <span class="thought-title">Scaling output without scaling headcount</span>
+              <span class="thought-meta">Strategy · 4 min read</span>
+            </span>
+            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a class="thought-item reveal" href="#">
+            <span class="thought-num">06</span>
+            <span class="thought-body">
+              <span class="thought-title">What Fortune 500 teams get wrong about AI</span>
+              <span class="thought-meta">Enterprise · 6 min read</span>
+            </span>
+            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+        </div>
+
+        <p class="thoughts-soon reveal">More essays in the works. <a href="index.html#contact">Want me to write about something specific?</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; <span id="year"></span> Deepankar Bhadrasen</p>
+        <a href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Smooth scroll + scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

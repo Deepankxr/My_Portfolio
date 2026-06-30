@@ -4,16 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0D0D10">
+  <title>About | Deepankar Bhadrasen</title>
   <meta name="description"
     content="About Deepankar Bhadrasen, AI Automation Engineer and Founding Engineer at TrueHorizon AI.">
-  <title>About | Deepankar Bhadrasen</title>
+  <meta name="author" content="Deepankar Bhadrasen">
+  <link rel="canonical" href="https://deepankar.xyz/about.html">
+
+  <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://deepankar.xyz/about.html">
+  <meta property="og:title" content="About Deepankar Bhadrasen, AI Automation Engineer">
+  <meta property="og:description" content="Two years, 20+ AI systems shipped for Fortune 500 clients. Founding Engineer at TrueHorizon AI.">
+  <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap"
     rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -29,6 +49,7 @@
         <a href="index.html" class="nav-logo">Deepankar Bhadrasen</a>
         <nav class="nav-links">
           <a href="about.html" class="nav-link">About</a>
+          <a href="thoughts.html" class="nav-link">Thoughts</a>
           <a href="index.html#contact" class="nav-link nav-link--cta">Work with Me</a>
           <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
             <span class="theme-icon theme-icon--light">
@@ -64,6 +85,7 @@
   <div class="mobile-menu" id="mobile-menu">
     <nav>
       <a href="about.html" class="mobile-menu__link">About</a>
+      <a href="thoughts.html" class="mobile-menu__link">Thoughts</a>
       <a href="index.html#contact" class="mobile-menu__link">Work with Me</a>
     </nav>
     <button id="theme-toggle-mobile" class="theme-btn theme-btn--mobile">
@@ -97,14 +119,6 @@
             </p>
           </div>
 
-          <!-- Right: Photo -->
-          <div class="about-hero-visual">
-            <div class="about-hero-img-frame">
-              <img src="assets/avatar.png" alt="Deepankar Bhadrasen" class="about-hero-img">
-              <div class="hero-img-overlay" aria-hidden="true"></div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -134,8 +148,11 @@
             </p>
           </div>
           <div class="about-section__side-photo">
-            <img src="assets/whoiam.jpg" alt="Deepankar Bhadrasen" loading="lazy"
-                 onerror="this.closest('.about-section__side-photo').style.display='none'">
+            <picture>
+              <source type="image/webp" srcset="assets/whoiam-900.webp">
+              <img src="assets/whoiam-900.jpg" width="900" height="675" alt="Deepankar Bhadrasen" loading="lazy" decoding="async"
+                   onerror="this.closest('.about-section__side-photo').style.display='none'">
+            </picture>
           </div>
         </div>
 
@@ -167,10 +184,13 @@
             </p>
           </div>
           <div class="about-section__side-photo">
-            <img src="assets/graduation.jpg"
-                 alt="Graduating from Symbiosis Centre for Management Studies, Pune"
-                 loading="lazy"
-                 onerror="this.closest('.about-section__side-photo').style.display='none'">
+            <picture>
+              <source type="image/webp" srcset="assets/graduation-900.webp">
+              <img src="assets/graduation-900.jpg" width="900" height="1200"
+                   alt="Graduating from Symbiosis Centre for Management Studies, Pune"
+                   loading="lazy" decoding="async"
+                   onerror="this.closest('.about-section__side-photo').style.display='none'">
+            </picture>
           </div>
         </div>
 
@@ -211,17 +231,19 @@
             <h2>Speaking and Recognition</h2>
             <p>
               Alongside client work, I've been invited to speak at enterprise events.
-              I served as a guest consultant at an off-site event hosted by Avalara,
-              a Fortune 500 company acquired by Vista Equity Partners, where I
-              demonstrated how GTM leaders can implement AI practically and
-              accelerate adoption across their teams.
+              I served as a guest consultant at an off-site event hosted by a
+              Fortune 500 company, where I demonstrated how GTM leaders can
+              implement AI practically and accelerate adoption across their teams.
             </p>
           </div>
           <div class="about-section__side-photo about-section__side-photo--landscape">
-            <img src="assets/speaking.jpg"
-                 alt="Deepankar Bhadrasen presenting at an enterprise event"
-                 loading="lazy"
-                 onerror="this.closest('.about-section__side-photo').style.display='none'">
+            <picture>
+              <source type="image/webp" srcset="assets/speaking-1000.webp">
+              <img src="assets/speaking-1000.jpg" width="1000" height="750"
+                   alt="Deepankar Bhadrasen presenting at an enterprise event"
+                   loading="lazy" decoding="async"
+                   onerror="this.closest('.about-section__side-photo').style.display='none'">
+            </picture>
           </div>
         </div>
 
@@ -350,6 +372,10 @@
     </div>
   </footer>
 
+  <!-- Smooth scroll + scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>

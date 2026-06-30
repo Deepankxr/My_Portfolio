@@ -3,16 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Deepankar Bhadrasen, AI Automation Engineer. Founding Engineer at TrueHorizon AI. Building enterprise AI systems for Fortune 500 companies.">
+  <meta name="theme-color" content="#0D0D10">
   <title>Deepankar Bhadrasen | AI Automation Engineer</title>
+  <meta name="description" content="Deepankar Bhadrasen, AI Automation Engineer. Founding Engineer at TrueHorizon AI. Building enterprise AI systems for Fortune 500 companies.">
+  <meta name="author" content="Deepankar Bhadrasen">
+  <link rel="canonical" href="https://deepankar.xyz/">
+
+  <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deepankar.xyz/">
+  <meta property="og:title" content="Deepankar Bhadrasen, AI Automation Engineer">
+  <meta property="og:description" content="Founding Engineer at TrueHorizon AI. I build enterprise AI automation that ships and scales for Fortune 500 teams.">
+  <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deepankar Bhadrasen, AI Automation Engineer">
+  <meta name="twitter:description" content="Founding Engineer at TrueHorizon AI. Enterprise AI automation that ships and scales.">
+  <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Deepankar Bhadrasen",
+    "url": "https://deepankar.xyz/",
+    "jobTitle": "AI Automation Engineer",
+    "worksFor": { "@type": "Organization", "name": "TrueHorizon AI" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Bhopal", "addressCountry": "IN" },
+    "email": "sales@deepankar.xyz",
+    "sameAs": ["https://www.linkedin.com/in/deepankarbhadrasen/"],
+    "knowsAbout": ["AI Automation", "n8n", "Document Intelligence", "Sales Pipeline Automation", "Large Language Models"]
+  }
+  </script>
 </head>
 <body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- ─── Navigation ─── -->
   <header id="nav">
@@ -22,6 +63,7 @@
 
         <nav class="nav-links">
           <a href="about.html" class="nav-link">About</a>
+          <a href="thoughts.html" class="nav-link">Thoughts</a>
           <a href="#contact" class="nav-link nav-link--cta">Work with Me</a>
           <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
             <span class="theme-icon theme-icon--light">
@@ -52,6 +94,7 @@
   <div class="mobile-menu" id="mobile-menu">
     <nav>
       <a href="about.html" class="mobile-menu__link">About</a>
+      <a href="thoughts.html" class="mobile-menu__link">Thoughts</a>
       <a href="#contact" class="mobile-menu__link">Work with Me</a>
     </nav>
     <button id="theme-toggle-mobile" class="theme-btn theme-btn--mobile">
@@ -63,7 +106,7 @@
 
     <!-- ─── Hero ─── -->
     <section id="hero">
-      <!-- Background elements -->
+      <!-- Background ambient layers -->
       <div class="hero-dots" aria-hidden="true"></div>
       <div class="hero-orb" aria-hidden="true"></div>
 
@@ -74,34 +117,27 @@
           <div class="hero-text">
             <p class="hero-eyebrow">Founding Engineer · TrueHorizon AI</p>
 
-            <h1 class="hero-h1">
-              <span class="hero-h1__line"><span class="inner">Scale without</span></span>
-              <span class="hero-h1__line"><span class="inner">increasing</span></span>
-              <span class="hero-h1__line"><span class="inner"><em>headcount.</em></span></span>
-            </h1>
+            <h1 class="hero-name">Deepankar<br>Bhadrasen</h1>
 
             <p class="hero-sub">
-              I build end-to-end AI automation for enterprise teams:
-              sales pipelines, document intelligence, and process
-              automation that actually runs in production.
+              Scaling output without scaling headcount. I build end-to-end
+              AI automation that ships and runs in production for enterprise teams.
             </p>
 
             <div class="hero-cta">
               <a href="#contact" class="btn btn--primary">Work with Me</a>
               <a href="about.html" class="btn btn--text">My story &nbsp;→</a>
             </div>
-          </div>
 
-          <!-- Right: Image -->
-          <div class="hero-visual" id="hero-visual">
-            <div class="hero-img-frame" id="hero-img-frame">
-              <img src="assets/avatar.png" alt="Deepankar Bhadrasen" class="hero-img" id="hero-img">
-              <div class="hero-img-overlay" aria-hidden="true"></div>
-            </div>
             <div class="hero-badge">
               <span class="hero-badge__dot" aria-hidden="true"></span>
               Available for consultation
             </div>
+          </div>
+
+          <!-- Right: Rotating logo sphere -->
+          <div class="hero-visual">
+            <canvas id="globe" class="hero-globe" aria-hidden="true"></canvas>
           </div>
 
         </div>
@@ -182,8 +218,8 @@
             </div>
             <div class="trust-divider"></div>
             <div class="trust-item reveal">
-              <span class="trust-name">Avalara</span>
-              <span class="trust-detail">Fortune 500 · Guest Consultant</span>
+              <span class="trust-name">Fortune 500</span>
+              <span class="trust-detail">Guest Consultant</span>
             </div>
             <div class="trust-divider"></div>
             <div class="trust-item reveal">
@@ -262,7 +298,7 @@
                   </button>
                 </div>
                 <h3 class="work-card__title">Automated Sales Pipeline</h3>
-                <p class="work-card__desc">A full end-to-end pipeline replacing manual outreach with intelligent workflows. Leads are qualified automatically, follow-ups sequenced, and all data synced to Salesforce — running entirely without human input at every step.</p>
+                <p class="work-card__desc">A full end-to-end pipeline replacing manual outreach with intelligent workflows. Leads are qualified automatically, follow-ups sequenced, and all data synced to Salesforce, running entirely without human input at every step.</p>
                 <div class="work-card__result">
                   <span class="work-card__result-label">Result</span>
                   <span class="work-card__result-text">Eliminated hours of daily manual outreach. Scaled lead engagement without adding a single person.</span>
@@ -282,7 +318,7 @@
                 </div>
                 <h3 class="work-card__title">Call Grading System</h3>
                 <p class="work-card__client">Enterprise · Sales & Support Teams</p>
-                <p class="work-card__brief">AI that reviews, scores, and surfaces insights from sales calls — giving managers the signal without the manual review overhead.</p>
+                <p class="work-card__brief">AI that reviews, scores, and surfaces insights from sales calls, giving managers the signal without the manual review overhead.</p>
                 <div class="work-card__tools">
                   <span>Fireflies API</span><span>OpenAI</span><span>n8n</span><span>Supabase</span>
                 </div>
@@ -299,7 +335,7 @@
                   </button>
                 </div>
                 <h3 class="work-card__title">Call Grading System</h3>
-                <p class="work-card__desc">Automatically ingests, transcribes, and scores sales and support calls against custom rubrics. Surfaces coachable moments and flags underperforming patterns — all before the manager opens their inbox.</p>
+                <p class="work-card__desc">Automatically ingests, transcribes, and scores sales and support calls against custom rubrics. Surfaces coachable moments and flags underperforming patterns, all before the manager opens their inbox.</p>
                 <div class="work-card__result">
                   <span class="work-card__result-label">Result</span>
                   <span class="work-card__result-text">Replaced hours of manual call review. Enabled consistent, data-driven coaching at scale.</span>
@@ -336,7 +372,7 @@
                   </button>
                 </div>
                 <h3 class="work-card__title">Invoice Parsing System</h3>
-                <p class="work-card__desc">Reads incoming invoices in any format, extracts structured data, validates it against order records, and writes clean entries to the database — handling thousands of documents with no manual input required.</p>
+                <p class="work-card__desc">Reads incoming invoices in any format, extracts structured data, validates it against order records, and writes clean entries to the database, handling thousands of documents with no manual input required.</p>
                 <div class="work-card__result">
                   <span class="work-card__result-label">Result</span>
                   <span class="work-card__result-text">Eliminated manual invoice entry entirely. Scaled to high document volumes with zero additional effort.</span>
@@ -356,7 +392,7 @@
                 </div>
                 <h3 class="work-card__title">Finance Document Agent</h3>
                 <p class="work-card__client">Enterprise · Financial Services</p>
-                <p class="work-card__brief">AI agent that reads financial documents and outputs structured, formatted loan applications — removing bottlenecks in document-heavy workflows.</p>
+                <p class="work-card__brief">AI agent that reads financial documents and outputs structured, formatted loan applications, removing bottlenecks in document-heavy workflows.</p>
                 <div class="work-card__tools">
                   <span>OpenAI</span><span>Pinecone</span><span>Supabase</span><span>Gemini</span>
                 </div>
@@ -373,7 +409,7 @@
                   </button>
                 </div>
                 <h3 class="work-card__title">Finance Document Agent</h3>
-                <p class="work-card__desc">Reads and interprets unstructured financial documents using vector search and LLMs, then populates and formats a complete loan application — cutting the most time-consuming part of the review process.</p>
+                <p class="work-card__desc">Reads and interprets unstructured financial documents using vector search and LLMs, then populates and formats a complete loan application, cutting the most time-consuming part of the review process.</p>
                 <div class="work-card__result">
                   <span class="work-card__result-label">Result</span>
                   <span class="work-card__result-text">Drastically cut loan application processing time. Removed manual document review from standard application workflows.</span>
@@ -455,6 +491,10 @@
     </div>
   </footer>
 
+  <!-- Smooth scroll + scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>
