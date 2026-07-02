@@ -4,16 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0D0D10">
+  <title>About | Deepankar Bhadrasen</title>
   <meta name="description"
     content="About Deepankar Bhadrasen, AI Automation Engineer and Founding Engineer at TrueHorizon AI.">
-  <title>About | Deepankar Bhadrasen</title>
+  <meta name="author" content="Deepankar Bhadrasen">
+  <link rel="canonical" href="https://deepankar.xyz/about.html">
+
+  <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://deepankar.xyz/about.html">
+  <meta property="og:title" content="About Deepankar Bhadrasen, AI Automation Engineer">
+  <meta property="og:description" content="Two years, 20+ AI systems shipped for Fortune 500 clients. Founding Engineer at TrueHorizon AI.">
+  <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap"
     rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,54 +42,73 @@
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scroll-progress"></div>
 
-  <!-- ─── Navigation ─── -->
+  <!-- ─── Liquid-glass card nav ─── -->
   <header id="nav">
-    <div class="container">
-      <div class="nav-inner">
+    <div class="nav-shell">
+      <div class="nav-bar">
         <a href="index.html" class="nav-logo">Deepankar Bhadrasen</a>
+
         <nav class="nav-links">
-          <a href="about.html" class="nav-link">About</a>
-          <a href="index.html#contact" class="nav-link nav-link--cta">Work with Me</a>
+          <a href="about.html" class="nav-link nav-link--active">About</a>
+          <a href="thoughts.html" class="nav-link">Thoughts</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="index.html#contact" class="nav-link--cta">Work with Me</a>
           <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
             <span class="theme-icon theme-icon--light">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round">
-                <circle cx="12" cy="12" r="5" />
-                <line x1="12" y1="1" x2="12" y2="3" />
-                <line x1="12" y1="21" x2="12" y2="23" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                <line x1="1" y1="12" x2="3" y2="12" />
-                <line x1="21" y1="12" x2="23" y2="12" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
               </svg>
             </span>
             <span class="theme-icon theme-icon--dark">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
               </svg>
             </span>
           </button>
-        </nav>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
+          <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-cards">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-cards" id="nav-cards" aria-hidden="true">
+        <div class="nav-cards__inner">
+          <div class="nav-cards__grid">
+            <div class="nav-card">
+              <span class="nav-card__label">Explore</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="index.html">Home</a>
+                <a class="nav-card__link" href="about.html">About</a>
+                <a class="nav-card__link" href="thoughts.html">Thoughts</a>
+              </div>
+            </div>
+            <div class="nav-card">
+              <span class="nav-card__label">Writing</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="blog/n8n-mcp-claude-code.html">n8n and Claude Code</a>
+                <a class="nav-card__link" href="blog/claude-design-enterprise-guide.html">Designing with Claude</a>
+                <a class="nav-card__link" href="blog/youtube-research-ai-agents.html">YouTube Research Agents</a>
+              </div>
+            </div>
+            <div class="nav-card">
+              <span class="nav-card__label">Connect</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="index.html#contact">Work with Me</a>
+                <a class="nav-card__link" href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="nav-card__link" href="mailto:sales@deepankar.xyz">Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <nav>
-      <a href="about.html" class="mobile-menu__link">About</a>
-      <a href="index.html#contact" class="mobile-menu__link">Work with Me</a>
-    </nav>
-    <button id="theme-toggle-mobile" class="theme-btn theme-btn--mobile">
-      Switch to <span class="theme-mode-label">Light</span> mode
-    </button>
-  </div>
 
   <main class="about-main">
 
@@ -95,14 +134,6 @@
               AI automation engineer. Two years. 20+ systems deployed.
               Fortune 500 clients. Started in college, never looked back.
             </p>
-          </div>
-
-          <!-- Right: Photo -->
-          <div class="about-hero-visual">
-            <div class="about-hero-img-frame">
-              <img src="assets/avatar.png" alt="Deepankar Bhadrasen" class="about-hero-img">
-              <div class="hero-img-overlay" aria-hidden="true"></div>
-            </div>
           </div>
 
         </div>
@@ -134,8 +165,11 @@
             </p>
           </div>
           <div class="about-section__side-photo">
-            <img src="assets/whoiam.jpg" alt="Deepankar Bhadrasen" loading="lazy"
-                 onerror="this.closest('.about-section__side-photo').style.display='none'">
+            <picture>
+              <source type="image/webp" srcset="assets/whoiam-900.webp">
+              <img src="assets/whoiam-900.jpg" width="900" height="675" alt="Deepankar Bhadrasen" loading="lazy" decoding="async"
+                   onerror="this.closest('.about-section__side-photo').style.display='none'">
+            </picture>
           </div>
         </div>
 
@@ -167,10 +201,13 @@
             </p>
           </div>
           <div class="about-section__side-photo">
-            <img src="assets/graduation.jpg"
-                 alt="Graduating from Symbiosis Centre for Management Studies, Pune"
-                 loading="lazy"
-                 onerror="this.closest('.about-section__side-photo').style.display='none'">
+            <picture>
+              <source type="image/webp" srcset="assets/graduation-900.webp">
+              <img src="assets/graduation-900.jpg" width="900" height="1200"
+                   alt="Graduating from Symbiosis Centre for Management Studies, Pune"
+                   loading="lazy" decoding="async"
+                   onerror="this.closest('.about-section__side-photo').style.display='none'">
+            </picture>
           </div>
         </div>
 
@@ -195,8 +232,8 @@
             </p>
 
             <div class="about-stat-callout">
-              <span class="about-stat__number" data-count="2.5" data-decimals="1" data-prefix="$"
-                data-suffix="M">$2.5M</span>
+              <span class="about-stat__number" data-count="2500000" data-prefix="$"
+                data-suffix="+" data-duration="2400">$2,500,000+</span>
               <span class="about-stat__label">ARR · 2025</span>
             </div>
           </div>
@@ -211,17 +248,19 @@
             <h2>Speaking and Recognition</h2>
             <p>
               Alongside client work, I've been invited to speak at enterprise events.
-              I served as a guest consultant at an off-site event hosted by Avalara,
-              a Fortune 500 company acquired by Vista Equity Partners, where I
-              demonstrated how GTM leaders can implement AI practically and
-              accelerate adoption across their teams.
+              I served as a guest consultant at an off-site event hosted by a
+              Fortune 500 company, where I demonstrated how GTM leaders can
+              implement AI practically and accelerate adoption across their teams.
             </p>
           </div>
           <div class="about-section__side-photo about-section__side-photo--landscape">
-            <img src="assets/speaking.jpg"
-                 alt="Deepankar Bhadrasen presenting at an enterprise event"
-                 loading="lazy"
-                 onerror="this.closest('.about-section__side-photo').style.display='none'">
+            <picture>
+              <source type="image/webp" srcset="assets/speaking-1000.webp">
+              <img src="assets/speaking-1000.jpg" width="1000" height="750"
+                   alt="Deepankar Bhadrasen presenting at an enterprise event"
+                   loading="lazy" decoding="async"
+                   onerror="this.closest('.about-section__side-photo').style.display='none'">
+            </picture>
           </div>
         </div>
 
@@ -259,44 +298,35 @@
           <div class="about-section__content">
             <h2>What I Use</h2>
             <p>
-              I work across the full automation stack, from workflow orchestration
-              to vector databases and enterprise platforms.
+              I build on the latest AI automation stack: workflow orchestration,
+              vector databases, and the enterprise platforms serious teams trust
+              for privacy and security. Everything I ship is production-proven,
+              reliable and safe, and it stays updated to the bleeding edge of AI.
             </p>
-            <div class="tools-grid">
-              <div class="tool-group">
-                <span class="tool-group__label">Orchestration</span>
-                <div class="tool-list">
-                  <span class="tool">n8n</span>
-                  <span class="tool">n8n Claude Code</span>
-                </div>
-              </div>
-              <div class="tool-group">
-                <span class="tool-group__label">AI Models</span>
-                <div class="tool-list">
-                  <span class="tool">OpenAI</span>
-                  <span class="tool">Gemini</span>
-                  <span class="tool">Claude</span>
-                </div>
-              </div>
-              <div class="tool-group">
-                <span class="tool-group__label">Data and Storage</span>
-                <div class="tool-list">
-                  <span class="tool">Supabase</span>
-                  <span class="tool">MongoDB</span>
-                  <span class="tool">Snowflake</span>
-                  <span class="tool">Pinecone</span>
-                </div>
-              </div>
-              <div class="tool-group">
-                <span class="tool-group__label">Enterprise Platforms</span>
-                <div class="tool-list">
-                  <span class="tool">Salesforce</span>
-                  <span class="tool">Jira</span>
-                  <span class="tool">Fireflies</span>
-                  <span class="tool">Atlassian</span>
-                </div>
-              </div>
+
+            <span class="stack-label">My Tech Stack</span>
+            <div class="stack-grid">
+              <div class="stack-item"><img src="https://cdn.simpleicons.org/n8n" alt="n8n" loading="lazy"><span>n8n</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/lucide:terminal.svg?color=%234DA3FF&amp;width=96&amp;height=96" alt="Claude Code" loading="lazy"><span>Claude Code</span></div>
+              <div class="stack-item"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" loading="lazy"><span>Claude</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/simple-icons:openai.svg?color=%2310A37F&amp;width=96&amp;height=96" alt="OpenAI" loading="lazy"><span>OpenAI</span></div>
+              <div class="stack-item"><img src="https://cdn.simpleicons.org/googlegemini/8AB4F8" alt="Google Gemini" loading="lazy"><span>Gemini</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/logos:supabase-icon.svg" alt="Supabase" loading="lazy"><span>Supabase</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/logos:mongodb-icon.svg" alt="MongoDB" loading="lazy"><span>MongoDB</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/logos:snowflake-icon.svg" alt="Snowflake" loading="lazy"><span>Snowflake</span></div>
+              <div class="stack-item stack-item--invert"><img src="https://api.iconify.design/logos:pinecone-icon.svg" alt="Pinecone" loading="lazy"><span>Pinecone</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/logos:salesforce.svg" alt="Salesforce" loading="lazy"><span>Salesforce</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/logos:jira.svg" alt="Jira" loading="lazy"><span>Jira</span></div>
+              <div class="stack-item"><img src="https://cdn.simpleicons.org/atlassian/2684FF" alt="Atlassian" loading="lazy"><span>Atlassian</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/logos:google-icon.svg" alt="Google Workspace" loading="lazy"><span>Google</span></div>
+              <div class="stack-item"><img src="https://api.iconify.design/logos:microsoft-icon.svg" alt="Microsoft 365" loading="lazy"><span>Microsoft 365</span></div>
+              <div class="stack-item"><img src="https://cdn.simpleicons.org/modelcontextprotocol/4DA3FF" alt="Model Context Protocol" loading="lazy"><span>MCP</span></div>
             </div>
+
+            <p class="stack-more">
+              ...plus Fireflies, Apify, and a list that keeps growing. Whatever your
+              company already runs, my systems plug straight into it.
+            </p>
           </div>
         </div>
 
@@ -350,6 +380,10 @@
     </div>
   </footer>
 
+  <!-- Smooth scroll + scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>

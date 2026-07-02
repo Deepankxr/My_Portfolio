@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0B10">
+  <title>Stop Prototyping Slowly: n8n MCP + Claude Code | Deepankar Bhadrasen</title>
+  <meta name="description" content="How pairing n8n's Model Context Protocol with Claude Code collapses automation prototyping from an afternoon to 20 minutes, and where it still breaks.">
+  <meta name="author" content="Deepankar Bhadrasen">
+  <link rel="canonical" href="https://deepankar.xyz/blog/n8n-mcp-claude-code.html">
+
+  <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deepankar.xyz/blog/n8n-mcp-claude-code.html">
+  <meta property="og:title" content="Stop Prototyping Slowly: n8n MCP + Claude Code">
+  <meta property="og:description" content="From plain-English prompt to production-shaped n8n workflow in about 20 minutes. What changed, why the output is not garbage, and where humans still matter.">
+  <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Stop Prototyping Slowly: n8n MCP + Claude Code",
+    "description": "How pairing n8n's Model Context Protocol with Claude Code collapses automation prototyping from an afternoon to 20 minutes.",
+    "author": { "@type": "Person", "name": "Deepankar Bhadrasen", "url": "https://deepankar.xyz/about.html" },
+    "publisher": { "@type": "Person", "name": "Deepankar Bhadrasen" },
+    "mainEntityOfPage": "https://deepankar.xyz/blog/n8n-mcp-claude-code.html",
+    "image": "https://deepankar.xyz/assets/og-image.jpg",
+    "isBasedOn": "https://truehorizon.ai/news/n8n-mcp-claude-code",
+    "keywords": ["n8n", "MCP", "Claude Code", "AI automation", "workflow automation"]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ─── Liquid-glass card nav ─── -->
+  <header id="nav">
+    <div class="nav-shell">
+      <div class="nav-bar">
+        <a href="../index.html" class="nav-logo">Deepankar Bhadrasen</a>
+
+        <nav class="nav-links">
+          <a href="../about.html" class="nav-link">About</a>
+          <a href="../thoughts.html" class="nav-link nav-link--active">Thoughts</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="../index.html#contact" class="nav-link--cta">Work with Me</a>
+          <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+            <span class="theme-icon theme-icon--light">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon--dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </span>
+          </button>
+          <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-cards">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-cards" id="nav-cards" aria-hidden="true">
+        <div class="nav-cards__inner">
+          <div class="nav-cards__grid">
+            <div class="nav-card">
+              <span class="nav-card__label">Explore</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="../index.html">Home</a>
+                <a class="nav-card__link" href="../about.html">About</a>
+                <a class="nav-card__link" href="../thoughts.html">Thoughts</a>
+              </div>
+            </div>
+            <div class="nav-card">
+              <span class="nav-card__label">Writing</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="n8n-mcp-claude-code.html">n8n and Claude Code</a>
+                <a class="nav-card__link" href="claude-design-enterprise-guide.html">Designing with Claude</a>
+                <a class="nav-card__link" href="youtube-research-ai-agents.html">YouTube Research Agents</a>
+              </div>
+            </div>
+            <div class="nav-card">
+              <span class="nav-card__label">Connect</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="../index.html#contact">Work with Me</a>
+                <a class="nav-card__link" href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="nav-card__link" href="mailto:sales@deepankar.xyz">Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="post-main">
+
+    <section class="post-hero">
+      <div class="container">
+        <a href="../thoughts.html" class="post-back">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          All thoughts
+        </a>
+        <p class="post-meta"><span class="post-cat">Automation</span> <span>·</span> <span>5 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
+        <h1 class="post-title">Stop Prototyping Slowly: n8n MCP + Claude Code</h1>
+      </div>
+    </section>
+
+    <div class="container">
+      <article class="post-body">
+
+        <p class="post-body__lede">Most automation ideas never make it past the whiteboard. Not because they are bad ideas, but because the distance between "we should build this" and "it runs" has always been measured in afternoons, not minutes.</p>
+
+        <p>That distance just collapsed. Pair n8n's Model Context Protocol server with Claude Code and you can go from a plain-English prompt to a working, production-shaped workflow before your coffee goes cold. I have been building this way for a while now, and it has permanently changed how I ship.</p>
+
+        <h2>MCP is not "AI that read the docs"</h2>
+        <p>The difference is in what Claude actually sees. Through MCP, Claude gets direct access to your n8n instance: the nodes available, how credentials are structured, the patterns your existing workflows follow. It is not guessing at how the platform works from stale training data. It knows what is installed, what connects to what, and what a valid workflow looks like on your specific setup.</p>
+        <p>So when I describe what I need, Claude does not hand me pseudocode. It assembles the actual workflow, suggests sensible node configurations, and flags the bottlenecks I would have discovered an hour later the hard way.</p>
+
+        <h2>Why the output is not garbage</h2>
+        <p>I am as allergic to AI-generated slop as anyone. Most code generation tools produce output that takes longer to clean up than writing from scratch would have. This combination avoids that trap for a structural reason: n8n is a constrained, well-defined system. Every node has clear inputs, outputs, and transformation logic. Claude is not inventing new paradigms. It is assembling proven components in intelligent ways.</p>
+        <p>The result is workflows that run on the first try far more often than they should, with error handling and edge cases baked in rather than bolted on afterwards.</p>
+
+        <h2>The honest boundaries</h2>
+        <p>This is not a silver bullet, and pretending otherwise helps nobody. Complex multi-tenant workflows with intricate state management still need a human architect. But the other 80 percent of automation work, the API orchestration, data transformation, and webhook handling, is where this shines ridiculously well.</p>
+        <p>A typical demo build for me: customer data arrives from a CRM webhook, gets enriched through a third-party API, filtered on custom logic, and fans out to notifications across Slack and email. That used to be 45 minutes of dragging nodes, configuring endpoints, and testing credential flows. Now I prompt the workflow, review the generated structure, plug in credentials, and I am live in about 20 minutes. That is not hyperbole. That is the new baseline.</p>
+        <p>Iteration is where it really sings. Need a conditional branch? Describe it. Want to swap the email provider? Claude refactors the relevant nodes without breaking anything upstream. It feels like collaborative automation design, not code generation.</p>
+
+        <h2>What this signals</h2>
+        <p>The barrier to sophisticated automation is collapsing. Small teams can now prototype like enterprise ops departments, and non-technical founders can sketch automation logic that actually executes.</p>
+        <p>But there is a tension worth naming. As AI handles more of the mechanical assembly, the premium shifts to architectural thinking: knowing what to automate, how data should flow, and where a human checkpoint belongs. The tools are getting easier. The strategy is getting harder. That is exactly the kind of problem I like having.</p>
+
+        <aside class="post-source">
+          <span class="post-source__label">Originally published</span>
+          <p>I first wrote about this on the <a href="https://truehorizon.ai/news/n8n-mcp-claude-code" target="_blank" rel="noopener">TrueHorizon AI blog</a>, where I write about enterprise AI automation. This is my personal, adapted take. You can browse all of TrueHorizon's articles at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
+        </aside>
+
+        <div class="post-cta">
+          <p>Want an automation like this running in your business?</p>
+          <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
+        </div>
+
+      </article>
+    </div>
+
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; <span id="year"></span> Deepankar Bhadrasen</p>
+        <a href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Smooth scroll + scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

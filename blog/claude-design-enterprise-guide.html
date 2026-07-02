@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0B10">
+  <title>Claude Design for Enterprises: 6 Things to Know Before You Prototype | Deepankar Bhadrasen</title>
+  <meta name="description" content="Claude Design is not another AI design toy. Six honest lessons for enterprises: design system extraction, the four-part prompt framework, and where it still breaks.">
+  <meta name="author" content="Deepankar Bhadrasen">
+  <link rel="canonical" href="https://deepankar.xyz/blog/claude-design-enterprise-guide.html">
+
+  <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deepankar.xyz/blog/claude-design-enterprise-guide.html">
+  <meta property="og:title" content="Claude Design for Enterprises: 6 Things to Know Before You Prototype">
+  <meta property="og:description" content="It compresses ideation-to-prototype into one conversation. Here is what enterprises get right about it, and where it still breaks.">
+  <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Claude Design for Enterprises: 6 Things to Know Before You Prototype",
+    "description": "Six honest lessons for enterprises adopting Claude Design: design system extraction, structured prompting, and current limitations.",
+    "author": { "@type": "Person", "name": "Deepankar Bhadrasen", "url": "https://deepankar.xyz/about.html" },
+    "publisher": { "@type": "Person", "name": "Deepankar Bhadrasen" },
+    "mainEntityOfPage": "https://deepankar.xyz/blog/claude-design-enterprise-guide.html",
+    "image": "https://deepankar.xyz/assets/og-image.jpg",
+    "isBasedOn": "https://truehorizon.ai/news/claude-design-enterprise-prototyping-guide",
+    "keywords": ["Claude Design", "enterprise AI", "prototyping", "design systems", "AI tools"]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ─── Liquid-glass card nav ─── -->
+  <header id="nav">
+    <div class="nav-shell">
+      <div class="nav-bar">
+        <a href="../index.html" class="nav-logo">Deepankar Bhadrasen</a>
+
+        <nav class="nav-links">
+          <a href="../about.html" class="nav-link">About</a>
+          <a href="../thoughts.html" class="nav-link nav-link--active">Thoughts</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="../index.html#contact" class="nav-link--cta">Work with Me</a>
+          <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+            <span class="theme-icon theme-icon--light">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon--dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </span>
+          </button>
+          <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-cards">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-cards" id="nav-cards" aria-hidden="true">
+        <div class="nav-cards__inner">
+          <div class="nav-cards__grid">
+            <div class="nav-card">
+              <span class="nav-card__label">Explore</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="../index.html">Home</a>
+                <a class="nav-card__link" href="../about.html">About</a>
+                <a class="nav-card__link" href="../thoughts.html">Thoughts</a>
+              </div>
+            </div>
+            <div class="nav-card">
+              <span class="nav-card__label">Writing</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="n8n-mcp-claude-code.html">n8n and Claude Code</a>
+                <a class="nav-card__link" href="claude-design-enterprise-guide.html">Designing with Claude</a>
+                <a class="nav-card__link" href="youtube-research-ai-agents.html">YouTube Research Agents</a>
+              </div>
+            </div>
+            <div class="nav-card">
+              <span class="nav-card__label">Connect</span>
+              <div class="nav-card__links">
+                <a class="nav-card__link" href="../index.html#contact">Work with Me</a>
+                <a class="nav-card__link" href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="nav-card__link" href="mailto:sales@deepankar.xyz">Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="post-main">
+
+    <section class="post-hero">
+      <div class="container">
+        <a href="../thoughts.html" class="post-back">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          All thoughts
+        </a>
+        <p class="post-meta"><span class="post-cat">Enterprise AI</span> <span>·</span> <span>6 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
+        <h1 class="post-title">Claude Design for Enterprises: 6 Things to Know Before You Prototype</h1>
+      </div>
+    </section>
+
+    <div class="container">
+      <article class="post-body">
+
+        <p class="post-body__lede">Claude Design gets misread constantly. People file it next to Canva, or next to "ChatGPT but prettier," and move on. Enterprises are looking at it very differently, and after months of prototyping with it, I think they are right to.</p>
+
+        <h2>1. What it actually is</h2>
+        <p>Claude Design is an Anthropic Labs product that lives inside Claude as a dedicated design tab, launched in April 2025 and powered by Claude Opus 4.7, their most capable vision model. The point is not generating pretty screens. It compresses the entire ideation-to-prototype cycle into a single conversation.</p>
+        <p>The traditional loop looks like this: idea, brief, wireframes, feedback, prototype. Claude Design collapses all of it. You describe what you need in plain language and get back a live, interactive, clickable prototype. Not a static mockup. Not a screenshot. Something a stakeholder can actually click through.</p>
+
+        <h2>2. Design system extraction is the real enterprise unlock</h2>
+        <p>On team and enterprise plans, Claude Design extracts your brand styling during onboarding. It reads your codebase, existing design files, colors, typography, and components, then applies those standards to every project automatically.</p>
+        <p>That means when a product manager at a 500-person company builds a prototype, it does not look like random AI output. It looks like something your design team produced, on brand and on system. That one capability eliminates a whole category of revision cycles.</p>
+
+        <h2>3. Enterprises are not buying speed</h2>
+        <p>Here is where most takes miss the point. Startups adopt AI tools to move faster. Enterprises adopt them to reduce operational friction. These are completely different games.</p>
+        <p>Large companies already solved speed with headcount. What they cannot easily buy is fewer design-system mismatches, fewer revision loops consuming designer bandwidth, and less misalignment between product, design, and engineering. When non-technical team members can prototype internal tools that automatically respect brand standards, the way teams operate fundamentally changes.</p>
+
+        <h2>4. It amplifies clarity, it does not replace judgment</h2>
+        <p>Bad operators with AI produce bad systems. Vague thinkers with AI produce vague outputs. The quality of what Claude Design gives you is directly proportional to the clarity of thinking you bring to it.</p>
+        <p>The best results I have seen are not designers being replaced. They are designers exploring ten directions in the time it used to take to build one. That is the actual unlock.</p>
+
+        <h2>5. Prompt structure changes everything</h2>
+        <p>Type "create a dashboard" and you will get something generic that looks fine and means nothing. At TrueHorizon we run every design prompt through a four-part framework:</p>
+        <ul>
+          <li><strong>Role:</strong> what Claude is acting as. "You are a product manager at a B2B SaaS company."</li>
+          <li><strong>Context:</strong> who this is for and why. "An enterprise operations team managing 200+ clients."</li>
+          <li><strong>Objective:</strong> the problem being solved. "Reduce the time account managers need to identify renewal risks."</li>
+          <li><strong>Constraints:</strong> the non-negotiables. "Follow existing brand styling, minimal UI, mobile friendly."</li>
+        </ul>
+        <p>Compare "create a dashboard for financial analysis" with "create a sales analytics dashboard for enterprise account managers tracking renewal risk, pipeline velocity, and customer health, data-dense but readable, blue sidebar, card-based metrics, viewed by a CXO on a 1080p desktop." The difference in output is night and day.</p>
+
+        <h2>6. Know exactly where it breaks</h2>
+        <p>It is still a research preview, and honesty beats hype. Design system import needs a clean codebase, because garbage in still means garbage out. Collaboration is early, with no real-time cursors or live comments like Figma. It has no deep product intuition, no years of watching real users fail, and no business context that is not in the prompt.</p>
+        <p>And everything it builds is front-end only. The buttons look real, but there is no backend behind them. The superpower is the handoff: take the prototype straight into Claude Code, wire up the backend, attach databases and services, and turn the demo into a functional system.</p>
+
+        <h2>Where this is heading</h2>
+        <p>We are watching software creation become conversational. Across Claude Design, Claude Code, and AI agents, the same pattern keeps repeating: small, highly leveraged teams operating like companies ten times their size.</p>
+        <p>The companies winning with these tools are not replacing humans. They are building human plus AI operating systems, where taste, clarity, and product thinking are the scarce inputs. Bring those, and Claude Design becomes a force multiplier.</p>
+
+        <aside class="post-source">
+          <span class="post-source__label">Originally published</span>
+          <p>I first wrote this guide on the <a href="https://truehorizon.ai/news/claude-design-enterprise-prototyping-guide" target="_blank" rel="noopener">TrueHorizon AI blog</a>. This is my personal, adapted take. More enterprise AI writing lives at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
+        </aside>
+
+        <div class="post-cta">
+          <p>Prototyping something for your team?</p>
+          <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
+        </div>
+
+      </article>
+    </div>
+
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; <span id="year"></span> Deepankar Bhadrasen</p>
+        <a href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Smooth scroll + scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
