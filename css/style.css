@@ -999,39 +999,38 @@ a.contact-detail__value:hover { color: var(--accent); }
 }
 
 /* ═══════════════════════════════════════════════════════
-   TOOLS GRID
+   MY TECH STACK (About: logo wall)
 ═══════════════════════════════════════════════════════ */
-.tools-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 36px; margin-top: 36px;
-}
-.tool-group__label {
+.stack-label {
   font-family: var(--font-label); font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
-  display: block; margin-bottom: 14px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+  display: block; margin: 40px 0 24px;
 }
-.tool-list { display: flex; flex-wrap: wrap; gap: 8px; }
-.tool {
-  font-family: var(--font-label); font-size: 12px; color: var(--text);
-  padding: 6px 13px;
-  border: 1px solid var(--line); border-radius: 2px;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s var(--ease-out);
-  opacity: 0; transform: translateY(8px);
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 30px 14px;
+  max-width: 720px;
 }
-.tool.tool-visible {
-  opacity: 1; transform: none;
+.stack-item {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  text-align: center;
+  opacity: 0.8;
+  transition: opacity 0.25s, transform 0.3s var(--ease-out);
 }
-.tool:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-/* Stagger delays for tool chips */
-.tool:nth-child(1) { transition-delay: 0ms; }
-.tool:nth-child(2) { transition-delay: 60ms; }
-.tool:nth-child(3) { transition-delay: 120ms; }
-.tool:nth-child(4) { transition-delay: 180ms; }
-.tool:nth-child(5) { transition-delay: 240ms; }
-.tool:nth-child(6) { transition-delay: 300ms; }
-.tool:nth-child(7) { transition-delay: 360ms; }
-.tool:nth-child(8) { transition-delay: 420ms; }
+.stack-item:hover { opacity: 1; transform: translateY(-4px); }
+.stack-item img { width: 34px; height: 34px; object-fit: contain; }
+.stack-item span {
+  font-family: var(--font-label); font-size: 11px; letter-spacing: 0.03em;
+  color: var(--muted);
+  transition: color 0.25s;
+}
+.stack-item:hover span { color: var(--text); }
+/* near-black brand marks (e.g. Pinecone) get inverted on the dark theme only */
+[data-theme="dark"] .stack-item--invert img { filter: invert(1) brightness(1.05); }
+.about-section__content p.stack-more {
+  margin-top: 36px; font-size: 14px; font-style: italic;
+}
 
 /* ═══════════════════════════════════════════════════════
    ABOUT CONTACT FORM (Work Together section)
@@ -1315,7 +1314,7 @@ html.lenis, html.lenis body { height: auto; }
   .about-section--photo-right { grid-template-columns: 1fr; }
   .about-section__side-photo { max-width: 100%; }
   .about-section__side-photo img { min-height: 260px; max-height: 320px; }
-  .tools-grid { grid-template-columns: 1fr; gap: 24px; }
+  .stack-grid { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 26px 10px; }
   .about-section__full-photo img { height: 280px; }
 }
 
