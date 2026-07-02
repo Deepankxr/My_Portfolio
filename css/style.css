@@ -540,19 +540,14 @@ section[id] { scroll-margin-top: 88px; }
   width: 100%; aspect-ratio: 3/4;
   background: transparent;
   overflow: hidden; position: relative;
-  /* Fade bottom into page background, subtle side fade */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 58%,
-    transparent 93%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 58%,
-    transparent 93%
-  );
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, black 8%, black 55%, transparent 90%),
+    linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, black 8%, black 55%, transparent 90%),
+    linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-composite: intersect;
 }
 
 .hero-img {
@@ -979,6 +974,7 @@ a.contact-detail__value:hover { color: var(--accent); }
 .about-hero-img {
   width: 100%; height: 100%;
   object-fit: cover; object-position: top center;
+  filter: brightness(1.12) contrast(1.03);
 }
 
 /* ═══════════════════════════════════════════════════════

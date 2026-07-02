@@ -35,7 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Theme ──
   const html = document.documentElement;
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  let savedTheme = 'dark';
+  try {
+    savedTheme = localStorage.getItem('theme') || 'dark';
+  } catch (e) {
+    console.warn('localStorage is not accessible, defaulting to dark theme:', e);
+  }
   html.setAttribute('data-theme', savedTheme);
 
   function updateThemeLabel() {
@@ -49,7 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+      try {
+        localStorage.setItem('theme', next);
+      } catch (e) {
+        console.warn('localStorage is not accessible, theme preference not saved:', e);
+      }
       updateThemeLabel();
     });
   });
