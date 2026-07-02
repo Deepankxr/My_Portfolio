@@ -884,7 +884,8 @@ a.contact-detail__value:hover { color: var(--accent); }
 .form-group input,
 .form-group textarea {
   background: var(--bg-2); border: 1px solid var(--line); border-radius: 3px;
-  padding: 14px 16px; font-size: 14px; color: var(--text);
+  /* 16px minimum: anything smaller makes iOS Safari zoom the page on focus */
+  padding: 14px 16px; font-size: 16px; color: var(--text);
   outline: none; transition: border-color 0.2s; resize: none;
 }
 .form-group input::placeholder,
@@ -1464,7 +1465,29 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (max-width: 480px) {
-  .hero-cta { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .hero-cta { flex-direction: column; align-items: stretch; gap: 14px; }
+  .hero-cta .btn { width: 100%; justify-content: center; text-align: center; }
+
+  /* Flip cards: wrapped copy needs more room than the desktop-fixed height */
+  .work-card { height: 480px; }
+
+  /* Tighter vertical rhythm on phones */
+  .section-heading { margin-bottom: 40px; }
+  .about-section { padding: 56px 0; }
+  .about-section__content h2 { margin-bottom: 18px; }
+
+  /* Larger tap targets */
+  .theme-btn { width: 40px; height: 40px; }
+
+  /* Full-width CTAs read better under the thumb */
+  .venture-cta { width: 100%; justify-content: center; }
+  .venture-card { border-radius: 16px; }
+
+  /* Stat number: keep the count-up on one comfortable line */
+  .about-stat__number { font-size: 36px; }
+
+  /* Blog post hero breathes a little less on small screens */
+  .post-title { line-height: 1.15; }
 }
 
 /* ═══════════════════════════════════════════════════════
