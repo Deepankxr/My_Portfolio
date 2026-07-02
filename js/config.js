@@ -11,8 +11,9 @@ const WEBHOOK_URL = 'https://n8n.srv1419396.hstgr.cloud/webhook/deepankar-formSu
 //   • make a logo prominent with a bigger w + a floor so it stays large/visible as it rotates
 //   • recolour a monochrome icon with /HEXCODE (Simple Icons) or ?color=%23HEX (Iconify)
 const HERO_LOGOS = [
-  // ── prominent: the core tools (n8n is the headline) ──
-  { n: 'n8n',            u: 'https://cdn.simpleicons.org/n8n',                                    w: 2.4,  floor: 0.78 },
+  // ── prominent core tools. NOTE: this first slot ends up behind the photo's lower half,
+  //    so Microsoft lives here and n8n (the headline) sits mid-sphere where it stays visible ──
+  { n: 'Microsoft 365',  u: 'https://api.iconify.design/logos:microsoft-icon.svg' },
   { n: 'Claude',         u: 'https://cdn.simpleicons.org/claude/D97757',                          w: 1.45, floor: 0.55 },
   { n: 'ChatGPT',        u: 'https://api.iconify.design/simple-icons:openai.svg?color=%2310A37F', w: 1.45, floor: 0.55 },
   { n: 'Google Gemini',  u: 'https://cdn.simpleicons.org/googlegemini/8AB4F8',                    w: 1.45, floor: 0.55 },
@@ -22,7 +23,7 @@ const HERO_LOGOS = [
   { n: 'Snowflake',      u: 'https://api.iconify.design/logos:snowflake-icon.svg' },
   { n: 'Salesforce',     u: 'https://api.iconify.design/logos:salesforce.svg' },
   { n: 'MongoDB',        u: 'https://api.iconify.design/logos:mongodb-icon.svg' },
-  { n: 'Microsoft 365',  u: 'https://api.iconify.design/logos:microsoft-icon.svg' },
+  { n: 'n8n',            u: 'https://cdn.simpleicons.org/n8n',                                    w: 2.4,  floor: 0.78 },
   { n: 'Gmail',          u: 'https://api.iconify.design/logos:google-gmail.svg' },
   { n: 'Google Drive',   u: 'https://api.iconify.design/logos:google-drive.svg' },
   { n: 'Google Docs',    u: 'https://cdn.simpleicons.org/googledocs/4285F4' },

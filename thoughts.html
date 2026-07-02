@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0A0B10">
   <title>Thoughts | Deepankar Bhadrasen</title>
-  <meta name="description" content="Notes and essays on AI automation, agents, document intelligence, and building systems that ship, by Deepankar Bhadrasen.">
+  <meta name="description" content="Blogs and notes on AI automation, agents, document intelligence, and building systems that ship, by Deepankar Bhadrasen.">
   <meta name="author" content="Deepankar Bhadrasen">
   <link rel="canonical" href="https://deepankar.xyz/thoughts.html">
 
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://deepankar.xyz/thoughts.html">
   <meta property="og:title" content="Thoughts, Deepankar Bhadrasen">
-  <meta property="og:description" content="Notes and essays on AI automation, agents, and building systems that actually ship.">
+  <meta property="og:description" content="Blogs and notes on AI automation, agents, and building systems that actually ship.">
   <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
@@ -43,7 +43,7 @@
         <a href="index.html" class="nav-logo">Deepankar Bhadrasen</a>
         <nav class="nav-links">
           <a href="about.html" class="nav-link">About</a>
-          <a href="thoughts.html" class="nav-link">Thoughts</a>
+          <a href="thoughts.html" class="nav-link nav-link--active">Thoughts</a>
           <a href="index.html#contact" class="nav-link nav-link--cta">Work with Me</a>
           <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
             <span class="theme-icon theme-icon--light">
@@ -73,7 +73,7 @@
   <div class="mobile-menu" id="mobile-menu">
     <nav>
       <a href="about.html" class="mobile-menu__link">About</a>
-      <a href="thoughts.html" class="mobile-menu__link">Thoughts</a>
+      <a href="thoughts.html" class="mobile-menu__link mobile-menu__link--active">Thoughts</a>
       <a href="index.html#contact" class="mobile-menu__link">Work with Me</a>
     </nav>
     <button id="theme-toggle-mobile" class="theme-btn theme-btn--mobile">
@@ -91,88 +91,132 @@
         <h1 class="thoughts-title reveal">Notes &amp; <em>Thoughts.</em></h1>
 
         <p class="thoughts-intro reveal">
-          Field notes on AI automation, agents, and document intelligence: what
-          actually breaks in production, what scales, and how to ship systems that
-          do the work of entire teams.
+          Long-form blogs and short field notes on AI automation, agents, and document
+          intelligence: what actually breaks in production, what scales, and how to
+          ship systems that do the work of entire teams.
         </p>
 
         <div class="thoughts-topics reveal">
           <span class="topic-chip">AI Automation</span>
           <span class="topic-chip">n8n</span>
           <span class="topic-chip">AI Agents</span>
-          <span class="topic-chip">Document Intelligence</span>
-          <span class="topic-chip">Enterprise</span>
+          <span class="topic-chip">Enterprise AI</span>
+          <span class="topic-chip">Claude</span>
         </div>
       </div>
     </section>
 
-    <!-- ─── Article list ─── -->
+    <!-- ─── Blogs ─── -->
     <section class="thoughts-list-section">
       <div class="container">
         <div class="section-label-row reveal">
           <span class="section-num">01</span>
-          <span class="section-tag">Latest writing</span>
+          <span class="section-tag">Blogs · Long-form writing</span>
         </div>
 
         <div class="thought-list">
 
-          <a class="thought-item reveal" href="#">
+          <a class="thought-item reveal" href="blog/n8n-mcp-claude-code.html">
             <span class="thought-num">01</span>
             <span class="thought-body">
-              <span class="thought-title">Why most AI automations die in production</span>
-              <span class="thought-meta">Systems · 6 min read</span>
+              <span class="thought-title">Stop Prototyping Slowly: n8n MCP + Claude Code</span>
+              <span class="thought-excerpt">From plain-English prompt to production-shaped workflow in about 20 minutes. Why MCP changes what Claude actually knows about your stack, and where humans still matter.</span>
+              <span class="thought-meta">Automation · 5 min read · First published on TrueHorizon AI</span>
             </span>
             <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
 
-          <a class="thought-item reveal" href="#">
+          <a class="thought-item reveal" href="blog/claude-design-enterprise-guide.html">
             <span class="thought-num">02</span>
             <span class="thought-body">
-              <span class="thought-title">n8n or code? A decision framework</span>
-              <span class="thought-meta">Automation · 5 min read</span>
+              <span class="thought-title">Claude Design for Enterprises: 6 Things to Know Before You Prototype</span>
+              <span class="thought-excerpt">It is not a prettier Canva. Design system extraction, the four-part prompt framework, and an honest map of where it still breaks.</span>
+              <span class="thought-meta">Enterprise AI · 6 min read · First published on TrueHorizon AI</span>
             </span>
             <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
 
-          <a class="thought-item reveal" href="#">
+          <a class="thought-item reveal" href="blog/youtube-research-ai-agents.html">
             <span class="thought-num">03</span>
             <span class="thought-body">
-              <span class="thought-title">Designing AI agents that actually ship</span>
-              <span class="thought-meta">Agents · 8 min read</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="#">
-            <span class="thought-num">04</span>
-            <span class="thought-body">
-              <span class="thought-title">From PDF chaos to clean data: document intelligence</span>
-              <span class="thought-meta">Document AI · 7 min read</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="#">
-            <span class="thought-num">05</span>
-            <span class="thought-body">
-              <span class="thought-title">Scaling output without scaling headcount</span>
-              <span class="thought-meta">Strategy · 4 min read</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="#">
-            <span class="thought-num">06</span>
-            <span class="thought-body">
-              <span class="thought-title">What Fortune 500 teams get wrong about AI</span>
-              <span class="thought-meta">Enterprise · 6 min read</span>
+              <span class="thought-title">The AI Agent That Does YouTube Research While You Sleep</span>
+              <span class="thought-excerpt">Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on validated data instead of guesswork.</span>
+              <span class="thought-meta">AI Agents · 5 min read · First published on TrueHorizon AI</span>
             </span>
             <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
 
         </div>
+      </div>
+    </section>
 
-        <p class="thoughts-soon reveal">More essays in the works. <a href="index.html#contact">Want me to write about something specific?</a></p>
+    <!-- ─── Thoughts (short notes) ─── -->
+    <section class="thoughts-list-section" style="padding-top: 0;">
+      <div class="container">
+        <div class="section-label-row reveal">
+          <span class="section-num">02</span>
+          <span class="section-tag">Thoughts · Short notes</span>
+        </div>
+
+        <div class="thought-list">
+
+          <div class="thought-item thought-item--soon reveal">
+            <span class="thought-num">01</span>
+            <span class="thought-body">
+              <span class="thought-title">Why most AI automations die in production</span>
+              <span class="thought-meta">Systems</span>
+            </span>
+            <span class="soon-chip">Soon</span>
+          </div>
+
+          <div class="thought-item thought-item--soon reveal">
+            <span class="thought-num">02</span>
+            <span class="thought-body">
+              <span class="thought-title">n8n or code? A decision framework</span>
+              <span class="thought-meta">Automation</span>
+            </span>
+            <span class="soon-chip">Soon</span>
+          </div>
+
+          <div class="thought-item thought-item--soon reveal">
+            <span class="thought-num">03</span>
+            <span class="thought-body">
+              <span class="thought-title">Designing AI agents that actually ship</span>
+              <span class="thought-meta">Agents</span>
+            </span>
+            <span class="soon-chip">Soon</span>
+          </div>
+
+          <div class="thought-item thought-item--soon reveal">
+            <span class="thought-num">04</span>
+            <span class="thought-body">
+              <span class="thought-title">From PDF chaos to clean data: document intelligence</span>
+              <span class="thought-meta">Document AI</span>
+            </span>
+            <span class="soon-chip">Soon</span>
+          </div>
+
+          <div class="thought-item thought-item--soon reveal">
+            <span class="thought-num">05</span>
+            <span class="thought-body">
+              <span class="thought-title">Scaling output without scaling headcount</span>
+              <span class="thought-meta">Strategy</span>
+            </span>
+            <span class="soon-chip">Soon</span>
+          </div>
+
+          <div class="thought-item thought-item--soon reveal">
+            <span class="thought-num">06</span>
+            <span class="thought-body">
+              <span class="thought-title">What Fortune 500 teams get wrong about AI</span>
+              <span class="thought-meta">Enterprise</span>
+            </span>
+            <span class="soon-chip">Soon</span>
+          </div>
+
+        </div>
+
+        <p class="thoughts-soon reveal">More writing in the works. <a href="index.html#contact">Want me to write about something specific?</a></p>
       </div>
     </section>
 

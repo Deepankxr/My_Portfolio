@@ -240,12 +240,19 @@ section[id] { scroll-margin-top: 88px; }
 .nav-link:hover::after { transform: scaleX(1); }
 
 .nav-link--cta {
-  color: var(--text);
-  border-bottom: 1px solid var(--text);
-  padding-bottom: 2px;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 .nav-link--cta::after { display: none; }
-.nav-link--cta:hover { color: var(--accent); border-color: var(--accent); }
+.nav-link--cta:hover { color: var(--accent-fg); background: var(--accent); border-color: var(--accent); }
+
+/* Active page indicator: the underline lives on the CURRENT page's link */
+.nav-link--active { color: var(--text); }
+.nav-link--active::after { transform: scaleX(1); background: var(--accent); }
+.mobile-menu__link--active { color: var(--accent); }
 
 .theme-btn {
   display: flex; align-items: center; justify-content: center;
@@ -893,14 +900,32 @@ a.contact-detail__value:hover { color: var(--accent); }
   align-items: center;
 }
 
-/* Side photo container */
+/* Side photo container: framed 3D card, tilt driven by JS as the cursor moves */
 .about-section__side-photo {
   overflow: hidden;
   position: relative;
-  /* Clearer fade - starts later than full-width photos */
-  -webkit-mask-image: linear-gradient(to bottom, black 68%, transparent 97%);
-  mask-image: linear-gradient(to bottom, black 68%, transparent 97%);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: transform 0.9s var(--ease-out), box-shadow 0.45s var(--ease-out), border-color 0.3s;
+  will-change: transform;
 }
+.about-section__side-photo:hover {
+  border-color: rgba(77, 163, 255, 0.35);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5), 0 0 40px var(--glow-soft);
+}
+[data-theme="light"] .about-section__side-photo:hover {
+  box-shadow: 0 24px 55px rgba(15, 25, 60, 0.22), 0 0 40px var(--glow-soft);
+}
+/* cursor-following sheen that sells the 3D surface */
+.about-section__side-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(460px circle at var(--gx, 50%) var(--gy, 40%), rgba(255, 255, 255, 0.14), transparent 62%);
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+.about-section__side-photo:hover::after { opacity: 1; }
 
 .about-section__side-photo img {
   width: 100%;
@@ -1103,6 +1128,101 @@ html.lenis, html.lenis body { height: auto; }
   .thought-item { grid-template-columns: 32px 1fr; }
   .thought-arrow { display: none; }
 }
+
+/* Blog rows (real links) get an excerpt line */
+.thought-excerpt {
+  font-size: 14px; color: var(--muted); font-weight: 300;
+  line-height: 1.7; max-width: 640px;
+}
+
+/* "Coming soon" thought rows: visible but clearly not live yet */
+.thought-item--soon { cursor: default; opacity: 0.55; }
+.thought-item--soon:hover { background: none; padding-left: 8px; padding-right: 8px; }
+.thought-item--soon:hover .thought-title { color: var(--text); }
+.soon-chip {
+  font-family: var(--font-label); font-size: 9px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid var(--line); padding: 4px 10px; border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BLOG ARTICLE PAGES
+═══════════════════════════════════════════════════════ */
+:root { --body-text: #AEB6C6; }
+[data-theme="light"] { --body-text: #39415A; }
+
+.post-main { padding-top: 96px; }
+.post-hero {
+  padding: clamp(36px, 5vw, 70px) 0 clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid var(--line);
+}
+.post-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-label); font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 34px;
+  transition: color 0.2s;
+}
+.post-back:hover { color: var(--accent); }
+.post-meta {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  font-family: var(--font-label); font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 22px;
+}
+.post-meta .post-cat { color: var(--accent); }
+.post-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(32px, 4.6vw, 56px); line-height: 1.08;
+  letter-spacing: -0.015em; max-width: 900px;
+}
+.post-body {
+  max-width: 720px;
+  padding: clamp(40px, 6vw, 70px) 0 clamp(60px, 8vw, 100px);
+}
+.post-body p {
+  font-size: 16.5px; color: var(--body-text);
+  line-height: 1.85; font-weight: 300; margin-bottom: 22px;
+}
+.post-body .post-body__lede {
+  font-size: clamp(18px, 2vw, 21px); color: var(--text);
+  line-height: 1.7; margin-bottom: 30px;
+}
+.post-body h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(23px, 2.8vw, 31px); line-height: 1.25;
+  margin: 44px 0 16px;
+}
+.post-body ul { margin: 0 0 22px 20px; }
+.post-body li {
+  font-size: 16px; color: var(--body-text);
+  line-height: 1.8; font-weight: 300; margin-bottom: 10px;
+}
+.post-body strong { color: var(--text); font-weight: 500; }
+.post-body a { color: var(--accent); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.post-body a:hover { border-bottom-color: var(--accent); }
+
+.post-source {
+  border-left: 2px solid var(--accent);
+  background: var(--bg-2);
+  padding: 20px 24px; margin: 40px 0 8px;
+}
+.post-source__label {
+  font-family: var(--font-label); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); display: block; margin-bottom: 8px;
+}
+.post-source p { font-size: 14px; margin: 0; line-height: 1.75; }
+
+.post-cta {
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  padding-top: 34px; margin-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.post-cta p { margin: 0; font-size: 15px; color: var(--muted); }
+/* .post-body a would tint the button text accent-on-accent; restore button colors */
+.post-body .post-cta .btn--primary { color: var(--accent-fg); border-bottom: 0; }
 
 /* ═══════════════════════════════════════════════════════
    KEYFRAME ANIMATIONS
@@ -1413,7 +1533,16 @@ body::before {
   animation: fadeSlideUp 0.7s var(--ease-out) 0.15s both;
 }
 
-/* Rotating logo sphere - now lives in the right column (where the photo was) */
+/* Logo sphere canvas: fixed full-viewport so the logos can travel with scroll.
+   .hero-globe is the invisible anchor box the sphere + photo are drawn over. */
+.globe-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
 .hero-globe {
   display: block;
   width: clamp(340px, 42vw, 560px);

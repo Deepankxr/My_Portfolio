@@ -110,6 +110,9 @@
       <div class="hero-dots" aria-hidden="true"></div>
       <div class="hero-orb" aria-hidden="true"></div>
 
+      <!-- Fixed full-viewport canvas: sphere anchors to the hero box, logos line up on scroll -->
+      <canvas id="globe" class="globe-canvas" aria-hidden="true"></canvas>
+
       <div class="container">
         <div class="hero-grid">
 
@@ -135,9 +138,9 @@
             </div>
           </div>
 
-          <!-- Right: Rotating logo sphere -->
+          <!-- Right: anchor box that marks where the photo + logo sphere live -->
           <div class="hero-visual">
-            <canvas id="globe" class="hero-globe" aria-hidden="true"></canvas>
+            <div class="hero-globe" id="globe-anchor" aria-hidden="true"></div>
           </div>
 
         </div>

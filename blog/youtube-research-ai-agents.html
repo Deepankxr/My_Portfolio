@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0B10">
+  <title>The AI Agent That Does YouTube Research While You Sleep | Deepankar Bhadrasen</title>
+  <meta name="description" content="How I built an AI agent that finds viral outlier videos, analyzes transcripts and thumbnails, and turns YouTube trend research into a data pipeline instead of guesswork.">
+  <meta name="author" content="Deepankar Bhadrasen">
+  <link rel="canonical" href="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
+
+  <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
+  <meta property="og:title" content="The AI Agent That Does YouTube Research While You Sleep">
+  <meta property="og:description" content="Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on data instead of guesswork.">
+  <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The AI Agent That Does YouTube Research While You Sleep",
+    "description": "A content research pipeline that finds viral outlier videos and analyzes why they work, built with browser automation and vision models.",
+    "author": { "@type": "Person", "name": "Deepankar Bhadrasen", "url": "https://deepankar.xyz/about.html" },
+    "publisher": { "@type": "Person", "name": "Deepankar Bhadrasen" },
+    "mainEntityOfPage": "https://deepankar.xyz/blog/youtube-research-ai-agents.html",
+    "image": "https://deepankar.xyz/assets/og-image.jpg",
+    "isBasedOn": "https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research",
+    "keywords": ["AI agents", "content research", "YouTube automation", "Apify", "workflow automation"]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ─── Navigation ─── -->
+  <header id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Deepankar Bhadrasen</a>
+        <nav class="nav-links">
+          <a href="../about.html" class="nav-link">About</a>
+          <a href="../thoughts.html" class="nav-link nav-link--active">Thoughts</a>
+          <a href="../index.html#contact" class="nav-link nav-link--cta">Work with Me</a>
+          <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+            <span class="theme-icon theme-icon--light">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon--dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </span>
+          </button>
+        </nav>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav>
+      <a href="../about.html" class="mobile-menu__link">About</a>
+      <a href="../thoughts.html" class="mobile-menu__link mobile-menu__link--active">Thoughts</a>
+      <a href="../index.html#contact" class="mobile-menu__link">Work with Me</a>
+    </nav>
+    <button id="theme-toggle-mobile" class="theme-btn theme-btn--mobile">
+      Switch to <span class="theme-mode-label">Light</span> mode
+    </button>
+  </div>
+
+  <main class="post-main">
+
+    <section class="post-hero">
+      <div class="container">
+        <a href="../thoughts.html" class="post-back">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          All thoughts
+        </a>
+        <p class="post-meta"><span class="post-cat">AI Agents</span> <span>·</span> <span>5 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
+        <h1 class="post-title">The AI Agent That Does YouTube Research While You Sleep</h1>
+      </div>
+    </section>
+
+    <div class="container">
+      <article class="post-body">
+
+        <p class="post-body__lede">Every creator, founder, and marketing team I know shares the same quiet problem: hours disappearing into YouTube, scrolling for trends that have usually peaked by the time they reach anyone's home feed. Reacting to your feed is not a strategy. It is a gamble with bad odds.</p>
+
+        <p>So at TrueHorizon I built an AI agent that does the research continuously, around the clock, and reports back with topics that are provably working right now. Here is how it thinks.</p>
+
+        <h2>The viral outlier strategy</h2>
+        <p>The system hunts for one specific signal: videos from small channels experiencing explosive growth. When a channel with 500 subscribers pulls 10,000 views on a single video, that tells you something important. The topic has more leverage than the brand. Nobody clicked because of the channel name. They clicked because of the subject itself.</p>
+        <p>So the agent filters for two hard criteria: more than 10,000 views, and a view count greater than the channel's subscriber count. Content that passes both is worth studying. Everything else is noise.</p>
+
+        <h2>How the pipeline works</h2>
+        <p>The workflow runs on a simple, durable loop. Browser automation through Apify scrapes the newest and trending videos in the target niche, one hundred at a time, restricted to the last 60 days so the data stays fresh. Conditional logic applies the outlier filter. A dedupe check makes sure nothing gets analyzed twice, and every new find is logged to a tracking sheet that grows into a research database over time.</p>
+        <p>Then the real analysis starts, in two layers:</p>
+        <ul>
+          <li><strong>Transcript analysis.</strong> The agent pulls the video captions and runs them through a language model to map the content structure, the key points, and how the messaging is paced.</li>
+          <li><strong>Thumbnail analysis.</strong> Vision models break down the layout and composition, facial expressions and emotion, color palette choices, and the visual elements that actually earn the click.</li>
+        </ul>
+        <p>Together, those two layers answer the question that matters: not just what a video covers, but why viewers chose it. That is the insight that separates creators who compound from creators who guess.</p>
+
+        <h2>What comes out the other end</h2>
+        <p>The agent produces search-friendly title variations built on what already works, and reframed content outlines that leave room for your own perspective. Not copies. Blueprints for adding unique value to topics the market has already validated. You bring the taste. The data brings the confidence.</p>
+
+        <h2>Built like client work, not a weekend hack</h2>
+        <p>Because this system runs on the same standards we apply to enterprise builds at TrueHorizon, it ships with rate limiting and throttling to protect APIs, a modular design that adapts across niches, and outputs that land wherever your team already lives: Google Sheets, Monday, ClickUp, Trello, or Asana. Trigger it from an embedded form and it simply runs. No manual activation, no babysitting.</p>
+
+        <h2>The bigger point</h2>
+        <p>None of this replaces creativity. It refuses to waste your sharpest hours on scrolling. The agent handles the research, the filtering, and the pattern detection while you sleep. You spend the reclaimed energy on the one thing it cannot do: making something only you could make.</p>
+
+        <aside class="post-source">
+          <span class="post-source__label">Originally published</span>
+          <p>I first wrote about this system on the <a href="https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research" target="_blank" rel="noopener">TrueHorizon AI blog</a>. This is my personal, adapted take. More of TrueHorizon's enterprise AI writing is at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
+        </aside>
+
+        <div class="post-cta">
+          <p>Want a research agent working for your team overnight?</p>
+          <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
+        </div>
+
+      </article>
+    </div>
+
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; <span id="year"></span> Deepankar Bhadrasen</p>
+        <a href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Smooth scroll + scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
