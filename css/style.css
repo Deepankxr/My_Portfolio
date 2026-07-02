@@ -1041,13 +1041,30 @@ a.contact-detail__value:hover { color: var(--accent); }
   border-radius: 10px;
   transition: transform 0.9s var(--ease-out), box-shadow 0.45s var(--ease-out), border-color 0.3s;
   will-change: transform;
+  /* always-on azure bloom behind the photo (immersive) */
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.45),
+    0 0 50px var(--glow),
+    0 0 100px var(--glow-soft);
+}
+[data-theme="light"] .about-section__side-photo {
+  box-shadow:
+    0 22px 45px rgba(15, 25, 60, 0.14),
+    0 0 45px var(--glow),
+    0 0 90px var(--glow-soft);
 }
 .about-section__side-photo:hover {
-  border-color: rgba(77, 163, 255, 0.35);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5), 0 0 40px var(--glow-soft);
+  border-color: rgba(77, 163, 255, 0.45);
+  box-shadow:
+    0 30px 78px rgba(0, 0, 0, 0.55),
+    0 0 72px var(--glow),
+    0 0 140px var(--glow-soft);
 }
 [data-theme="light"] .about-section__side-photo:hover {
-  box-shadow: 0 24px 55px rgba(15, 25, 60, 0.22), 0 0 40px var(--glow-soft);
+  box-shadow:
+    0 28px 60px rgba(15, 25, 60, 0.20),
+    0 0 65px var(--glow),
+    0 0 130px var(--glow-soft);
 }
 /* cursor-following sheen that sells the 3D surface */
 .about-section__side-photo::after {
