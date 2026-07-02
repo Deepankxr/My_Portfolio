@@ -16,7 +16,7 @@
   --badge-text: #E8ECF4;
 
   /* Liquid glass (nav) */
-  --glass-bg: rgba(15, 18, 28, 0.55);
+  --glass-bg: rgba(15, 18, 28, 0.36);
   --glass-border: rgba(140, 175, 255, 0.16);
   --glass-shadow: 0 12px 44px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   --nav-card-bg: linear-gradient(160deg, rgba(77, 163, 255, 0.10), rgba(77, 163, 255, 0.02));
@@ -49,7 +49,7 @@
   --badge-text: #0F1320;
 
   /* Liquid glass (nav) */
-  --glass-bg: rgba(255, 255, 255, 0.60);
+  --glass-bg: rgba(255, 255, 255, 0.45);
   --glass-border: rgba(20, 50, 110, 0.12);
   --glass-shadow: 0 12px 40px rgba(20, 40, 90, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.75);
   --nav-card-bg: linear-gradient(160deg, rgba(31, 111, 229, 0.09), rgba(31, 111, 229, 0.02));
@@ -1552,10 +1552,11 @@ body::before {
   61%, 100% { left: 170%; opacity: 0; }
 }
 
-/* Same shimmer on contact heading em */
+/* Same shimmer on contact heading em (accent-coloured to match the theme) */
 .section-heading em {
   position: relative;
   display: inline-block;
+  color: var(--accent);
   text-shadow: 0 0 40px var(--glow);
   overflow: hidden;
 }
@@ -1566,6 +1567,87 @@ body::before {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
   animation: shimmerSweep 6s ease-in-out infinite 3.5s;
   pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   QIXAZOW VENTURE CARD (landing page)
+═══════════════════════════════════════════════════════ */
+#venture { padding: var(--section) 0; border-top: 1px solid var(--line); }
+
+.venture-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(28px, 4.5vw, 56px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  background: var(--nav-card-bg);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.45s var(--ease-out);
+}
+/* soft azure wash in the corner, same family as the hero orb */
+.venture-card::before {
+  content: '';
+  position: absolute;
+  top: -40%; right: -20%;
+  width: 60%; height: 120%;
+  background: radial-gradient(ellipse, var(--glow-soft) 0%, transparent 65%);
+  pointer-events: none;
+}
+.venture-card:hover {
+  border-color: rgba(77, 163, 255, 0.35);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), 0 0 60px var(--glow-soft);
+}
+
+.venture-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.venture-tag {
+  font-family: var(--font-label); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent);
+  padding: 6px 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+}
+
+.venture-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+.venture-title em {
+  font-style: italic;
+  color: var(--accent);
+  text-shadow: 0 0 40px var(--glow);
+}
+
+.venture-desc { color: var(--muted); font-size: 16px; line-height: 1.75; max-width: 480px; }
+
+.venture-cta { display: inline-flex; align-items: center; gap: 9px; margin-top: 32px; }
+
+.venture-card__tiles { display: flex; flex-direction: column; gap: 12px; position: relative; }
+.venture-tile {
+  display: flex; flex-direction: column; gap: 5px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(120, 160, 255, 0.04);
+  transition: border-color 0.25s, transform 0.3s var(--ease-out);
+}
+.venture-tile:hover { border-color: rgba(77, 163, 255, 0.35); transform: translateX(5px); }
+.venture-tile__label {
+  font-family: var(--font-label); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent);
+}
+.venture-tile__text { font-size: 14px; color: var(--text); }
+
+@media (max-width: 860px) {
+  .venture-card { grid-template-columns: 1fr; }
+  .venture-desc { max-width: none; }
 }
 
 /* ═══════════════════════════════════════════════════════
