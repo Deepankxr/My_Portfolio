@@ -72,21 +72,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // ── Mobile menu ──
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (mobileBtn && mobileMenu) {
-    mobileBtn.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      mobileBtn.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
+  // ── Liquid-glass card nav (hamburger expands the cards) ──
+  const navRoot = document.getElementById('nav');
+  const navBurger = document.getElementById('nav-burger');
+  const navCards = document.getElementById('nav-cards');
+  if (navRoot && navBurger && navCards) {
+    const setNavOpen = open => {
+      navRoot.classList.toggle('menu-open', open);
+      navBurger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navBurger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      navCards.setAttribute('aria-hidden', open ? 'false' : 'true');
+    };
+    navBurger.addEventListener('click', e => {
+      e.stopPropagation();
+      setNavOpen(!navRoot.classList.contains('menu-open'));
     });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        mobileBtn.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+    // Close when a card link is chosen
+    navCards.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => setNavOpen(false))
+    );
+    // Close on outside click or Escape
+    document.addEventListener('click', e => {
+      if (navRoot.classList.contains('menu-open') && !navRoot.contains(e.target)) setNavOpen(false);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navRoot.classList.contains('menu-open')) setNavOpen(false);
     });
   }
 
