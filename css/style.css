@@ -1491,6 +1491,19 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ═══════════════════════════════════════════════════════
+   CLICK SPARK (reactbits.dev ClickSpark, vanilla port)
+   Full-viewport overlay canvas; never intercepts input
+═══════════════════════════════════════════════════════ */
+.click-spark-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ═══════════════════════════════════════════════════════
    TECHIFY-INSPIRED: CURSOR SPOTLIGHT
    Follows mouse as a radial gradient via CSS var - zero layout cost
 ═══════════════════════════════════════════════════════ */

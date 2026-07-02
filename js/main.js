@@ -117,6 +117,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // ── Click spark (reactbits.dev ClickSpark, ported to vanilla) ──
+  // 8 accent-coloured lines radiate from every click/tap; the rAF loop only
+  // runs while sparks are alive, and the colour tracks the active theme.
+  if (!reduceMotion) {
+    const sparkCanvas = document.createElement('canvas');
+    sparkCanvas.className = 'click-spark-canvas';
+    sparkCanvas.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(sparkCanvas);
+    const sctx = sparkCanvas.getContext('2d');
+    const sparks = [];
+    const SPARK_COUNT = 8, SPARK_SIZE = 11, SPARK_RADIUS = 20, SPARK_DURATION = 450;
+    let sparkRaf = 0, sparkDpr = 1;
+
+    const sizeSparkCanvas = () => {
+      sparkDpr = Math.min(window.devicePixelRatio || 1, 2);
+      sparkCanvas.width = Math.round(window.innerWidth * sparkDpr);
+      sparkCanvas.height = Math.round(window.innerHeight * sparkDpr);
+    };
+    sizeSparkCanvas();
+    window.addEventListener('resize', sizeSparkCanvas);
+
+    const sparkEase = t => t * (2 - t);   // ease-out, same as the source
+
+    const drawSparks = now => {
+      sctx.setTransform(sparkDpr, 0, 0, sparkDpr, 0, 0);
+      sctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#4DA3FF';
+      sctx.strokeStyle = accent;
+      sctx.lineWidth = 2;
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const s = sparks[i];
+        const t = (now - s.t0) / SPARK_DURATION;
+        if (t >= 1) { sparks.splice(i, 1); continue; }
+        const eased = sparkEase(t);
+        const dist = eased * SPARK_RADIUS;
+        const len = SPARK_SIZE * (1 - eased);
+        sctx.beginPath();
+        sctx.moveTo(s.x + dist * Math.cos(s.a), s.y + dist * Math.sin(s.a));
+        sctx.lineTo(s.x + (dist + len) * Math.cos(s.a), s.y + (dist + len) * Math.sin(s.a));
+        sctx.stroke();
+      }
+      sparkRaf = sparks.length ? requestAnimationFrame(drawSparks) : 0;
+    };
+
+    document.addEventListener('click', e => {
+      const now = performance.now();
+      for (let i = 0; i < SPARK_COUNT; i++) {
+        sparks.push({ x: e.clientX, y: e.clientY, a: (2 * Math.PI * i) / SPARK_COUNT, t0: now });
+      }
+      if (!sparkRaf) sparkRaf = requestAnimationFrame(drawSparks);
+    }, { passive: true });
+  }
+
   // ── Mouse parallax on hero image (landing page) ──
   const heroSection = document.getElementById('hero');
   const heroVisual = document.getElementById('hero-visual');
