@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="../css/style.css">
@@ -352,6 +352,26 @@
                   <label for="about-email">Email</label>
                   <input type="email" id="about-email" name="email" placeholder="your@email.com" required>
                 </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="about-role">Job role</label>
+                  <input type="text" id="about-role" name="role" placeholder="Head of Operations">
+                </div>
+                <div class="form-group">
+                  <label for="about-company">Company</label>
+                  <input type="text" id="about-company" name="company" placeholder="Company name">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="budget-head">
+                  <label for="about-budget">Project budget</label>
+                  <span class="budget-val" id="about-budget-val">$12,000</span>
+                </div>
+                <input type="range" class="budget-slider" id="about-budget" name="budget"
+                       min="4000" max="50000" step="1000" value="12000"
+                       aria-label="Project budget in US dollars">
+                <div class="budget-ticks"><span>$4,000</span><span>$50,000+</span></div>
               </div>
               <div class="form-group">
                 <label for="about-message">Message</label>

@@ -551,6 +551,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+
+  // ── Project budget slider (live value + filled track) ──
+  function formatBudget(v) {
+    v = Number(v);
+    return v >= 50000 ? '$50,000+' : '$' + v.toLocaleString('en-US');
+  }
+  document.querySelectorAll('.budget-slider').forEach(slider => {
+    const out = document.getElementById(slider.id + '-val');
+    const paint = () => {
+      if (out) out.textContent = formatBudget(slider.value);
+      const pct = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+      slider.style.background =
+        'linear-gradient(90deg, var(--accent) ' + pct + '%, var(--line) ' + pct + '%)';
+    };
+    slider.addEventListener('input', paint);
+    paint();
+  });
+
   // ── Webhook form submission ──
   async function submitToWebhook(data, source) {
     if (typeof WEBHOOK_URL === 'undefined' || !WEBHOOK_URL) return null;
@@ -578,9 +596,14 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true;
       if (statusEl) { statusEl.textContent = ''; statusEl.className = 'form-status'; }
 
+      const budgetEl = formEl.querySelector('[name="budget"]');
       const data = {
         name: formEl.querySelector('[name="name"]')?.value || '',
         email: formEl.querySelector('[name="email"]')?.value || '',
+        role: formEl.querySelector('[name="role"]')?.value || '',
+        company: formEl.querySelector('[name="company"]')?.value || '',
+        budget: budgetEl ? formatBudget(budgetEl.value) : '',
+        budget_value: budgetEl ? Number(budgetEl.value) : null,
         message: formEl.querySelector('[name="message"]')?.value || '',
       };
 
