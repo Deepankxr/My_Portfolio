@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0A0B10">
-  <title>The AI Agent That Does YouTube Research While You Sleep | Deepankar Bhadrasen</title>
-  <meta name="description" content="How I built an AI agent that finds viral outlier videos, analyzes transcripts and thumbnails, and turns YouTube trend research into a data pipeline instead of guesswork.">
+  <title>AI Makes You Faster. Does It Make You Worse? | Deepankar Bhadrasen</title>
+  <meta name="description" content="We are shipping more than ever with AI in the loop. Speed has a shadow cost though, because the struggle you skip is where the skill used to get built. On using AI for leverage without outsourcing your judgment.">
   <meta name="author" content="Deepankar Bhadrasen">
-  <link rel="canonical" href="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
+  <link rel="canonical" href="https://deepankar.xyz/blog/ai-speed-vs-skill.html">
 
   <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
   <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
-  <meta property="og:title" content="The AI Agent That Does YouTube Research While You Sleep">
-  <meta property="og:description" content="Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on data instead of guesswork.">
+  <meta property="og:url" content="https://deepankar.xyz/blog/ai-speed-vs-skill.html">
+  <meta property="og:title" content="AI Makes You Faster. Does It Make You Worse?">
+  <meta property="og:description" content="Speed is measurable. Mastery isn't. On using AI for leverage without letting it become your brain.">
   <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
@@ -35,15 +35,29 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "The AI Agent That Does YouTube Research While You Sleep",
-    "description": "A content research pipeline that finds viral outlier videos and analyzes why they work, built with browser automation and vision models.",
-    "author": { "@type": "Person", "name": "Deepankar Bhadrasen", "url": "https://deepankar.xyz/about/" },
-    "publisher": { "@type": "Person", "name": "Deepankar Bhadrasen" },
-    "mainEntityOfPage": "https://deepankar.xyz/blog/youtube-research-ai-agents.html",
+    "headline": "AI Makes You Faster. Does It Make You Worse?",
+    "description": "Speed is measurable. Mastery isn't. On using AI for leverage without letting it become your brain.",
+    "datePublished": "2026-04-16",
+    "author": {
+        "@type": "Person",
+        "name": "Deepankar Bhadrasen",
+        "url": "https://deepankar.xyz/about/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Deepankar Bhadrasen"
+    },
+    "mainEntityOfPage": "https://deepankar.xyz/blog/ai-speed-vs-skill.html",
     "image": "https://deepankar.xyz/assets/og-image.jpg",
-    "isBasedOn": "https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research",
-    "keywords": ["AI agents", "content research", "YouTube automation", "Apify", "workflow automation"]
-  }
+    "isBasedOn": "https://truehorizon.ai/news/ai-efficiency-skill-tradeoff",
+    "keywords": [
+        "AI productivity",
+        "skill development",
+        "AI tools",
+        "craft",
+        "expertise"
+    ]
+}
   </script>
 </head>
 
@@ -128,47 +142,44 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           All thoughts
         </a>
-        <p class="post-meta"><span class="post-cat">AI Agents</span> <span>·</span> <span>5 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
-        <h1 class="post-title">The AI Agent That Does YouTube Research While You Sleep</h1>
+        <p class="post-meta"><span class="post-cat">Perspective</span> <span>·</span> <span>3 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
+        <h1 class="post-title">AI Makes You Faster. Does It Make You Worse?</h1>
       </div>
     </section>
 
     <div class="container">
       <article class="post-body">
 
-        <p class="post-body__lede">Every creator, founder, and marketing team I know shares the same quiet problem: hours disappearing into YouTube, scrolling for trends that have usually peaked by the time they reach anyone's home feed. Reacting to your feed is not a strategy. It is a gamble with bad odds.</p>
+        <p class="post-body__lede">Every AI tool makes the same promise: more output, less effort. The uncomfortable part is that it delivers, and we are only starting to see what it costs.</p>
 
-        <p>So at TrueHorizon I built an AI agent that does the research continuously, around the clock, and reports back with topics that are provably working right now. Here is how it thinks.</p>
+        <h2>The productivity paradox</h2>
+        <p>The leverage is real. Draft a post in minutes. Debug without opening a single forum thread. Produce a design without touching the tool you would normally design in. The output is measurable and it arrives immediately.</p>
+        <p>Here is the distinction we keep skipping past: doing more work is not the same as getting better at your work. When AI drafts every email, writes every function, and shapes every deck, you are handing over exactly the cognitive work that used to build your expertise.</p>
+        <p>Think about how many junior developers now skip the frustration of debugging because the completion arrives before the confusion does. Or how many writers lose their voice because the model smooths every rough edge into the same texture. The struggle is where skill gets forged. Skip the struggle and you skip the growth that came with it.</p>
 
-        <h2>The viral outlier strategy</h2>
-        <p>The system hunts for one specific signal: videos from small channels experiencing explosive growth. When a channel with 500 subscribers pulls 10,000 views on a single video, that tells you something important. The topic has more leverage than the brand. Nobody clicked because of the channel name. They clicked because of the subject itself.</p>
-        <p>So the agent filters for two hard criteria: more than 10,000 views, and a view count greater than the channel's subscriber count. Content that passes both is worth studying. Everything else is noise.</p>
+        <h2>We have run this experiment before</h2>
+        <p>Turn-by-turn navigation made us faster travellers and worse at reading maps. Calculators made arithmetic effortless without making anyone better at understanding numbers. Spell check improved accuracy and quietly weakened our grip on the mechanics of language.</p>
+        <p>AI is on the same path at a much larger scale, because it is not just automating tasks, it is automating thinking. Skills you stop exercising atrophy, and they do it faster than most people expect.</p>
+        <p>So my honest prediction is that the people who thrive here will not be the ones using AI the most. They will be the ones who know when not to reach for it. Who still write the ugly first draft themselves. Who debug by hand occasionally just to keep understanding the system.</p>
 
-        <h2>How the pipeline works</h2>
-        <p>The workflow runs on a simple, durable loop. Browser automation through Apify scrapes the newest and trending videos in the target niche, one hundred at a time, restricted to the last 60 days so the data stays fresh. Conditional logic applies the outlier filter. A dedupe check makes sure nothing gets analyzed twice, and every new find is logged to a tracking sheet that grows into a research database over time.</p>
-        <p>Then the real analysis starts, in two layers:</p>
-        <ul>
-          <li><strong>Transcript analysis.</strong> The agent pulls the video captions and runs them through a language model to map the content structure, the key points, and how the messaging is paced.</li>
-          <li><strong>Thumbnail analysis.</strong> Vision models break down the layout and composition, facial expressions and emotion, color palette choices, and the visual elements that actually earn the click.</li>
-        </ul>
-        <p>Together, those two layers answer the question that matters: not just what a video covers, but why viewers chose it. That is the insight that separates creators who compound from creators who guess.</p>
+        <h2>Leverage, not identity</h2>
+        <p>There is a line between using a tool and letting it become your thinking. Cross it and you are not amplifying your ability, you are renting someone else's.</p>
+        <p>My rule is simple. Use AI for leverage, never for identity. Let it take the repetitive, the mundane, the parts that were never where your value lived. Guard the core: the strategic calls, the creative instinct, the judgment that only shows up after years of doing the work.</p>
+        <p>The best architects still sketch before they open the software. The best cooks still taste and adjust instead of following the recipe to the gram. They use tools to extend expertise they already own.</p>
 
-        <h2>What comes out the other end</h2>
-        <p>The agent produces search-friendly title variations built on what already works, and reframed content outlines that leave room for your own perspective. Not copies. Blueprints for adding unique value to topics the market has already validated. You bring the taste. The data brings the confidence.</p>
+        <h2>The deliberate win</h2>
+        <p>The future of this work is not going to be decided by who adopted AI first or who uses it most aggressively. It will come down to who kept a serious commitment to their craft while deploying automation on purpose rather than by reflex.</p>
+        <p>The question I keep asking myself: am I using this to do more of what I am already good at, or to avoid becoming good in the first place? That answer compounds over a decade.</p>
+        <p>Speed is intoxicating and output is easy to count. Mastery still takes friction and time. AI can accelerate almost everything except wisdom. So use it, lean on it, let it make you faster. Just do not let it make you worse.</p>
 
-        <h2>Built like client work, not a weekend hack</h2>
-        <p>Because this system runs on the same standards we apply to enterprise builds at TrueHorizon, it ships with rate limiting and throttling to protect APIs, a modular design that adapts across niches, and outputs that land wherever your team already lives: Google Sheets, Monday, ClickUp, Trello, or Asana. Trigger it from an embedded form and it simply runs. No manual activation, no babysitting.</p>
-
-        <h2>The bigger point</h2>
-        <p>None of this replaces creativity. It refuses to waste your sharpest hours on scrolling. The agent handles the research, the filtering, and the pattern detection while you sleep. You spend the reclaimed energy on the one thing it cannot do: making something only you could make.</p>
 
         <aside class="post-source">
           <span class="post-source__label">Originally published</span>
-          <p>I first wrote about this system on the <a href="https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research" target="_blank" rel="noopener">TrueHorizon AI blog</a>. This is my personal, adapted take. More of TrueHorizon's enterprise AI writing is at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
+          <p>I first wrote about this on the <a href="https://truehorizon.ai/news/ai-efficiency-skill-tradeoff" target="_blank" rel="noopener">TrueHorizon AI blog</a>, where I write about enterprise AI automation. This is my personal, adapted take. You can browse all of TrueHorizon's articles at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
         </aside>
 
         <div class="post-cta">
-          <p>Want a research agent working for your team overnight?</p>
+          <p>Want AI in your workflow without losing the judgment that makes it work?</p>
           <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
         </div>
 
