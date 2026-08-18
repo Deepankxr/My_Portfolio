@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0A0B10">
-  <title>The AI Agent That Does YouTube Research While You Sleep | Deepankar Bhadrasen</title>
-  <meta name="description" content="How I built an AI agent that finds viral outlier videos, analyzes transcripts and thumbnails, and turns YouTube trend research into a data pipeline instead of guesswork.">
+  <title>No, n8n Isn't Dead. It Turned Into Infrastructure. | Deepankar Bhadrasen</title>
+  <meta name="description" content="The n8n hype went quiet and people read that as decline. It is the opposite: the tourists left and the builders stayed. Why the visual layer, self-hosting, and a growing automation market still make it the tool I reach for.">
   <meta name="author" content="Deepankar Bhadrasen">
-  <link rel="canonical" href="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
+  <link rel="canonical" href="https://deepankar.xyz/blog/is-n8n-dead.html">
 
   <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
   <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
-  <meta property="og:title" content="The AI Agent That Does YouTube Research While You Sleep">
-  <meta property="og:description" content="Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on data instead of guesswork.">
+  <meta property="og:url" content="https://deepankar.xyz/blog/is-n8n-dead.html">
+  <meta property="og:title" content="No, n8n Isn't Dead. It Turned Into Infrastructure.">
+  <meta property="og:description" content="The hype moved on. The tool didn't. Why n8n going quiet is a sign of maturity, not decline.">
   <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
@@ -35,15 +35,29 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "The AI Agent That Does YouTube Research While You Sleep",
-    "description": "A content research pipeline that finds viral outlier videos and analyzes why they work, built with browser automation and vision models.",
-    "author": { "@type": "Person", "name": "Deepankar Bhadrasen", "url": "https://deepankar.xyz/about/" },
-    "publisher": { "@type": "Person", "name": "Deepankar Bhadrasen" },
-    "mainEntityOfPage": "https://deepankar.xyz/blog/youtube-research-ai-agents.html",
+    "headline": "No, n8n Isn't Dead. It Turned Into Infrastructure.",
+    "description": "The hype moved on. The tool didn't. Why n8n going quiet is a sign of maturity, not decline.",
+    "datePublished": "2026-04-01",
+    "author": {
+        "@type": "Person",
+        "name": "Deepankar Bhadrasen",
+        "url": "https://deepankar.xyz/about/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Deepankar Bhadrasen"
+    },
+    "mainEntityOfPage": "https://deepankar.xyz/blog/is-n8n-dead.html",
     "image": "https://deepankar.xyz/assets/og-image.jpg",
-    "isBasedOn": "https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research",
-    "keywords": ["AI agents", "content research", "YouTube automation", "Apify", "workflow automation"]
-  }
+    "isBasedOn": "https://truehorizon.ai/news/is-n8n-dead",
+    "keywords": [
+        "n8n",
+        "workflow automation",
+        "self-hosted",
+        "AI automation",
+        "open source"
+    ]
+}
   </script>
 </head>
 
@@ -128,47 +142,48 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           All thoughts
         </a>
-        <p class="post-meta"><span class="post-cat">AI Agents</span> <span>·</span> <span>5 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
-        <h1 class="post-title">The AI Agent That Does YouTube Research While You Sleep</h1>
+        <p class="post-meta"><span class="post-cat">Automation</span> <span>·</span> <span>4 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
+        <h1 class="post-title">No, n8n Isn't Dead. It Turned Into Infrastructure.</h1>
       </div>
     </section>
 
     <div class="container">
       <article class="post-body">
 
-        <p class="post-body__lede">Every creator, founder, and marketing team I know shares the same quiet problem: hours disappearing into YouTube, scrolling for trends that have usually peaked by the time they reach anyone's home feed. Reacting to your feed is not a strategy. It is a gamble with bad odds.</p>
+        <p class="post-body__lede">Let me deal with the obvious question first. n8n is not dead. It is not dying. If anything it is in the healthiest phase a tool can reach.</p>
 
-        <p>So at TrueHorizon I built an AI agent that does the research continuously, around the clock, and reports back with topics that are provably working right now. Here is how it thinks.</p>
+        <h2>Quiet is not the same as dead</h2>
+        <p>If you only judged n8n by your feed, you would think everyone left. The workflow screenshots that used to fill LinkedIn have been replaced by Claude artifacts and editor demos. The posts slowed down. It genuinely looks like the party moved somewhere else.</p>
+        <p>That reading confuses attention with adoption. Every technology runs the same arc: loud launch, rush of adopters, plateau, and then a long quiet stretch where the people who actually ship things keep using it. n8n is in that last stretch now.</p>
+        <p>Ask yourself when you last saw an excited thread about Postgres. Or Docker. They are not dead, they are infrastructure, and infrastructure is boring in the best possible way. n8n is making that same transition, and I would call it a promotion.</p>
 
-        <h2>The viral outlier strategy</h2>
-        <p>The system hunts for one specific signal: videos from small channels experiencing explosive growth. When a channel with 500 subscribers pulls 10,000 views on a single video, that tells you something important. The topic has more leverage than the brand. Nobody clicked because of the channel name. They clicked because of the subject itself.</p>
-        <p>So the agent filters for two hard criteria: more than 10,000 views, and a view count greater than the channel's subscriber count. Content that passes both is worth studying. Everything else is noise.</p>
+        <h2>What AI coding tools actually changed</h2>
+        <p>I will be fair to the other side. When you can describe a script in plain English and get working code back in seconds, the case for dragging nodes around gets weaker. For people who live in a terminal, that is a real argument.</p>
+        <p>But not every problem is a coding problem, and plenty of solutions get worse when you turn them into code. Code is powerful and it is also fragile, invisible to everyone who does not read it, and expensive to keep alive. AI can write the first draft faster than ever. Someone still has to debug it, version it, monitor it, and explain it to a stakeholder who has never opened a repository.</p>
 
-        <h2>How the pipeline works</h2>
-        <p>The workflow runs on a simple, durable loop. Browser automation through Apify scrapes the newest and trending videos in the target niche, one hundred at a time, restricted to the last 60 days so the data stays fresh. Conditional logic applies the outlier filter. A dedupe check makes sure nothing gets analyzed twice, and every new find is logged to a tracking sheet that grows into a research database over time.</p>
-        <p>Then the real analysis starts, in two layers:</p>
-        <ul>
-          <li><strong>Transcript analysis.</strong> The agent pulls the video captions and runs them through a language model to map the content structure, the key points, and how the messaging is paced.</li>
-          <li><strong>Thumbnail analysis.</strong> Vision models break down the layout and composition, facial expressions and emotion, color palette choices, and the visual elements that actually earn the click.</li>
-        </ul>
-        <p>Together, those two layers answer the question that matters: not just what a video covers, but why viewers chose it. That is the insight that separates creators who compound from creators who guess.</p>
+        <h2>The visual layer is the feature</h2>
+        <p>This is where n8n keeps earning its place. The canvas is not a beginner's crutch, it is the thing that makes logic legible. You open a workflow and the whole system is right there. Data moves left to right, branches are obvious, error paths are visible.</p>
+        <p>You are not tracing variables across four files to understand what happens when a webhook fires. You just look at it. That matters when you onboard someone new, it matters at two in the morning when something breaks, and it matters when a non-technical stakeholder asks how it works and you can actually show them instead of describing it.</p>
+        <p>Good visual tools lower the floor and raise the ceiling at the same time. Ops people automate real work without waiting on engineering, and engineers move faster because the boilerplate is handled by an interface that does it cleanly.</p>
 
-        <h2>What comes out the other end</h2>
-        <p>The agent produces search-friendly title variations built on what already works, and reframed content outlines that leave room for your own perspective. Not copies. Blueprints for adding unique value to topics the market has already validated. You bring the taste. The data brings the confidence.</p>
+        <h2>Self-hosting is the part enterprises care about</h2>
+        <p>n8n is open source and you can host it yourself. You are not renting space on someone else's infrastructure and hoping your vendor does not get acquired or quietly change its pricing.</p>
+        <p>For regulated work, that is not a preference, it is the requirement. You can run n8n inside your own VPC, on-prem, or fully air-gapped. Most hosted competitors cannot offer that at any price.</p>
+        <p>Being open source also means you can extend it. Custom nodes, modified triggers, integrations nobody else needs. You are not stuck waiting for a feature to climb someone else's roadmap.</p>
 
-        <h2>Built like client work, not a weekend hack</h2>
-        <p>Because this system runs on the same standards we apply to enterprise builds at TrueHorizon, it ships with rate limiting and throttling to protect APIs, a modular design that adapts across niches, and outputs that land wherever your team already lives: Google Sheets, Monday, ClickUp, Trello, or Asana. Trigger it from an embedded form and it simply runs. No manual activation, no babysitting.</p>
+        <h2>The market is growing, not shrinking</h2>
+        <p>Zoom out and the demand for automation is clearly expanding. Every company I talk to is trying to do more without adding headcount. Sync the systems, automate the onboarding, process the documents, trigger the follow-ups.</p>
+        <p>AI coding tools did not remove the need for an orchestration layer. They raised the baseline. Teams now expect both intelligent generation and a place to see and control how everything connects. n8n sits exactly on that intersection: technical enough for engineers who want control, approachable enough for the ops team that needs speed.</p>
+        <p>So the hype moved on and the tool did not. Thousands of workflows are running right now in places nobody posts about. That might be the strongest signal there is.</p>
 
-        <h2>The bigger point</h2>
-        <p>None of this replaces creativity. It refuses to waste your sharpest hours on scrolling. The agent handles the research, the filtering, and the pattern detection while you sleep. You spend the reclaimed energy on the one thing it cannot do: making something only you could make.</p>
 
         <aside class="post-source">
           <span class="post-source__label">Originally published</span>
-          <p>I first wrote about this system on the <a href="https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research" target="_blank" rel="noopener">TrueHorizon AI blog</a>. This is my personal, adapted take. More of TrueHorizon's enterprise AI writing is at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
+          <p>I first wrote about this on the <a href="https://truehorizon.ai/news/is-n8n-dead" target="_blank" rel="noopener">TrueHorizon AI blog</a>, where I write about enterprise AI automation. This is my personal, adapted take. You can browse all of TrueHorizon's articles at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
         </aside>
 
         <div class="post-cta">
-          <p>Want a research agent working for your team overnight?</p>
+          <p>Want automation that runs quietly in production instead of living in a demo?</p>
           <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
         </div>
 

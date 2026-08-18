@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0A0B10">
-  <title>The AI Agent That Does YouTube Research While You Sleep | Deepankar Bhadrasen</title>
-  <meta name="description" content="How I built an AI agent that finds viral outlier videos, analyzes transcripts and thumbnails, and turns YouTube trend research into a data pipeline instead of guesswork.">
+  <title>Project Glasswing: Why AI Regulation Can't Wait Any Longer | Deepankar Bhadrasen</title>
+  <meta name="description" content="AI is already deciding credit approvals, diagnoses, and hiring outcomes while the rules meant to govern it move at a completely different speed. What Project Glasswing gets right about tiered, adaptive governance.">
   <meta name="author" content="Deepankar Bhadrasen">
-  <link rel="canonical" href="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
+  <link rel="canonical" href="https://deepankar.xyz/blog/project-glasswing-ai-regulation.html">
 
   <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
   <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
-  <meta property="og:title" content="The AI Agent That Does YouTube Research While You Sleep">
-  <meta property="og:description" content="Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on data instead of guesswork.">
+  <meta property="og:url" content="https://deepankar.xyz/blog/project-glasswing-ai-regulation.html">
+  <meta property="og:title" content="Project Glasswing: Why AI Regulation Can't Wait Any Longer">
+  <meta property="og:description" content="What happens when the technology reshaping civilization moves faster than the rules meant to govern it?">
   <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
@@ -35,15 +35,29 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "The AI Agent That Does YouTube Research While You Sleep",
-    "description": "A content research pipeline that finds viral outlier videos and analyzes why they work, built with browser automation and vision models.",
-    "author": { "@type": "Person", "name": "Deepankar Bhadrasen", "url": "https://deepankar.xyz/about/" },
-    "publisher": { "@type": "Person", "name": "Deepankar Bhadrasen" },
-    "mainEntityOfPage": "https://deepankar.xyz/blog/youtube-research-ai-agents.html",
+    "headline": "Project Glasswing: Why AI Regulation Can't Wait Any Longer",
+    "description": "What happens when the technology reshaping civilization moves faster than the rules meant to govern it?",
+    "datePublished": "2026-04-08",
+    "author": {
+        "@type": "Person",
+        "name": "Deepankar Bhadrasen",
+        "url": "https://deepankar.xyz/about/"
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Deepankar Bhadrasen"
+    },
+    "mainEntityOfPage": "https://deepankar.xyz/blog/project-glasswing-ai-regulation.html",
     "image": "https://deepankar.xyz/assets/og-image.jpg",
-    "isBasedOn": "https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research",
-    "keywords": ["AI agents", "content research", "YouTube automation", "Apify", "workflow automation"]
-  }
+    "isBasedOn": "https://truehorizon.ai/news/project-glasswing-ai-regulation",
+    "keywords": [
+        "AI regulation",
+        "AI governance",
+        "Project Glasswing",
+        "compliance",
+        "AI policy"
+    ]
+}
   </script>
 </head>
 
@@ -128,47 +142,53 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           All thoughts
         </a>
-        <p class="post-meta"><span class="post-cat">AI Agents</span> <span>·</span> <span>5 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
-        <h1 class="post-title">The AI Agent That Does YouTube Research While You Sleep</h1>
+        <p class="post-meta"><span class="post-cat">AI Governance</span> <span>·</span> <span>5 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
+        <h1 class="post-title">Project Glasswing: Why AI Regulation Can't Wait Any Longer</h1>
       </div>
     </section>
 
     <div class="container">
       <article class="post-body">
 
-        <p class="post-body__lede">Every creator, founder, and marketing team I know shares the same quiet problem: hours disappearing into YouTube, scrolling for trends that have usually peaked by the time they reach anyone's home feed. Reacting to your feed is not a strategy. It is a gamble with bad odds.</p>
+        <p class="post-body__lede">We are living through a shift that feels exhilarating and unsettling at the same time. AI moved out of research environments and into boardrooms, hospitals, courts, and homes. It is making calls on credit, diagnoses, and who gets hired.</p>
 
-        <p>So at TrueHorizon I built an AI agent that does the research continuously, around the clock, and reports back with topics that are provably working right now. Here is how it thinks.</p>
+        <h2>What Glasswing actually represents</h2>
+        <p>This is not another regulatory checkbox. It is an attempt to rethink what AI governance means when development cycles run in months rather than decades.</p>
+        <p>Traditional frameworks were designed for industries that change slowly. That assumption no longer holds. What happens when the technology reshaping the economy moves faster than the rules written to govern it? In this industry that is not a thought experiment, it is an ordinary week.</p>
+        <p>The name is deliberate. Glasswing butterflies carry transparent wings, and transparency is the organising idea: you should be able to see through the system that is making a decision about you.</p>
 
-        <h2>The viral outlier strategy</h2>
-        <p>The system hunts for one specific signal: videos from small channels experiencing explosive growth. When a channel with 500 subscribers pulls 10,000 views on a single video, that tells you something important. The topic has more leverage than the brand. Nobody clicked because of the channel name. They clicked because of the subject itself.</p>
-        <p>So the agent filters for two hard criteria: more than 10,000 views, and a view count greater than the channel's subscriber count. Content that passes both is worth studying. Everything else is noise.</p>
+        <h2>The urgency is not theoretical</h2>
+        <p>Look at the adoption curve. Consumer AI reached a hundred million users faster than any application in history, and businesses have been wiring these models into critical workflows well ahead of understanding the long-term consequences.</p>
+        <p>The safety case got sharper as frontier models started finding serious vulnerabilities across widely used operating systems and browsers. Capability that can locate flaws at that scale is dual use by definition, and it arrived before the governance did.</p>
 
-        <h2>How the pipeline works</h2>
-        <p>The workflow runs on a simple, durable loop. Browser automation through Apify scrapes the newest and trending videos in the target niche, one hundred at a time, restricted to the last 60 days so the data stays fresh. Conditional logic applies the outlier filter. A dedupe check makes sure nothing gets analyzed twice, and every new find is logged to a tracking sheet that grows into a research database over time.</p>
-        <p>Then the real analysis starts, in two layers:</p>
-        <ul>
-          <li><strong>Transcript analysis.</strong> The agent pulls the video captions and runs them through a language model to map the content structure, the key points, and how the messaging is paced.</li>
-          <li><strong>Thumbnail analysis.</strong> Vision models break down the layout and composition, facial expressions and emotion, color palette choices, and the visual elements that actually earn the click.</li>
-        </ul>
-        <p>Together, those two layers answer the question that matters: not just what a video covers, but why viewers chose it. That is the insight that separates creators who compound from creators who guess.</p>
+        <h2>Guardrails without killing the thing you are protecting</h2>
+        <p>The objection to early regulation is fair. Heavy rules applied too soon can smother genuinely useful work, and this industry was not built on bureaucratic oversight.</p>
+        <p>The counterargument holds up just as well. Unchecked development creates systemic risk, and systemic risk eventually produces a public backlash far blunter and more damaging than sensible rules would have been.</p>
+        <p>Tiered regulation based on actual risk is the reasonable middle. Low-stakes applications carry minimal oversight. Systems making consequential decisions in healthcare, finance, or law enforcement get rigorous testing and ongoing monitoring. Match the scrutiny to the stakes instead of applying one rule to everything.</p>
 
-        <h2>What comes out the other end</h2>
-        <p>The agent produces search-friendly title variations built on what already works, and reframed content outlines that leave room for your own perspective. Not copies. Blueprints for adding unique value to topics the market has already validated. You bring the taste. The data brings the confidence.</p>
+        <h2>Borders do not contain models</h2>
+        <p>A model trained in one country influences elections, moves money, and moderates speech in dozens of others. Fragmented national rules produce a compliance maze that helps nobody and protects nobody.</p>
+        <p>What is needed is interoperability: standards that hold across jurisdictions, and mechanisms for sharing safety research without forcing companies to surrender competitive position. Aviation safety worked out something similar and the industry did not collapse under it.</p>
 
-        <h2>Built like client work, not a weekend hack</h2>
-        <p>Because this system runs on the same standards we apply to enterprise builds at TrueHorizon, it ships with rate limiting and throttling to protect APIs, a modular design that adapts across niches, and outputs that land wherever your team already lives: Google Sheets, Monday, ClickUp, Trello, or Asana. Trigger it from an embedded form and it simply runs. No manual activation, no babysitting.</p>
+        <h2>What good regulation contains</h2>
+        <p>Transparency requirements, so people are told when an algorithm rather than a person is making a consequential decision about them.</p>
+        <p>Independent audit mechanisms that check more than accuracy. Fairness, robustness, and whether the system actually does what its builders claim it does.</p>
+        <p>Clear liability, so responsibility when something goes wrong is settled in advance instead of litigated for years afterwards.</p>
+        <p>And adaptive structures, because static rules go stale fast here. Regulatory sandboxes, continuous stakeholder input, and a real path for updating policy without waiting for the next legislative cycle.</p>
 
-        <h2>The bigger point</h2>
-        <p>None of this replaces creativity. It refuses to waste your sharpest hours on scrolling. The agent handles the research, the filtering, and the pattern detection while you sleep. You spend the reclaimed energy on the one thing it cannot do: making something only you could make.</p>
+        <h2>The window is still open</h2>
+        <p>The decisions taken now will shape how this technology develops for decades. Get it wrong in one direction and you slow down something genuinely valuable. Get it wrong in the other and you normalise harms that become very hard to unwind.</p>
+        <p>The encouraging part is that we are not past the point of choosing. AI has not yet delivered the full transformation its advocates promise or the catastrophes its critics fear. That gap is the opportunity, and it will not stay open indefinitely.</p>
+        <p>What I find worth defending in this approach is that it refuses both easy positions. It takes the upside seriously and still insists on guardrails. That is roughly the posture I want from anyone building systems that make decisions about people.</p>
+
 
         <aside class="post-source">
           <span class="post-source__label">Originally published</span>
-          <p>I first wrote about this system on the <a href="https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research" target="_blank" rel="noopener">TrueHorizon AI blog</a>. This is my personal, adapted take. More of TrueHorizon's enterprise AI writing is at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
+          <p>I first wrote about this on the <a href="https://truehorizon.ai/news/project-glasswing-ai-regulation" target="_blank" rel="noopener">TrueHorizon AI blog</a>, where I write about enterprise AI automation. This is my personal, adapted take. You can browse all of TrueHorizon's articles at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
         </aside>
 
         <div class="post-cta">
-          <p>Want a research agent working for your team overnight?</p>
+          <p>Need AI systems that will survive a compliance review?</p>
           <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
         </div>
 

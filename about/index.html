@@ -89,11 +89,11 @@
               </div>
             </div>
             <div class="nav-card">
-              <span class="nav-card__label">Writing</span>
+              <span class="nav-card__label">Latest Writing</span>
               <div class="nav-card__links">
-                <a class="nav-card__link" href="../blog/n8n-mcp-claude-code.html">n8n and Claude Code</a>
                 <a class="nav-card__link" href="../blog/claude-design-enterprise-guide.html">Designing with Claude</a>
                 <a class="nav-card__link" href="../blog/youtube-research-ai-agents.html">YouTube Research Agents</a>
+                <a class="nav-card__link" href="../thoughts.html">All posts</a>
               </div>
             </div>
             <div class="nav-card">
@@ -351,6 +351,36 @@
                 <div class="form-group">
                   <label for="about-email">Email</label>
                   <input type="email" id="about-email" name="email" placeholder="your@email.com" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="about-role">Your role</label>
+                  <input type="text" id="about-role" name="role" placeholder="Head of Operations">
+                </div>
+                <div class="form-group">
+                  <label for="about-company">Company</label>
+                  <input type="text" id="about-company" name="company" placeholder="Company name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="about-budget">Project budget</label>
+                <div class="budget-bar" id="about-budget-bar">
+                  <div class="budget-fill" id="about-budget-fill"></div>
+                  <div class="budget-bar__text">
+                    <span>$5,000</span>
+                    <b class="budget-val" id="about-budget-val">$12,000</b>
+                    <span>$50,000+</span>
+                  </div>
+                  <input type="range" class="budget-range" id="about-budget" name="budget"
+                         min="5000" max="50000" step="1000" value="12000"
+                         aria-label="Project budget in US dollars">
+                </div>
+                <div class="budget-chips">
+                  <button type="button" class="budget-chip" data-budget="6000">Under $10k</button>
+                  <button type="button" class="budget-chip is-on" data-budget="12000">$10k to $20k</button>
+                  <button type="button" class="budget-chip" data-budget="30000">$20k to $40k</button>
+                  <button type="button" class="budget-chip" data-budget="50000">$50,000+</button>
                 </div>
               </div>
               <div class="form-group">
