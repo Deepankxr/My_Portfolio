@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="../css/style.css">
@@ -355,7 +355,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="about-role">Job role</label>
+                  <label for="about-role">Your role</label>
                   <input type="text" id="about-role" name="role" placeholder="Head of Operations">
                 </div>
                 <div class="form-group">
@@ -364,14 +364,24 @@
                 </div>
               </div>
               <div class="form-group">
-                <div class="budget-head">
-                  <label for="about-budget">Project budget</label>
-                  <span class="budget-val" id="about-budget-val">$12,000</span>
+                <label for="about-budget">Project budget</label>
+                <div class="budget-bar" id="about-budget-bar">
+                  <div class="budget-fill" id="about-budget-fill"></div>
+                  <div class="budget-bar__text">
+                    <span>$4,000</span>
+                    <b class="budget-val" id="about-budget-val">$12,000</b>
+                    <span>$50,000+</span>
+                  </div>
+                  <input type="range" class="budget-range" id="about-budget" name="budget"
+                         min="4000" max="50000" step="1000" value="12000"
+                         aria-label="Project budget in US dollars">
                 </div>
-                <input type="range" class="budget-slider" id="about-budget" name="budget"
-                       min="4000" max="50000" step="1000" value="12000"
-                       aria-label="Project budget in US dollars">
-                <div class="budget-ticks"><span>$4,000</span><span>$50,000+</span></div>
+                <div class="budget-chips">
+                  <button type="button" class="budget-chip" data-budget="6000">Under $10k</button>
+                  <button type="button" class="budget-chip is-on" data-budget="12000">$10k to $20k</button>
+                  <button type="button" class="budget-chip" data-budget="30000">$20k to $40k</button>
+                  <button type="button" class="budget-chip" data-budget="50000">$50,000+</button>
+                </div>
               </div>
               <div class="form-group">
                 <label for="about-message">Message</label>

@@ -552,20 +552,70 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // ── Project budget slider (live value + filled track) ──
+  // ── Project budget bar (GSAP-smoothed fill, counting value, ultra state) ──
   function formatBudget(v) {
     v = Number(v);
-    return v >= 50000 ? '$50,000+' : '$' + v.toLocaleString('en-US');
+    return v >= 50000 ? '$50,000+' : '$' + Math.round(v).toLocaleString('en-US');
   }
-  document.querySelectorAll('.budget-slider').forEach(slider => {
-    const out = document.getElementById(slider.id + '-val');
+
+  document.querySelectorAll('.budget-range').forEach(range => {
+    const bar   = document.getElementById(range.id + '-bar');
+    const fill  = document.getElementById(range.id + '-fill');
+    const out   = document.getElementById(range.id + '-val');
+    const chips = bar && bar.parentElement.querySelectorAll('.budget-chip');
+    if (!bar || !fill || !out) return;
+
+    const MIN = Number(range.min), MAX = Number(range.max);
+    const pctOf = v => (v - MIN) / (MAX - MIN) * 100;
+    // shown holds the animated value, which trails the real input while GSAP eases it
+    const shown = { v: Number(range.value) };
+    let isUltra = null;
+
     const paint = () => {
-      if (out) out.textContent = formatBudget(slider.value);
-      const pct = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-      slider.style.background =
-        'linear-gradient(90deg, var(--accent) ' + pct + '%, var(--line) ' + pct + '%)';
+      fill.style.width = pctOf(shown.v) + '%';
+      out.textContent = formatBudget(shown.v);
+      const ultra = Number(range.value) >= MAX;
+      if (ultra !== isUltra) {
+        isUltra = ultra;
+        bar.classList.toggle('is-ultra', ultra);
+        if (chips) chips.forEach(c => c.classList.toggle(
+          'is-ultra-chip', ultra && c.dataset.budget === String(MAX)));
+        // a small pop the moment it tips into the top bracket
+        if (ultra && hasGSAP && !reduceMotion) {
+          gsap.fromTo(bar, { scale: 1 },
+            { scale: 1.022, duration: 0.16, ease: 'power2.out', yoyo: true, repeat: 1 });
+        }
+      }
     };
-    slider.addEventListener('input', paint);
+
+    // drag: follow the finger exactly, no lag
+    range.addEventListener('input', () => {
+      if (hasGSAP) gsap.killTweensOf(shown);
+      shown.v = Number(range.value);
+      paint();
+      syncChips();
+    });
+
+    // chips: glide to the value instead of jumping
+    function syncChips() {
+      if (!chips) return;
+      const v = Number(range.value);
+      chips.forEach(c => c.classList.toggle('is-on', Number(c.dataset.budget) === v));
+    }
+    if (chips) chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const target = Number(chip.dataset.budget);
+        range.value = target;
+        syncChips();
+        if (hasGSAP && !reduceMotion) {
+          gsap.killTweensOf(shown);
+          gsap.to(shown, { v: target, duration: 0.62, ease: 'power3.out', onUpdate: paint, onComplete: paint });
+        } else {
+          shown.v = target; paint();
+        }
+      });
+    });
+
     paint();
   });
 

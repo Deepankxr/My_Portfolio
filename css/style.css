@@ -24,7 +24,8 @@
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', -apple-system, system-ui, sans-serif;
   --font-label: 'Space Grotesk', sans-serif;
-  --font-ui: 'Instrument Sans', 'Inter', -apple-system, system-ui, sans-serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+             'Helvetica Neue', Arial, sans-serif;
 
   --max-w: 1160px;
   --gutter: clamp(24px, 5vw, 64px);
@@ -169,7 +170,7 @@ section[id] { scroll-margin-top: 88px; }
   align-items: center;
   gap: 8px;
   font-family: var(--font-ui);
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
   padding: 14px 28px;
@@ -1496,49 +1497,130 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ═══════════════════════════════════════════════════════
-   PROJECT BUDGET SLIDER (contact forms)
+   PROJECT BUDGET BAR (contact forms)
+   Filled track + quick-pick chips. At the top of the range
+   it flips into an iridescent "ultra" state.
 ═══════════════════════════════════════════════════════ */
-.budget-head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 16px; margin-bottom: 4px;
+.budget-bar {
+  position: relative;
+  height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-2);
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  will-change: box-shadow;
 }
-.budget-head label { margin: 0; }
+.budget-bar:hover { border-color: rgba(77, 163, 255, 0.3); }
+
+.budget-fill {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 18%;
+  background: linear-gradient(90deg, rgba(77,163,255,0.38), rgba(77,163,255,0.16));
+  /* width is animated by GSAP; this is the no-JS / reduced-motion fallback */
+  transition: width 0.18s var(--ease-out);
+  will-change: width;
+}
+
+.budget-bar__text {
+  position: relative;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 100%; padding: 0 16px;
+  font-family: var(--font-label);
+  font-size: 12px;
+  color: var(--muted);
+  pointer-events: none;
+}
 .budget-val {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 30px);
-  font-weight: 500; line-height: 1; letter-spacing: -0.01em;
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--accent);
-  text-shadow: 0 0 30px var(--glow-soft);
   font-variant-numeric: tabular-nums;
 }
-.budget-slider {
-  -webkit-appearance: none; appearance: none;
-  width: 100%; height: 4px; border-radius: 100px;
-  background: var(--line);
-  outline: none; cursor: pointer; margin: 10px 0 12px;
+
+/* the real input sits invisibly over the whole bar */
+.budget-range {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  margin: 0; opacity: 0; cursor: pointer;
+  -webkit-appearance: none; appearance: none; background: transparent;
 }
-.budget-slider::-webkit-slider-thumb {
-  -webkit-appearance: none; appearance: none;
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--accent); cursor: pointer;
-  border: 3px solid var(--bg);
-  box-shadow: 0 0 0 1px var(--accent), 0 0 18px rgba(77, 163, 255, 0.5);
-  transition: transform 0.15s var(--ease-out);
+.budget-range::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 48px; cursor: grab; }
+.budget-range::-moz-range-thumb { width: 28px; height: 48px; border: 0; background: transparent; cursor: grab; }
+.budget-range:focus-visible + .budget-bar__focus,
+.budget-range:focus-visible ~ .budget-bar__text { outline: none; }
+.budget-bar:focus-within { border-color: var(--accent); }
+
+/* quick-pick chips */
+.budget-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.budget-chip {
+  font-family: var(--font-label);
+  font-size: 12px;
+  color: var(--muted);
+  padding: 8px 15px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out);
 }
-.budget-slider::-webkit-slider-thumb:hover { transform: scale(1.18); }
-.budget-slider::-moz-range-thumb {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--accent); cursor: pointer;
-  border: 3px solid var(--bg);
-  box-shadow: 0 0 0 1px var(--accent), 0 0 18px rgba(77, 163, 255, 0.5);
+.budget-chip:hover { color: var(--text); border-color: rgba(77, 163, 255, 0.4); transform: translateY(-1px); }
+.budget-chip.is-on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+
+/* ── Ultra state: $50,000+ ── */
+@keyframes budgetFlow  { to { background-position: 300% 50%; } }
+@keyframes budgetSheen { 0% { transform: translateX(-120%); } 55%, 100% { transform: translateX(320%); } }
+@keyframes budgetAura  { 0%, 100% { box-shadow: 0 0 0 1px rgba(167,139,250,0.35), 0 0 26px rgba(120,150,255,0.30); }
+                         50%      { box-shadow: 0 0 0 1px rgba(240,171,252,0.55), 0 0 46px rgba(167,139,250,0.50); } }
+
+.budget-bar.is-ultra { border-color: transparent; animation: budgetAura 2.6s ease-in-out infinite; }
+.budget-bar.is-ultra .budget-fill {
+  background: linear-gradient(90deg, #1E64C8, #4F46E5, #7C3AED, #A21CAF, #0E7490, #1E64C8);
+  background-size: 300% 100%;
+  animation: budgetFlow 4.5s linear infinite;
 }
-.budget-slider:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
-.budget-ticks {
-  display: flex; justify-content: space-between;
-  font-family: var(--font-label); font-size: 11px; color: var(--muted);
+/* travelling highlight across the bar */
+.budget-bar.is-ultra::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; left: 0;
+  width: 34%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.30), transparent);
+  animation: budgetSheen 2.8s ease-in-out infinite;
+  pointer-events: none;
 }
+.budget-bar.is-ultra .budget-bar__text {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.budget-bar.is-ultra .budget-val {
+  filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.55));
+  background: linear-gradient(90deg, #FFFFFF, #FDE7FF, #E9D5FF, #CFFAFE, #FFFFFF);
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: budgetFlow 4.5s linear infinite;
+  text-shadow: none;
+}
+.budget-chip.is-on.is-ultra-chip {
+  background: linear-gradient(90deg, #4DA3FF, #A78BFA, #F0ABFC, #4DA3FF);
+  background-size: 300% 100%;
+  animation: budgetFlow 4.5s linear infinite;
+  border-color: transparent;
+  color: #0A0B10;
+}
+[data-theme="light"] .budget-bar.is-ultra .budget-bar__text { color: rgba(15,19,32,0.78); }
+
 @media (prefers-reduced-motion: reduce) {
-  .budget-slider::-webkit-slider-thumb { transition: none; }
+  .budget-bar.is-ultra,
+  .budget-bar.is-ultra .budget-fill,
+  .budget-bar.is-ultra::after,
+  .budget-bar.is-ultra .budget-val,
+  .budget-chip.is-on.is-ultra-chip { animation: none; }
+  .budget-bar.is-ultra { border-color: #A78BFA; }
+  .budget-fill { transition: none; }
 }
 
 /* ═══════════════════════════════════════════════════════
