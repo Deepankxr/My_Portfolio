@@ -1639,6 +1639,44 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ═══════════════════════════════════════════════════════
+   LEGAL PAGES + FORM CONSENT
+═══════════════════════════════════════════════════════ */
+.footer-links { display: flex; align-items: center; gap: 22px; }
+
+.form-consent {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.form-consent a { color: var(--muted); border-bottom: 1px solid var(--line); transition: color 0.2s, border-color 0.2s; }
+.form-consent a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.post-body ul {
+  margin: 0 0 26px;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.85;
+}
+.post-body ul li { margin-bottom: 9px; }
+.post-body ul li::marker { color: var(--accent); }
+.post-body strong { color: var(--text); font-weight: 600; }
+.post-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 2px 6px;
+  color: var(--accent);
+}
+
+@media (max-width: 560px) {
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
+
+/* ═══════════════════════════════════════════════════════
    CLICK SPARK (reactbits.dev ClickSpark, vanilla port)
    Full-viewport overlay canvas; never intercepts input
 ═══════════════════════════════════════════════════════ */
