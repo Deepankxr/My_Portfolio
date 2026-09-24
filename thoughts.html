@@ -11,6 +11,8 @@
 
   <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
   <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+  <!-- Search and topic filters only show when scripts run (js/blog.js drives them) -->
+  <script>document.documentElement.classList.add('blog-js');</script>
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website">
@@ -25,9 +27,16 @@
 
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blog.css">
 </head>
 
 <body>
+
+  <!-- ─── Wire fence, ambient (WebGL lattice + flowing tool chips, filled by js/fence.js) ─── -->
+  <div class="fence" data-fence data-fence-mode="ambient" data-fence-safe=".blog-head__title, .blog-head__intro, .blog-search, .blog-topics, .nav-bar" data-fence-fade=".blog-head" data-fence-logos="assets/logos/" aria-hidden="true">
+    <canvas class="fence__gl"></canvas>
+    <div class="fence__chips"></div>
+  </div>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scroll-progress"></div>
@@ -100,282 +109,298 @@
     </div>
   </header>
 
-  <main class="about-main">
+  <main class="blog-main">
 
-    <!-- ─── Hero ─── -->
-    <section class="thoughts-hero">
+    <!-- ─── Header: title, search and topics over the ambient fence ─── -->
+    <section class="blog-head" aria-labelledby="blog-title">
       <div class="container">
-        <p class="thoughts-kicker reveal"><span class="thoughts-kicker__dot" aria-hidden="true"></span> DEEPANKAR.XYZ · THOUGHTS</p>
-
-        <h1 class="thoughts-title reveal">Notes &amp; <em>Thoughts.</em></h1>
-
-        <p class="thoughts-intro reveal">
-          Long-form blogs and short field notes on AI automation, agents, and document
-          intelligence: what actually breaks in production, what scales, and how to
-          ship systems that do the work of entire teams.
+        <p class="blog-head__label">Writing</p>
+        <h1 class="blog-head__title" id="blog-title">Notes &amp; <em>Thoughts.</em></h1>
+        <p class="blog-head__intro">
+          Essays on AI automation, agents and enterprise AI: what holds up in production,
+          what quietly breaks, and how to build systems a business can depend on.
+          Each piece first ran on the TrueHorizon AI blog.
         </p>
 
-        <div class="thoughts-topics reveal">
-          <span class="topic-chip">AI Automation</span>
-          <span class="topic-chip">n8n</span>
-          <span class="topic-chip">AI Agents</span>
-          <span class="topic-chip">Enterprise AI</span>
-          <span class="topic-chip">Claude</span>
+        <div class="blog-tools">
+          <form class="blog-search" role="search" action="thoughts.html" method="get" data-blog-search>
+            <label class="blog-vh" for="blog-q">Search the essays</label>
+            <svg class="blog-search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+            <input class="blog-search__input" id="blog-q" name="q" type="search" placeholder="Search by title, topic or idea" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-describedby="blog-search-help">
+            <kbd class="blog-search__key" aria-hidden="true">/</kbd>
+            <button type="button" class="blog-search__clear" data-blog-clear aria-label="Clear search" hidden>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+            <span class="blog-vh" id="blog-search-help">Results update as you type. Press slash to jump here from anywhere on the page.</span>
+          </form>
+
+          <div class="blog-topics" role="group" aria-label="Filter by topic" data-blog-topics>
+            <button type="button" class="blog-chip" data-topic="all" aria-pressed="true">All <span class="blog-chip__n">17<span class="blog-vh"> essays</span></span></button>
+            <button type="button" class="blog-chip" data-topic="enterprise-ai" aria-pressed="false">Enterprise AI <span class="blog-chip__n">4<span class="blog-vh"> essays</span></span></button>
+            <button type="button" class="blog-chip" data-topic="automation" aria-pressed="false">Automation <span class="blog-chip__n">3<span class="blog-vh"> essays</span></span></button>
+            <button type="button" class="blog-chip" data-topic="ai-agents" aria-pressed="false">AI Agents <span class="blog-chip__n">2<span class="blog-vh"> essays</span></span></button>
+            <button type="button" class="blog-chip" data-topic="perspective" aria-pressed="false">Perspective <span class="blog-chip__n">2<span class="blog-vh"> essays</span></span></button>
+            <button type="button" class="blog-chip" data-topic="revenue-automation" aria-pressed="false">Revenue Automation <span class="blog-chip__n">2<span class="blog-vh"> essays</span></span></button>
+            <button type="button" class="blog-chip" data-topic="ai-systems" aria-pressed="false">AI Systems <span class="blog-chip__n">1<span class="blog-vh"> essay</span></span></button>
+            <button type="button" class="blog-chip" data-topic="ai-governance" aria-pressed="false">AI Governance <span class="blog-chip__n">1<span class="blog-vh"> essay</span></span></button>
+            <button type="button" class="blog-chip" data-topic="engineering" aria-pressed="false">Engineering <span class="blog-chip__n">1<span class="blog-vh"> essay</span></span></button>
+            <button type="button" class="blog-chip" data-topic="future-of-work" aria-pressed="false">Future of Work <span class="blog-chip__n">1<span class="blog-vh"> essay</span></span></button>
+          </div>
         </div>
+      </div>
+      <!-- the fence settles into the page veil at the bottom of the header -->
+      <div class="hero-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- ─── Essays: the latest one featured, then the full archive ─── -->
+    <section class="blog-index" id="essays" aria-labelledby="essays-title" data-blog-index>
+      <div class="container">
+
+        <div class="blog-feature-wrap" data-blog-feature>
+          <h2 class="blog-kicker">Latest essay</h2>
+          <article class="blog-feature">
+            <div class="blog-feature__body">
+              <p class="blog-feature__meta"><span class="blog-tag">Enterprise AI</span><span>6 min read</span></p>
+              <h3 class="blog-feature__title"><a class="blog-feature__link" href="blog/claude-design-enterprise-guide.html">Claude Design for Enterprises: 6&nbsp;Things to Know Before You Prototype</a></h3>
+              <p class="blog-feature__excerpt">It is not a prettier Canva. Design system extraction, the four-part prompt framework, and an honest map of where it still breaks.</p>
+              <p class="blog-feature__foot">
+                <span class="blog-feature__cta">Read the essay <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                <span class="blog-feature__src">First published on TrueHorizon AI</span>
+              </p>
+            </div>
+            <div class="blog-feature__art" aria-hidden="true">
+              <div class="blog-lattice"></div>
+              <svg class="blog-feature__wire" viewBox="0 0 400 300" preserveAspectRatio="none" focusable="false"><path d="M158 128 C 218 128, 214 196, 268 198"/></svg>
+              <span class="blog-art-chip blog-art-chip--main"><img src="assets/logos/claude.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span>
+              <span class="blog-art-chip blog-art-chip--side"><img src="assets/logos/claude-code.svg" alt="" width="22" height="22" loading="lazy" decoding="async"></span>
+              <span class="blog-art-pulse blog-art-pulse--1"></span>
+              <span class="blog-art-pulse blog-art-pulse--2"></span>
+              <span class="blog-art-pulse blog-art-pulse--3"></span>
+            </div>
+          </article>
+        </div>
+
+        <div class="blog-bar">
+          <div class="blog-bar__text">
+            <h2 class="blog-bar__title" id="essays-title" data-blog-heading>All essays</h2>
+            <p class="blog-bar__count" data-blog-count>17 essays · 75 minutes of reading · newest first</p>
+          </div>
+          <button type="button" class="blog-bar__reset" data-blog-reset hidden>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            Clear filters
+          </button>
+        </div>
+        <p class="blog-vh" role="status" data-blog-live></p>
+
+        <ol class="blog-list" role="list" data-blog-list>
+          <li class="blog-post" data-topic="enterprise-ai" data-category="Enterprise AI" data-minutes="6" data-featured>
+            <span class="blog-post__num" aria-hidden="true">01</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/claude-design-enterprise-guide.html">Claude Design for Enterprises: 6 Things to Know Before You Prototype</a></h3>
+              <p class="blog-post__excerpt">It is not a prettier Canva. Design system extraction, the four-part prompt framework, and an honest map of where it still breaks.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Enterprise AI</span><span class="blog-post__time">6 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="ai-agents" data-category="AI Agents" data-minutes="5">
+            <span class="blog-post__num" aria-hidden="true">02</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/youtube-research-ai-agents.html">The AI Agent That Does YouTube Research While You Sleep</a></h3>
+              <p class="blog-post__excerpt">Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on validated data instead of guesswork.</p>
+              <p class="blog-post__meta"><span class="blog-tag">AI Agents</span><span class="blog-post__time">5 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="automation" data-category="Automation" data-minutes="5">
+            <span class="blog-post__num" aria-hidden="true">03</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/n8n-mcp-claude-code.html">Stop Prototyping Slowly: n8n MCP + Claude Code</a></h3>
+              <p class="blog-post__excerpt">From plain-English prompt to production-shaped workflow in about 20 minutes. Why MCP changes what Claude actually knows about your stack, and where humans still matter.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Automation</span><span class="blog-post__time">5 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="ai-systems" data-category="AI Systems" data-minutes="6">
+            <span class="blog-post__num" aria-hidden="true">04</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/ai-chatbots-context-problem.html">Why AI Chatbots Fail: It's a Context Problem, Not an Intelligence Problem</a></h3>
+              <p class="blog-post__excerpt">Most AI support failures are blindness, not stupidity. The context-first architecture I build instead, with human approval kept in the loop.</p>
+              <p class="blog-post__meta"><span class="blog-tag">AI Systems</span><span class="blog-post__time">6 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="perspective" data-category="Perspective" data-minutes="3">
+            <span class="blog-post__num" aria-hidden="true">05</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/ai-speed-vs-skill.html">AI Makes You Faster. Does It Make You Worse?</a></h3>
+              <p class="blog-post__excerpt">Speed is measurable and mastery is not. On using AI for leverage without quietly outsourcing the judgment that made you good.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Perspective</span><span class="blog-post__time">3 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="ai-governance" data-category="AI Governance" data-minutes="5">
+            <span class="blog-post__num" aria-hidden="true">06</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/project-glasswing-ai-regulation.html">Project Glasswing: Why AI Regulation Can't Wait Any Longer</a></h3>
+              <p class="blog-post__excerpt">AI already decides credit, diagnoses, and hiring while the rules move at a different speed. What tiered, adaptive governance should look like.</p>
+              <p class="blog-post__meta"><span class="blog-tag">AI Governance</span><span class="blog-post__time">5 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="revenue-automation" data-category="Revenue Automation" data-minutes="4">
+            <span class="blog-post__num" aria-hidden="true">07</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/ai-lead-qualification-outbound.html">Lead Qualification Is the Real Outbound Bottleneck</a></h3>
+              <p class="blog-post__excerpt">Pointing AI at writing emails faster only accelerates rejection. The actual constraint is deciding who deserves the email at all.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Revenue Automation</span><span class="blog-post__time">4 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="automation" data-category="Automation" data-minutes="4">
+            <span class="blog-post__num" aria-hidden="true">08</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/is-n8n-dead.html">No, n8n Isn't Dead. It Turned Into Infrastructure.</a></h3>
+              <p class="blog-post__excerpt">The hype went quiet and people read that as decline. The tourists left and the builders stayed, which is what maturity actually looks like.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Automation</span><span class="blog-post__time">4 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="ai-agents" data-category="AI Agents" data-minutes="4">
+            <span class="blog-post__num" aria-hidden="true">09</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/autonomous-ai-agents-2026.html">Why 2026 Belongs to Autonomous AI Agents</a></h3>
+              <p class="blog-post__excerpt">Systems that hold a goal, plan the steps, and execute across platforms are moving from demo to deployment. What that does to audits and to data entry roles.</p>
+              <p class="blog-post__meta"><span class="blog-tag">AI Agents</span><span class="blog-post__time">4 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="enterprise-ai" data-category="Enterprise AI" data-minutes="3">
+            <span class="blog-post__num" aria-hidden="true">10</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/ai-for-accountants.html">AI for Accountants: Automating Audit and Tax in 2026</a></h3>
+              <p class="blog-post__excerpt">Continuous reconciliation turns the audit into a verification layer rather than a discovery exercise. What that means for the people doing the discovering.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Enterprise AI</span><span class="blog-post__time">3 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="engineering" data-category="Engineering" data-minutes="4">
+            <span class="blog-post__num" aria-hidden="true">11</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/claude-code-review.html">Claude Code Review and the End of the PR Bottleneck</a></h3>
+              <p class="blog-post__excerpt">Specialised agents that cross-check each other, comment inline, and scale review depth to the risk of the change.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Engineering</span><span class="blog-post__time">4 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="automation" data-category="Automation" data-minutes="4">
+            <span class="blog-post__num" aria-hidden="true">12</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/claude-code-n8n-one-person-team.html">Claude Code Plus n8n: How One Person Covers Four Jobs</a></h3>
+              <p class="blog-post__excerpt">One tool makes you a faster builder, the other makes you present in more places at once. Together they change the arithmetic of headcount.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Automation</span><span class="blog-post__time">4 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="enterprise-ai" data-category="Enterprise AI" data-minutes="4">
+            <span class="blog-post__num" aria-hidden="true">13</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/n8n-enterprise-automation.html">Why n8n Is Ready to Replace the Enterprise Automation Giants</a></h3>
+              <p class="blog-post__excerpt">Enterprise-grade has been marketing language for expensive contracts. The honest definition is control over where workflows run and what happens to your data.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Enterprise AI</span><span class="blog-post__time">4 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="revenue-automation" data-category="Revenue Automation" data-minutes="4">
+            <span class="blog-post__num" aria-hidden="true">14</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/n8n-revenue-multiplication.html">How n8n Multiplies Revenue in the Age of Agentic AI</a></h3>
+              <p class="blog-post__excerpt">Scripted automation executes steps. Agentic systems reason and adapt. That difference shows up in velocity, in margin, and in signals you used to catch too late.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Revenue Automation</span><span class="blog-post__time">4 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="perspective" data-category="Perspective" data-minutes="4">
+            <span class="blog-post__num" aria-hidden="true">15</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/moltbook-implications.html">Moltbook's Hidden Promise: Platforms That Optimise for Understanding</a></h3>
+              <p class="blog-post__excerpt">Most platforms optimise for time on site. Optimising for whether you understood something would produce a very different content ecosystem.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Perspective</span><span class="blog-post__time">4 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="future-of-work" data-category="Future of Work" data-minutes="5">
+            <span class="blog-post__num" aria-hidden="true">16</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/upskilling-for-ai-workplace.html">Closing the AI Skills Gap in an AI-First Workplace</a></h3>
+              <p class="blog-post__excerpt">Companies bought the infrastructure and found their teams could not use it. The gap is conceptual, and the fix is training for partnership.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Future of Work</span><span class="blog-post__time">5 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+          <li class="blog-post" data-topic="enterprise-ai" data-category="Enterprise AI" data-minutes="5">
+            <span class="blog-post__num" aria-hidden="true">17</span>
+            <div class="blog-post__main">
+              <h3 class="blog-post__title"><a class="blog-post__link" href="blog/fortune-500-automation-audit.html">Most Fortune 500s Are One Audit Away From an AI Revolution</a></h3>
+              <p class="blog-post__excerpt">Enterprises bleed money through process inefficiency that never reaches an earnings call. The audit is what turns invisible cost into a roadmap.</p>
+              <p class="blog-post__meta"><span class="blog-tag">Enterprise AI</span><span class="blog-post__time">5 min read</span><span class="blog-post__src">First published on TrueHorizon AI</span></p>
+            </div>
+            <svg class="blog-post__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </li>
+        </ol>
+
+        <div class="blog-empty" data-blog-empty hidden>
+          <p class="blog-empty__title" data-blog-empty-title>Nothing matches that yet.</p>
+          <p class="blog-empty__text">Try a broader word or another topic. If it is something you are working on, tell me: it might become the next essay.</p>
+          <div class="blog-empty__actions">
+            <button type="button" class="blog-empty__btn" data-blog-reset>Show all essays</button>
+            <button type="button" class="blog-empty__btn blog-empty__btn--ghost" data-blog-anytopic hidden></button>
+            <a class="blog-empty__link" href="index.html#contact">Suggest a topic <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ─── Blogs ─── -->
-    <section class="thoughts-list-section">
+    <!-- ─── Field notes: shorter pieces still being written ─── -->
+    <section class="blog-notes" aria-labelledby="notes-title">
       <div class="container">
-        <div class="section-label-row reveal">
-          <span class="section-num">01</span>
-          <span class="section-tag">Blogs · 17 long-form pieces</span>
+        <div class="blog-notes__head">
+          <h2 class="blog-notes__title" id="notes-title">Field notes, <span class="blog-nowrap">coming <em>soon.</em></span></h2>
+          <p class="blog-notes__intro">Shorter pieces from the build, six of them in the works.</p>
         </div>
-
-        <div class="thought-list">
-
-          <a class="thought-item reveal" href="blog/claude-design-enterprise-guide.html">
-            <span class="thought-num">01</span>
-            <span class="thought-body">
-              <span class="thought-title">Claude Design for Enterprises: 6 Things to Know Before You Prototype</span>
-              <span class="thought-excerpt">It is not a prettier Canva. Design system extraction, the four-part prompt framework, and an honest map of where it still breaks.</span>
-              <span class="thought-meta">Enterprise AI · 6 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/youtube-research-ai-agents.html">
-            <span class="thought-num">02</span>
-            <span class="thought-body">
-              <span class="thought-title">The AI Agent That Does YouTube Research While You Sleep</span>
-              <span class="thought-excerpt">Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on validated data instead of guesswork.</span>
-              <span class="thought-meta">AI Agents · 5 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/n8n-mcp-claude-code.html">
-            <span class="thought-num">03</span>
-            <span class="thought-body">
-              <span class="thought-title">Stop Prototyping Slowly: n8n MCP + Claude Code</span>
-              <span class="thought-excerpt">From plain-English prompt to production-shaped workflow in about 20 minutes. Why MCP changes what Claude actually knows about your stack, and where humans still matter.</span>
-              <span class="thought-meta">Automation · 5 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/ai-chatbots-context-problem.html">
-            <span class="thought-num">04</span>
-            <span class="thought-body">
-              <span class="thought-title">Why AI Chatbots Fail: It's a Context Problem, Not an Intelligence Problem</span>
-              <span class="thought-excerpt">Most AI support failures are blindness, not stupidity. The context-first architecture I build instead, with human approval kept in the loop.</span>
-              <span class="thought-meta">AI Systems · 6 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/ai-speed-vs-skill.html">
-            <span class="thought-num">05</span>
-            <span class="thought-body">
-              <span class="thought-title">AI Makes You Faster. Does It Make You Worse?</span>
-              <span class="thought-excerpt">Speed is measurable and mastery is not. On using AI for leverage without quietly outsourcing the judgment that made you good.</span>
-              <span class="thought-meta">Perspective · 3 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/project-glasswing-ai-regulation.html">
-            <span class="thought-num">06</span>
-            <span class="thought-body">
-              <span class="thought-title">Project Glasswing: Why AI Regulation Can't Wait Any Longer</span>
-              <span class="thought-excerpt">AI already decides credit, diagnoses, and hiring while the rules move at a different speed. What tiered, adaptive governance should look like.</span>
-              <span class="thought-meta">AI Governance · 5 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/ai-lead-qualification-outbound.html">
-            <span class="thought-num">07</span>
-            <span class="thought-body">
-              <span class="thought-title">Lead Qualification Is the Real Outbound Bottleneck</span>
-              <span class="thought-excerpt">Pointing AI at writing emails faster only accelerates rejection. The actual constraint is deciding who deserves the email at all.</span>
-              <span class="thought-meta">Revenue Automation · 4 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/is-n8n-dead.html">
-            <span class="thought-num">08</span>
-            <span class="thought-body">
-              <span class="thought-title">No, n8n Isn't Dead. It Turned Into Infrastructure.</span>
-              <span class="thought-excerpt">The hype went quiet and people read that as decline. The tourists left and the builders stayed, which is what maturity actually looks like.</span>
-              <span class="thought-meta">Automation · 4 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/autonomous-ai-agents-2026.html">
-            <span class="thought-num">09</span>
-            <span class="thought-body">
-              <span class="thought-title">Why 2026 Belongs to Autonomous AI Agents</span>
-              <span class="thought-excerpt">Systems that hold a goal, plan the steps, and execute across platforms are moving from demo to deployment. What that does to audits and to data entry roles.</span>
-              <span class="thought-meta">AI Agents · 4 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/ai-for-accountants.html">
-            <span class="thought-num">10</span>
-            <span class="thought-body">
-              <span class="thought-title">AI for Accountants: Automating Audit and Tax in 2026</span>
-              <span class="thought-excerpt">Continuous reconciliation turns the audit into a verification layer rather than a discovery exercise. What that means for the people doing the discovering.</span>
-              <span class="thought-meta">Enterprise AI · 3 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/claude-code-review.html">
-            <span class="thought-num">11</span>
-            <span class="thought-body">
-              <span class="thought-title">Claude Code Review and the End of the PR Bottleneck</span>
-              <span class="thought-excerpt">Specialised agents that cross-check each other, comment inline, and scale review depth to the risk of the change.</span>
-              <span class="thought-meta">Engineering · 4 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/claude-code-n8n-one-person-team.html">
-            <span class="thought-num">12</span>
-            <span class="thought-body">
-              <span class="thought-title">Claude Code Plus n8n: How One Person Covers Four Jobs</span>
-              <span class="thought-excerpt">One tool makes you a faster builder, the other makes you present in more places at once. Together they change the arithmetic of headcount.</span>
-              <span class="thought-meta">Automation · 4 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/n8n-enterprise-automation.html">
-            <span class="thought-num">13</span>
-            <span class="thought-body">
-              <span class="thought-title">Why n8n Is Ready to Replace the Enterprise Automation Giants</span>
-              <span class="thought-excerpt">Enterprise-grade has been marketing language for expensive contracts. The honest definition is control over where workflows run and what happens to your data.</span>
-              <span class="thought-meta">Enterprise AI · 4 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/n8n-revenue-multiplication.html">
-            <span class="thought-num">14</span>
-            <span class="thought-body">
-              <span class="thought-title">How n8n Multiplies Revenue in the Age of Agentic AI</span>
-              <span class="thought-excerpt">Scripted automation executes steps. Agentic systems reason and adapt. That difference shows up in velocity, in margin, and in signals you used to catch too late.</span>
-              <span class="thought-meta">Revenue Automation · 4 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/moltbook-implications.html">
-            <span class="thought-num">15</span>
-            <span class="thought-body">
-              <span class="thought-title">Moltbook's Hidden Promise: Platforms That Optimise for Understanding</span>
-              <span class="thought-excerpt">Most platforms optimise for time on site. Optimising for whether you understood something would produce a very different content ecosystem.</span>
-              <span class="thought-meta">Perspective · 4 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/upskilling-for-ai-workplace.html">
-            <span class="thought-num">16</span>
-            <span class="thought-body">
-              <span class="thought-title">Closing the AI Skills Gap in an AI-First Workplace</span>
-              <span class="thought-excerpt">Companies bought the infrastructure and found their teams could not use it. The gap is conceptual, and the fix is training for partnership.</span>
-              <span class="thought-meta">Future of Work · 5 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-          <a class="thought-item reveal" href="blog/fortune-500-automation-audit.html">
-            <span class="thought-num">17</span>
-            <span class="thought-body">
-              <span class="thought-title">Most Fortune 500s Are One Audit Away From an AI Revolution</span>
-              <span class="thought-excerpt">Enterprises bleed money through process inefficiency that never reaches an earnings call. The audit is what turns invisible cost into a roadmap.</span>
-              <span class="thought-meta">Enterprise AI · 5 min read · First published on TrueHorizon AI</span>
-            </span>
-            <svg class="thought-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Thoughts (short notes) ─── -->
-    <section class="thoughts-list-section" style="padding-top: 0;">
-      <div class="container">
-        <div class="section-label-row reveal">
-          <span class="section-num">02</span>
-          <span class="section-tag">Thoughts · Short notes</span>
-        </div>
-
-        <div class="thought-list">
-
-          <div class="thought-item thought-item--soon reveal">
-            <span class="thought-num">01</span>
-            <span class="thought-body">
-              <span class="thought-title">Why most AI automations die in production</span>
-              <span class="thought-meta">Systems</span>
-            </span>
-            <span class="soon-chip">Soon</span>
-          </div>
-
-          <div class="thought-item thought-item--soon reveal">
-            <span class="thought-num">02</span>
-            <span class="thought-body">
-              <span class="thought-title">n8n or code? A decision framework</span>
-              <span class="thought-meta">Automation</span>
-            </span>
-            <span class="soon-chip">Soon</span>
-          </div>
-
-          <div class="thought-item thought-item--soon reveal">
-            <span class="thought-num">03</span>
-            <span class="thought-body">
-              <span class="thought-title">Designing AI agents that actually ship</span>
-              <span class="thought-meta">Agents</span>
-            </span>
-            <span class="soon-chip">Soon</span>
-          </div>
-
-          <div class="thought-item thought-item--soon reveal">
-            <span class="thought-num">04</span>
-            <span class="thought-body">
-              <span class="thought-title">From PDF chaos to clean data: document intelligence</span>
-              <span class="thought-meta">Document AI</span>
-            </span>
-            <span class="soon-chip">Soon</span>
-          </div>
-
-          <div class="thought-item thought-item--soon reveal">
-            <span class="thought-num">05</span>
-            <span class="thought-body">
-              <span class="thought-title">Scaling output without scaling headcount</span>
-              <span class="thought-meta">Strategy</span>
-            </span>
-            <span class="soon-chip">Soon</span>
-          </div>
-
-          <div class="thought-item thought-item--soon reveal">
-            <span class="thought-num">06</span>
-            <span class="thought-body">
-              <span class="thought-title">What Fortune 500 teams get wrong about AI</span>
-              <span class="thought-meta">Enterprise</span>
-            </span>
-            <span class="soon-chip">Soon</span>
-          </div>
-
-        </div>
-
-        <p class="thoughts-soon reveal">More writing in the works. <a href="index.html#contact">Want me to write about something specific?</a></p>
+        <ul class="blog-notes__grid" role="list">
+          <li class="blog-note">
+            <span class="blog-note__topic">Systems</span>
+            <span class="blog-note__title">Why most AI automations die in production</span>
+            <span class="blog-note__soon">Soon</span>
+          </li>
+          <li class="blog-note">
+            <span class="blog-note__topic">Automation</span>
+            <span class="blog-note__title">n8n or code? A decision framework</span>
+            <span class="blog-note__soon">Soon</span>
+          </li>
+          <li class="blog-note">
+            <span class="blog-note__topic">Agents</span>
+            <span class="blog-note__title">Designing AI agents that actually ship</span>
+            <span class="blog-note__soon">Soon</span>
+          </li>
+          <li class="blog-note">
+            <span class="blog-note__topic">Document AI</span>
+            <span class="blog-note__title">From PDF chaos to clean data: document intelligence</span>
+            <span class="blog-note__soon">Soon</span>
+          </li>
+          <li class="blog-note">
+            <span class="blog-note__topic">Strategy</span>
+            <span class="blog-note__title">Scaling output without scaling headcount</span>
+            <span class="blog-note__soon">Soon</span>
+          </li>
+          <li class="blog-note">
+            <span class="blog-note__topic">Enterprise</span>
+            <span class="blog-note__title">What Fortune 500 teams get wrong about AI</span>
+            <span class="blog-note__soon">Soon</span>
+          </li>
+        </ul>
+        <p class="blog-notes__ask">More writing in the works. <a href="index.html#contact">Want me to write about something specific?</a></p>
       </div>
     </section>
 
@@ -400,5 +425,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/fence.js"></script>
+  <script src="js/blog.js"></script>
 </body>
 </html>

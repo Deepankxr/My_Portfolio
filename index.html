@@ -42,11 +42,19 @@
     "address": { "@type": "PostalAddress", "addressLocality": "Bhopal", "addressCountry": "IN" },
     "email": "sales@deepankar.xyz",
     "sameAs": ["https://www.linkedin.com/in/deepankarbhadrasen/"],
-    "knowsAbout": ["AI Automation", "n8n", "Document Intelligence", "Sales Pipeline Automation", "Large Language Models"]
+    "knowsAbout": ["AI Automation", "n8n", "Document Intelligence", "Sales Pipeline Automation", "Large Language Models", "AI Agents", "Claude Code", "OpenAI Codex", "Full-Stack Development"]
   }
   </script>
 </head>
 <body>
+
+  <!-- ─── Wire fence as a stage floor (WebGL lattice + flowing tool chips, filled by js/fence.js) ─── -->
+  <div class="fence" data-fence data-fence-mode="stage" data-fence-safe=".hero-head, .hero-body, .hero-proof, .nav-bar" data-fence-fade="#hero" data-fence-figure=".hero-figure__mark" data-fence-logos="assets/logos/" aria-hidden="true">
+    <canvas class="fence__gl"></canvas>
+    <div class="fence__chips"></div>
+    <div class="fence__veil"></div>
+    <div class="fence__grain"></div>
+  </div>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scroll-progress"></div>
@@ -92,9 +100,9 @@
             <div class="nav-card">
               <span class="nav-card__label">Explore</span>
               <div class="nav-card__links">
-                <a class="nav-card__link" href="index.html">Home</a>
+                <a class="nav-card__link" href="#work">Work</a>
+                <a class="nav-card__link" href="#speaking">Speaking</a>
                 <a class="nav-card__link" href="about/">About</a>
-                <a class="nav-card__link" href="thoughts.html">Thoughts</a>
               </div>
             </div>
             <div class="nav-card">
@@ -121,47 +129,69 @@
 
   <main>
 
-    <!-- ─── Hero ─── -->
-    <section id="hero">
-      <!-- Background ambient layers -->
-      <div class="hero-dots" aria-hidden="true"></div>
-      <div class="hero-orb" aria-hidden="true"></div>
+    <!-- ─── Hero: the fence is a stage floor and he stands on a lit spot of it ─── -->
+    <section id="hero" aria-labelledby="hero-name">
+      <div class="container hero-inner">
+        <div class="hero-head">
+          <p class="hero-eyebrow"><span class="hero-eyebrow__a">Founding Engineer</span> <span class="hero-eyebrow__sep">·</span> <a class="hero-eyebrow__b" href="https://truehorizon.ai/" target="_blank" rel="noopener">TrueHorizon AI</a></p>
+          <h1 class="hero-name" id="hero-name"><span class="hero-name__line"><span class="hero-name__inner">Deepankar</span></span> <span class="hero-name__line"><span class="hero-name__inner">Bhadrasen</span></span></h1>
+        </div>
 
-      <!-- Fixed full-viewport canvas: sphere anchors to the hero box, logos line up on scroll -->
-      <canvas id="globe" class="globe-canvas" aria-hidden="true"></canvas>
+        <!-- The cut-out on the stage: beam and halo behind, a lit floor spot with a
+             travelling arc, a faint reflection, the legs dissolving into light.
+             .hero-figure__mark is where his feet meet the floor (read by js/fence.js). -->
+        <figure class="hero-figure">
+          <div class="hero-figure__beam" aria-hidden="true"></div>
+          <div class="hero-figure__halo" aria-hidden="true"></div>
+          <div class="hero-figure__spot" aria-hidden="true"><span class="hero-figure__sweep"></span></div>
+          <div class="hero-figure__mist" aria-hidden="true"></div>
+          <img class="hero-figure__refl"
+               src="assets/deepankar-hcmc-1400.webp"
+               srcset="assets/deepankar-hcmc-1000.webp 400w, assets/deepankar-hcmc-1400.webp 560w"
+               sizes="(max-width: 599px) 70px, (max-width: 899px) 170px, 330px"
+               width="560" height="1400"
+               alt="" aria-hidden="true" loading="eager" decoding="async">
+          <img class="hero-figure__img"
+               src="assets/deepankar-hcmc-1400.webp"
+               srcset="assets/deepankar-hcmc-1000.webp 400w, assets/deepankar-hcmc-1400.webp 560w"
+               sizes="(max-width: 599px) 70px, (max-width: 899px) 170px, 330px"
+               width="560" height="1400"
+               alt="Deepankar Bhadrasen"
+               fetchpriority="high" loading="eager" decoding="async">
+          <span class="hero-figure__mark" aria-hidden="true"></span>
+        </figure>
 
-      <div class="container">
-        <div class="hero-grid">
-
-          <!-- Left: Text -->
-          <div class="hero-text">
-            <p class="hero-eyebrow">Founding Engineer <span class="hero-eyebrow__sep">·</span> <a href="https://truehorizon.ai/" target="_blank" rel="noopener">TrueHorizon AI</a></p>
-
-            <h1 class="hero-name">Deepankar<br>Bhadrasen</h1>
-
-            <p class="hero-sub">
-              Scaling output without scaling headcount. I build end-to-end
-              AI automation that ships and runs in production for enterprise teams.
-            </p>
-
-            <div class="hero-cta">
-              <a href="#contact" class="btn btn--primary">Work with Me</a>
-              <a href="about/" class="btn btn--text">My story &nbsp;→</a>
-            </div>
-
-            <div class="hero-badge">
-              <span class="hero-badge__dot" aria-hidden="true"></span>
-              Available for consultation
-            </div>
+        <div class="hero-body">
+          <p class="hero-sub">Scaling output without scaling headcount. I build end-to-end AI automation that ships and runs in production for enterprise teams.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn--primary">Work with Me</a>
+            <a href="#work" class="btn btn--text">See the work &nbsp;→</a>
           </div>
+        </div>
 
-          <!-- Right: anchor box that marks where the photo + logo sphere live -->
-          <div class="hero-visual">
-            <div class="hero-globe" id="globe-anchor" aria-hidden="true"></div>
-          </div>
-
+        <!-- Speaking proof as a ticket stub -->
+        <div class="hero-proof">
+          <a class="hero-stub" href="#speaking" aria-label="Speaking at the n8n Builders Challenge · Ho Chi Minh City, Sep 2026">
+            <span class="hero-stub__media" data-kenburns aria-hidden="true">
+              <picture>
+                <source type="image/webp" srcset="assets/hcmc/speaking-560.webp">
+                <img src="assets/hcmc/speaking-560.jpg" width="560" height="373" alt="" decoding="async">
+              </picture>
+            </span>
+            <span class="hero-stub__body" aria-hidden="true">
+              <span class="hero-stub__date">19 · 09 · 2026</span>
+              <span class="hero-stub__city">Ho Chi Minh City</span>
+              <span class="hero-stub__event">n8n Builders Challenge</span>
+              <span class="hero-stub__role">Speaker</span>
+            </span>
+            <span class="hero-stub__go" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </a>
+          <p class="hero-stub-cap" aria-hidden="true">Speaking at the n8n Builders Challenge&nbsp;· Ho&nbsp;Chi&nbsp;Minh&nbsp;City, Sep&nbsp;2026</p>
         </div>
       </div>
+
+      <!-- the stage floor settles into the page veil at the bottom of the hero -->
+      <div class="hero-fade" aria-hidden="true"></div>
     </section>
 
     <!-- ─── Marquee Ticker ─── -->
@@ -226,271 +256,698 @@
       </div>
     </div>
 
-    <!-- ─── Trust ─── -->
-    <section id="trust">
-      <div class="container">
-        <div class="trust-inner">
-          <p class="trust-label">Contributed to</p>
-          <div class="trust-items">
-            <div class="trust-item reveal">
-              <a class="trust-name" href="https://truehorizon.ai/" target="_blank" rel="noopener">TrueHorizon AI</a>
-              <span class="trust-detail">$2.5M ARR · Founding Engineer</span>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item reveal">
-              <span class="trust-name">Fortune 500</span>
-              <span class="trust-detail">Guest Consultant</span>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item reveal">
-              <span class="trust-name">20+ AI Agents</span>
-              <span class="trust-detail">Deployed in production</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── What I Build ─── -->
-    <section id="services">
+    <!-- ─── 01 About: expert positioning ─── -->
+    <section id="about-intro">
       <div class="container">
         <div class="section-label-row reveal">
           <span class="section-num">01</span>
-          <span class="section-tag">Capabilities</span>
+          <span class="section-tag">About</span>
         </div>
-        <h2 class="section-heading reveal">What I Build</h2>
 
-        <div class="services-list">
-          <div class="service-item reveal">
-            <h3 class="service-name">Revenue Automation</h3>
-            <p class="service-desc">AI-powered sales pipelines, lead qualification systems, and CRM integrations that replace manual outreach and scale revenue without adding headcount.</p>
-          </div>
+        <div class="intro-grid">
+          <h2 class="intro-statement reveal">I build AI systems that hold up in <em>production.</em></h2>
 
-          <div class="service-item reveal">
-            <h3 class="service-name">Document Intelligence</h3>
-            <p class="service-desc">Automated parsing and analysis of financial documents, invoices, and structured data, turning unstructured input into clean, actionable output at volume.</p>
-          </div>
-
-          <div class="service-item reveal">
-            <h3 class="service-name">Process & Content Systems</h3>
-            <p class="service-desc">End-to-end content pipelines, call grading systems, and cross-platform workflow automation built to run reliably in production, not just in demos.</p>
+          <div class="intro-body reveal">
+            <p>Most of my work is for Fortune 500 teams: AI agents and end-to-end automation that take over the slow, manual parts of sales, finance and operations, wired into the tools those teams already run on.</p>
+            <p>As Founding Engineer at <a href="https://truehorizon.ai/" target="_blank" rel="noopener">TrueHorizon AI</a>, my work spanned the core automation infrastructure, client delivery and the repeatable frameworks that helped scale the company to $2.5M ARR.</p>
+            <p>Right now I am also building THAI UI, TrueHorizon AI's AI agent platform: the agents and workflow automation inside it, and the product around them, built with Claude Code and Codex.</p>
+            <a class="text-link" href="about/">Read the full story <span aria-hidden="true">→</span></a>
           </div>
         </div>
+
+        <dl class="proof-row">
+          <div class="proof reveal">
+            <dt class="proof__label">ARR at TrueHorizon AI</dt>
+            <dd class="proof__value"><span data-count="2.5" data-decimals="1" data-prefix="$" data-suffix="M" data-duration="1600">$2.5M</span></dd>
+            <dd class="proof__note">Helped scale it as Founding Engineer</dd>
+          </div>
+          <div class="proof reveal">
+            <dt class="proof__label">AI agents</dt>
+            <dd class="proof__value"><span data-count="20" data-suffix="+" data-duration="1500">20+</span></dd>
+            <dd class="proof__note">Deployed and running in production</dd>
+          </div>
+          <div class="proof reveal">
+            <dt class="proof__label">End-to-end systems</dt>
+            <dd class="proof__value"><span data-count="10" data-suffix="+" data-duration="1400">10+</span></dd>
+            <dd class="proof__note">From first workflow to live deployment</dd>
+          </div>
+          <div class="proof reveal">
+            <dt class="proof__label">Client base</dt>
+            <dd class="proof__value proof__value--text">Fortune&nbsp;500</dd>
+            <dd class="proof__note">Where most of these systems run</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <!-- ─── Featured Work ─── -->
-    <section id="work">
+    <!-- ─── 02 Speaking ─── -->
+    <section id="speaking">
       <div class="container">
         <div class="section-label-row reveal">
           <span class="section-num">02</span>
-          <span class="section-tag">Selected Projects</span>
-        </div>
-        <h2 class="section-heading reveal">Featured Work</h2>
-        <p class="work-intro reveal">A selection of systems built for enterprise and Fortune 500 clients.</p>
-
-        <div class="work-card-grid">
-
-          <!-- Card 1 -->
-          <div class="work-card reveal" role="button" tabindex="0" aria-label="Automated Sales Pipeline">
-            <div class="work-card__inner">
-              <div class="work-card__front">
-                <div class="work-card__top">
-                  <span class="work-num">01</span>
-                  <span class="work-tag">Revenue Automation</span>
-                </div>
-                <h3 class="work-card__title">Automated Sales Pipeline</h3>
-                <p class="work-card__client">US-Based Nonprofit · Catholic Organization</p>
-                <p class="work-card__brief">End-to-end pipeline that qualifies leads, sequences follow-ups, and syncs to CRM without any human intervention.</p>
-                <div class="work-card__tools">
-                  <span>n8n</span><span>Salesforce</span><span>OpenAI</span><span>Supabase</span>
-                </div>
-                <div class="work-card__hint">
-                  <span>Explore</span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-              </div>
-              <div class="work-card__back">
-                <div class="work-card__back-top">
-                  <span class="work-tag">Revenue Automation</span>
-                  <button class="work-card__close" aria-label="Flip back">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                  </button>
-                </div>
-                <h3 class="work-card__title">Automated Sales Pipeline</h3>
-                <p class="work-card__desc">A full end-to-end pipeline replacing manual outreach with intelligent workflows. Leads are qualified automatically, follow-ups sequenced, and all data synced to Salesforce, running entirely without human input at every step.</p>
-                <div class="work-card__result">
-                  <span class="work-card__result-label">Result</span>
-                  <span class="work-card__result-text">Eliminated hours of daily manual outreach. Scaled lead engagement without adding a single person.</span>
-                </div>
-                <a href="#contact" class="work-card__cta">Build something similar →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="work-card reveal" role="button" tabindex="0" aria-label="Call Grading System">
-            <div class="work-card__inner">
-              <div class="work-card__front">
-                <div class="work-card__top">
-                  <span class="work-num">02</span>
-                  <span class="work-tag">Process Automation</span>
-                </div>
-                <h3 class="work-card__title">Call Grading System</h3>
-                <p class="work-card__client">Enterprise · Sales & Support Teams</p>
-                <p class="work-card__brief">AI that reviews, scores, and surfaces insights from sales calls, giving managers the signal without the manual review overhead.</p>
-                <div class="work-card__tools">
-                  <span>Fireflies API</span><span>OpenAI</span><span>n8n</span><span>Supabase</span>
-                </div>
-                <div class="work-card__hint">
-                  <span>Explore</span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-              </div>
-              <div class="work-card__back">
-                <div class="work-card__back-top">
-                  <span class="work-tag">Process Automation</span>
-                  <button class="work-card__close" aria-label="Flip back">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                  </button>
-                </div>
-                <h3 class="work-card__title">Call Grading System</h3>
-                <p class="work-card__desc">Automatically ingests, transcribes, and scores sales and support calls against custom rubrics. Surfaces coachable moments and flags underperforming patterns, all before the manager opens their inbox.</p>
-                <div class="work-card__result">
-                  <span class="work-card__result-label">Result</span>
-                  <span class="work-card__result-text">Replaced hours of manual call review. Enabled consistent, data-driven coaching at scale.</span>
-                </div>
-                <a href="#contact" class="work-card__cta">Build something similar →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="work-card reveal" role="button" tabindex="0" aria-label="Invoice Parsing System">
-            <div class="work-card__inner">
-              <div class="work-card__front">
-                <div class="work-card__top">
-                  <span class="work-num">03</span>
-                  <span class="work-tag">Document Intelligence</span>
-                </div>
-                <h3 class="work-card__title">Invoice Parsing System</h3>
-                <p class="work-card__client">E-Commerce Brands</p>
-                <p class="work-card__brief">Automated invoice extraction that eliminates manual data entry across high-volume order flows. Zero human touch on routine documents.</p>
-                <div class="work-card__tools">
-                  <span>OpenAI</span><span>MongoDB</span><span>n8n</span>
-                </div>
-                <div class="work-card__hint">
-                  <span>Explore</span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-              </div>
-              <div class="work-card__back">
-                <div class="work-card__back-top">
-                  <span class="work-tag">Document Intelligence</span>
-                  <button class="work-card__close" aria-label="Flip back">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                  </button>
-                </div>
-                <h3 class="work-card__title">Invoice Parsing System</h3>
-                <p class="work-card__desc">Reads incoming invoices in any format, extracts structured data, validates it against order records, and writes clean entries to the database, handling thousands of documents with no manual input required.</p>
-                <div class="work-card__result">
-                  <span class="work-card__result-label">Result</span>
-                  <span class="work-card__result-text">Eliminated manual invoice entry entirely. Scaled to high document volumes with zero additional effort.</span>
-                </div>
-                <a href="#contact" class="work-card__cta">Build something similar →</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="work-card reveal" role="button" tabindex="0" aria-label="Finance Document Agent">
-            <div class="work-card__inner">
-              <div class="work-card__front">
-                <div class="work-card__top">
-                  <span class="work-num">04</span>
-                  <span class="work-tag">Financial Intelligence</span>
-                </div>
-                <h3 class="work-card__title">Finance Document Agent</h3>
-                <p class="work-card__client">Enterprise · Financial Services</p>
-                <p class="work-card__brief">AI agent that reads financial documents and outputs structured, formatted loan applications, removing bottlenecks in document-heavy workflows.</p>
-                <div class="work-card__tools">
-                  <span>OpenAI</span><span>Pinecone</span><span>Supabase</span><span>Gemini</span>
-                </div>
-                <div class="work-card__hint">
-                  <span>Explore</span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-              </div>
-              <div class="work-card__back">
-                <div class="work-card__back-top">
-                  <span class="work-tag">Financial Intelligence</span>
-                  <button class="work-card__close" aria-label="Flip back">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                  </button>
-                </div>
-                <h3 class="work-card__title">Finance Document Agent</h3>
-                <p class="work-card__desc">Reads and interprets unstructured financial documents using vector search and LLMs, then populates and formats a complete loan application, cutting the most time-consuming part of the review process.</p>
-                <div class="work-card__result">
-                  <span class="work-card__result-label">Result</span>
-                  <span class="work-card__result-text">Drastically cut loan application processing time. Removed manual document review from standard application workflows.</span>
-                </div>
-                <a href="#contact" class="work-card__cta">Build something similar →</a>
-              </div>
-            </div>
-          </div>
-
-
+          <span class="section-tag">Speaking</span>
         </div>
 
-        <!-- Many more -->
-        <div class="work-more reveal">
-          <p class="work-more__text">...and many more built for Fortune 500 companies across sales, finance, and operations.</p>
+        <div class="talk-head">
+          <h2 class="section-heading talk-heading reveal">Showing the <span class="nowrap">work, <em>live.</em></span></h2>
+          <p class="talk-lede reveal">At the n8n Builders Challenge in Ho Chi Minh City, I presented live n8n workflows on the big screen to a room of builders, then worked hands-on with the teams through the build hours.</p>
         </div>
 
+        <figure class="talk-hero reveal">
+          <div class="talk-hero__frame" data-kenburns style="--kb-dur:26s">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/hcmc/speaking-960.webp 960w, assets/hcmc/speaking-1600.webp 1600w"
+                      sizes="(max-width: 1160px) 92vw, 1040px">
+              <img src="assets/hcmc/speaking-960.jpg"
+                   srcset="assets/hcmc/speaking-960.jpg 960w, assets/hcmc/speaking-1600.jpg 1600w"
+                   sizes="(max-width: 1160px) 92vw, 1040px"
+                   width="1600" height="1067"
+                   alt="Deepankar presenting a live workflow on a large screen to a room of builders at the n8n Builders Challenge"
+                   loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <figcaption class="talk-caption">Speaking at the n8n Builders Challenge · Ho Chi Minh City, Sep 2026</figcaption>
+        </figure>
+
+        <div class="talk-details">
+          <dl class="talk-facts reveal">
+            <div><dt>Event</dt><dd>n8n Builders Challenge</dd></div>
+            <div><dt>City</dt><dd>Ho Chi Minh City, Vietnam</dd></div>
+            <div><dt>Date</dt><dd>Saturday, 19 Sep 2026</dd></div>
+            <div><dt>Format</dt><dd>Live workflow demos, then hands-on build hours</dd></div>
+          </dl>
+          <div class="talk-aside reveal">
+            <p class="talk-note">Before that, I was a guest consultant at an off-site hosted by a Fortune 500 company, showing GTM leaders how to implement AI practically and speed up adoption.</p>
+            <a class="text-link" href="#contact">Invite me to speak <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="talk-strip">
+          <figure class="talk-shot talk-shot--wide reveal">
+            <div class="talk-shot__frame" data-kenburns style="--kb-dur:24s;--kb-x:2%;--kb-y:-1.2%">
+              <picture>
+                <source type="image/webp" srcset="assets/hcmc/pitch-800.webp 800w, assets/hcmc/pitch-1400.webp 1400w" sizes="(max-width: 760px) 50vw, 340px">
+                <img src="assets/hcmc/pitch-800.jpg" width="800" height="533" alt="Pointing at an n8n workflow on screen beside the n8n Builders Challenge banner" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption>Walking through a live n8n workflow</figcaption>
+          </figure>
+          <figure class="talk-shot talk-shot--wide reveal">
+            <div class="talk-shot__frame" data-kenburns style="--kb-dur:21s;--kb-x:-1.8%;--kb-y:1%">
+              <picture>
+                <source type="image/webp" srcset="assets/hcmc/demo-800.webp 800w, assets/hcmc/demo-1400.webp 1400w" sizes="(max-width: 760px) 50vw, 340px">
+                <img src="assets/hcmc/demo-800.jpg" width="800" height="533" alt="Gesturing at a screen showing a consultation intake form" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption>Breaking down an intake flow on screen</figcaption>
+          </figure>
+          <figure class="talk-shot talk-shot--tall reveal">
+            <div class="talk-shot__frame" data-kenburns style="--kb-dur:26s;--kb-x:-1.2%;--kb-y:-2%">
+              <picture>
+                <source type="image/webp" srcset="assets/hcmc/focus-600.webp 600w, assets/hcmc/focus-900.webp 900w" sizes="(max-width: 760px) 50vw, 200px">
+                <img src="assets/hcmc/focus-600.jpg" width="600" height="702" alt="Deepankar at a laptop, hand on chin, thinking through a problem" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption>Thinking through a build</figcaption>
+          </figure>
+          <figure class="talk-shot talk-shot--wide reveal">
+            <div class="talk-shot__frame" data-kenburns style="--kb-dur:23s;--kb-x:1.6%;--kb-y:-1.4%">
+              <picture>
+                <source type="image/webp" srcset="assets/hcmc/room-800.webp 800w, assets/hcmc/room-1400.webp 1400w" sizes="(max-width: 760px) 50vw, 340px">
+                <img src="assets/hcmc/room-800.jpg" width="800" height="533" alt="Wide view of the busy build room, Deepankar typing at the right" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption>The build room, mid-challenge</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <!-- ─── Qixazow: joint venture ─── -->
-    <section id="venture">
+    <!-- ─── 03 Selected Work: case studies with live system canvases ─── -->
+    <section id="work" class="cs" data-cs aria-labelledby="work-title">
       <div class="container">
         <div class="section-label-row reveal">
           <span class="section-num">03</span>
-          <span class="section-tag">Joint Venture</span>
+          <span class="section-tag">Selected Work</span>
         </div>
 
-        <div class="venture-card reveal">
-          <div class="venture-card__content">
-            <div class="venture-tags">
-              <span class="venture-tag">Joint Venture</span>
-              <span class="venture-tag">AI Media</span>
-              <span class="venture-tag">Consultancy</span>
-            </div>
-            <h3 class="venture-title">Qixazow<em>.com</em></h3>
-            <p class="venture-desc">
-              I'm a co-founder of Qixazow, built together with two fellow AI
-              professionals. A publication and consultancy covering n8n, Claude,
-              and business AI integration.
-            </p>
-            <a href="https://qixazow.com/" target="_blank" rel="noopener" class="btn btn--primary venture-cta">
-              Visit Qixazow.com
-              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="2"/></svg>
-            </a>
+        <div class="cs-head">
+          <h2 class="section-heading reveal" id="work-title">Systems <span class="nowrap">that <em>ship.</em></span></h2>
+          <div class="cs-head__aside reveal">
+            <p class="cs-intro">A selection of systems built for enterprise and Fortune 500 clients. Each canvas maps how the system runs, from the first trigger to the final record.</p>
+            <p class="cs-note">Canvases and run logs are illustrative and contain no client data.</p>
           </div>
-          <div class="venture-card__tiles">
-            <div class="venture-tile">
-              <span class="venture-tile__label">Articles &amp; Insights</span>
-              <span class="venture-tile__text">Expert AI guides and deep-dives</span>
-            </div>
-            <div class="venture-tile">
-              <span class="venture-tile__label">Business AI</span>
-              <span class="venture-tile__text">Workflow automation consulting</span>
-            </div>
-            <div class="venture-tile">
-              <span class="venture-tile__label">Video Content</span>
-              <span class="venture-tile__text">AI tool breakdowns and tutorials</span>
+        </div>
+
+        <div class="cs-stage">
+          <div class="cs-list">
+
+            <!-- 01 · Automated Sales Pipeline -->
+            <article class="cs-case" id="cs-sales" data-cs-case aria-labelledby="cs-sales-title">
+              <div class="cs-case__body">
+                <p class="cs-case__meta"><span class="cs-case__num">01</span><span class="cs-case__tag">Revenue Automation</span></p>
+                <h3 class="cs-case__title" id="cs-sales-title">Automated Sales Pipeline</h3>
+                <p class="cs-case__client"><span>Client</span>US-based nonprofit · Catholic organization</p>
+                <dl class="cs-facts">
+                  <div class="cs-fact">
+                    <dt>Problem</dt>
+                    <dd>Outreach was manual: leads qualified, followed up and entered into the CRM by hand, for hours every day.</dd>
+                  </div>
+                  <div class="cs-fact">
+                    <dt>System</dt>
+                    <dd>An end-to-end pipeline that replaces manual outreach with intelligent workflows. Leads are qualified automatically, follow-ups sequenced and all data synced to Salesforce, with no human input at any step.</dd>
+                  </div>
+                  <div class="cs-fact cs-fact--result">
+                    <dt>Result</dt>
+                    <dd>Eliminated hours of daily manual outreach. Scaled lead engagement without adding a single person.</dd>
+                  </div>
+                </dl>
+                <ul class="cs-stack" aria-label="Stack">
+                  <li><img src="assets/logos/n8n.svg" alt="" width="16" height="16" loading="lazy" decoding="async">n8n</li>
+                  <li><img src="assets/logos/salesforce.svg" alt="" width="16" height="16" loading="lazy" decoding="async">Salesforce</li>
+                  <li><img src="assets/logos/openai.svg" alt="" width="16" height="16" loading="lazy" decoding="async">OpenAI</li>
+                  <li><img src="assets/logos/supabase.svg" alt="" width="16" height="16" loading="lazy" decoding="async">Supabase</li>
+                </ul>
+                <a href="#contact" class="cs-cta"><span>Build something similar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+
+              <div class="cs-case__canvas">
+                <div class="cs-canvas" data-cs-canvas>
+                  <div class="cs-canvas__bar">
+                    <span class="cs-canvas__app"><img src="assets/logos/n8n.svg" alt="" width="14" height="14" loading="lazy" decoding="async"></span>
+                    <span class="cs-canvas__name">Lead pipeline</span>
+                    <span class="cs-canvas__hint">How it runs</span>
+                    <span class="cs-canvas__env"><i class="cs-toggle"></i>Production</span>
+                  </div>
+                  <div class="cs-canvas__stage" data-cs-stage role="img" aria-label="Diagram of how the Automated Sales Pipeline runs: a new lead triggers the workflow, OpenAI qualifies it, it is scored and routed, follow-ups are sequenced and activity is logged to Supabase, then the record syncs to Salesforce." data-edges="a>b b>c c>d c>f d>e" data-run="a|a>b|b>c|c>d c>f|d>e">
+                    <p class="cs-sticky" aria-hidden="true" style="--nw:36%"><span>Design note</span>No human input at any step: qualification, follow-ups and the CRM sync all run on their own.</p>
+                    <div class="cs-node cs-node--trigger" data-node="a" style="--x:10;--y:46;--mx:22;--my:12">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 19.5a6.5 6.5 0 0 1 13 0"/><path d="M19 7.5v6M16 10.5h6"/></svg></span>
+                      <span class="cs-node__label">New lead<small>Trigger</small></span>
+                    </div>
+                    <div class="cs-node" data-node="b" style="--x:29;--y:46;--mx:76;--my:12">
+                      <span class="cs-node__icon"><img src="assets/logos/openai.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Qualify lead<small>OpenAI</small></span>
+                    </div>
+                    <div class="cs-node" data-node="c" style="--x:48;--y:46;--mx:22;--my:46">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12h5"/><path d="M8 12c3.2 0 3.6-6 7-6h5"/><path d="M8 12c3.2 0 3.6 6 7 6h5"/><path d="m17.5 3.5 2.5 2.5-2.5 2.5"/><path d="m17.5 15.5 2.5 2.5-2.5 2.5"/></svg></span>
+                      <span class="cs-node__label">Score &amp; route<small>Switch</small></span>
+                    </div>
+                    <div class="cs-node" data-node="d" style="--x:68;--y:22;--mx:76;--my:46">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 10v3.5l2.5 1.5"/><path d="M9.5 2.5h5M12 2.5V6"/></svg></span>
+                      <span class="cs-node__label">Follow-up sequence<small>Wait + send</small></span>
+                    </div>
+                    <div class="cs-node" data-node="e" style="--x:89;--y:22;--mx:76;--my:80">
+                      <span class="cs-node__icon"><img src="assets/logos/salesforce.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Sync to CRM<small>Salesforce</small></span>
+                    </div>
+                    <div class="cs-node" data-node="f" style="--x:74;--y:74;--mx:22;--my:80">
+                      <span class="cs-node__icon"><img src="assets/logos/supabase.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Log activity<small>Supabase</small></span>
+                    </div>
+                  </div>
+                  <div class="cs-log">
+                    <p class="cs-log__head"><span class="cs-log__title">Run log</span><span class="cs-log__note">illustrative</span><span class="cs-log__status" data-cs-status><i class="cs-log__icon"></i><span class="cs-log__text">Succeeded</span></span></p>
+                    <ol class="cs-log__list">
+                      <li>Lead captured</li>
+                      <li>Qualified by AI</li>
+                      <li>Scored and routed</li>
+                      <li>Follow-ups sequenced, activity logged</li>
+                      <li>Synced to Salesforce</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 02 · Call Grading System -->
+            <article class="cs-case" id="cs-calls" data-cs-case aria-labelledby="cs-calls-title">
+              <div class="cs-case__body">
+                <p class="cs-case__meta"><span class="cs-case__num">02</span><span class="cs-case__tag">Process Automation</span></p>
+                <h3 class="cs-case__title" id="cs-calls-title">Call Grading System</h3>
+                <p class="cs-case__client"><span>Client</span>Enterprise · Sales and support teams</p>
+                <dl class="cs-facts">
+                  <div class="cs-fact">
+                    <dt>Problem</dt>
+                    <dd>Coaching depended on hours of manual call review across sales and support teams.</dd>
+                  </div>
+                  <div class="cs-fact">
+                    <dt>System</dt>
+                    <dd>Automatically ingests, transcribes and scores calls against custom rubrics. It surfaces coachable moments and flags underperforming patterns, all before the manager opens their inbox.</dd>
+                  </div>
+                  <div class="cs-fact cs-fact--result">
+                    <dt>Result</dt>
+                    <dd>Replaced hours of manual call review. Enabled consistent, data-driven coaching at scale.</dd>
+                  </div>
+                </dl>
+                <ul class="cs-stack" aria-label="Stack">
+                  <li><svg class="cs-glyph" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M3 11v2M6.5 8v8M10 4.5v15M13.5 8.5v7M17 6v12M20.5 10.5v3"/></svg>Fireflies API</li>
+                  <li><img src="assets/logos/openai.svg" alt="" width="16" height="16" loading="lazy" decoding="async">OpenAI</li>
+                  <li><img src="assets/logos/n8n.svg" alt="" width="16" height="16" loading="lazy" decoding="async">n8n</li>
+                  <li><img src="assets/logos/supabase.svg" alt="" width="16" height="16" loading="lazy" decoding="async">Supabase</li>
+                </ul>
+                <a href="#contact" class="cs-cta"><span>Build something similar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+
+              <div class="cs-case__canvas">
+                <div class="cs-canvas" data-cs-canvas>
+                  <div class="cs-canvas__bar">
+                    <span class="cs-canvas__app"><img src="assets/logos/n8n.svg" alt="" width="14" height="14" loading="lazy" decoding="async"></span>
+                    <span class="cs-canvas__name">Call grading</span>
+                    <span class="cs-canvas__hint">How it runs</span>
+                    <span class="cs-canvas__env"><i class="cs-toggle"></i>Production</span>
+                  </div>
+                  <div class="cs-canvas__stage" data-cs-stage role="img" aria-label="Diagram of how the Call Grading System runs: a new call recording arrives from Fireflies, the transcript is fetched, OpenAI scores it against the rubric and flags coachable moments, then scores are stored in Supabase and a summary goes to the manager." data-edges="a>b b>c c>d d>e d>f" data-run="a|a>b|b>c|c>d|d>e d>f">
+                    <p class="cs-sticky" aria-hidden="true"><span>Design note</span>Custom rubrics on every call. The coaching signal is ready before the manager opens their inbox.</p>
+                    <div class="cs-node cs-node--trigger" data-node="a" style="--x:9;--y:46;--mx:22;--my:12">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M3 11v2M6.5 8v8M10 4.5v15M13.5 8.5v7M17 6v12M20.5 10.5v3"/></svg></span>
+                      <span class="cs-node__label">New call<small>Fireflies</small></span>
+                    </div>
+                    <div class="cs-node" data-node="b" style="--x:27;--y:46;--mx:76;--my:12">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 12.5h7M8.5 16.5h4.5"/></svg></span>
+                      <span class="cs-node__label">Get transcript<small>Fireflies API</small></span>
+                    </div>
+                    <div class="cs-node" data-node="c" style="--x:45;--y:46;--mx:22;--my:46">
+                      <span class="cs-node__icon"><img src="assets/logos/openai.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Score vs rubric<small>OpenAI</small></span>
+                    </div>
+                    <div class="cs-node" data-node="d" style="--x:63;--y:46;--mx:76;--my:46">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.5 21V4"/><path d="M5.5 4.5h11.5l-2.5 4 2.5 4H5.5"/></svg></span>
+                      <span class="cs-node__label">Flag patterns<small>OpenAI</small></span>
+                    </div>
+                    <div class="cs-node" data-node="e" style="--x:88;--y:22;--mx:76;--my:80">
+                      <span class="cs-node__icon"><img src="assets/logos/supabase.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Store scores<small>Supabase</small></span>
+                    </div>
+                    <div class="cs-node" data-node="f" style="--x:88;--y:72;--mx:22;--my:80">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.8 7 8.2 6 8.2-6"/></svg></span>
+                      <span class="cs-node__label">Manager summary<small>Inbox</small></span>
+                    </div>
+                  </div>
+                  <div class="cs-log">
+                    <p class="cs-log__head"><span class="cs-log__title">Run log</span><span class="cs-log__note">illustrative</span><span class="cs-log__status" data-cs-status><i class="cs-log__icon"></i><span class="cs-log__text">Succeeded</span></span></p>
+                    <ol class="cs-log__list">
+                      <li>Call recorded</li>
+                      <li>Transcript ready</li>
+                      <li>Scored against rubric</li>
+                      <li>Coachable moments flagged</li>
+                      <li>Scores stored, summary sent</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 03 · Invoice Parsing System -->
+            <article class="cs-case" id="cs-invoices" data-cs-case aria-labelledby="cs-invoices-title">
+              <div class="cs-case__body">
+                <p class="cs-case__meta"><span class="cs-case__num">03</span><span class="cs-case__tag">Document Intelligence</span></p>
+                <h3 class="cs-case__title" id="cs-invoices-title">Invoice Parsing System</h3>
+                <p class="cs-case__client"><span>Client</span>E-commerce brands</p>
+                <dl class="cs-facts">
+                  <div class="cs-fact">
+                    <dt>Problem</dt>
+                    <dd>Invoices in every format, keyed in by hand across high-volume order flows.</dd>
+                  </div>
+                  <div class="cs-fact">
+                    <dt>System</dt>
+                    <dd>Reads incoming invoices in any format, extracts structured data, validates it against order records and writes clean entries to the database. Thousands of documents, no manual input required.</dd>
+                  </div>
+                  <div class="cs-fact cs-fact--result">
+                    <dt>Result</dt>
+                    <dd>Eliminated manual invoice entry entirely. Scaled to high document volumes with zero additional effort.</dd>
+                  </div>
+                </dl>
+                <ul class="cs-stack" aria-label="Stack">
+                  <li><img src="assets/logos/openai.svg" alt="" width="16" height="16" loading="lazy" decoding="async">OpenAI</li>
+                  <li><img src="assets/logos/mongodb.svg" alt="" width="16" height="16" loading="lazy" decoding="async">MongoDB</li>
+                  <li><img src="assets/logos/n8n.svg" alt="" width="16" height="16" loading="lazy" decoding="async">n8n</li>
+                </ul>
+                <a href="#contact" class="cs-cta"><span>Build something similar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+
+              <div class="cs-case__canvas">
+                <div class="cs-canvas" data-cs-canvas>
+                  <div class="cs-canvas__bar">
+                    <span class="cs-canvas__app"><img src="assets/logos/n8n.svg" alt="" width="14" height="14" loading="lazy" decoding="async"></span>
+                    <span class="cs-canvas__name">Invoice parsing</span>
+                    <span class="cs-canvas__hint">How it runs</span>
+                    <span class="cs-canvas__env"><i class="cs-toggle"></i>Production</span>
+                  </div>
+                  <div class="cs-canvas__stage" data-cs-stage role="img" aria-label="Diagram of how the Invoice Parsing System runs: an invoice arrives, the file is read in any format, OpenAI extracts the fields, they are validated against order records in MongoDB, and a clean entry is written to the database." data-edges="a>b b>c c>d d>e" data-run="a|a>b|b>c|c>d|d>e">
+                    <p class="cs-sticky" aria-hidden="true"><span>Design note</span>Any invoice format in, clean records out. Every entry is checked against order records first.</p>
+                    <div class="cs-node cs-node--trigger" data-node="a" style="--x:10;--y:44;--mx:22;--my:12">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 12.5h7M8.5 16.5h4.5"/></svg></span>
+                      <span class="cs-node__label">Invoice arrives<small>Trigger</small></span>
+                    </div>
+                    <div class="cs-node" data-node="b" style="--x:30;--y:44;--mx:76;--my:12">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M8 9h8M8 12h8M8 15h5"/></svg></span>
+                      <span class="cs-node__label">Read any format<small>Extract file</small></span>
+                    </div>
+                    <div class="cs-node" data-node="c" style="--x:50;--y:44;--mx:22;--my:46">
+                      <span class="cs-node__icon"><img src="assets/logos/openai.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Extract fields<small>OpenAI</small></span>
+                    </div>
+                    <div class="cs-node" data-node="d" style="--x:70;--y:44;--mx:76;--my:46">
+                      <span class="cs-node__icon"><img src="assets/logos/mongodb.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Match to order<small>MongoDB</small></span>
+                    </div>
+                    <div class="cs-node" data-node="e" style="--x:90;--y:44;--mx:76;--my:80">
+                      <span class="cs-node__icon"><img src="assets/logos/mongodb.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Write entry<small>MongoDB</small></span>
+                    </div>
+                  </div>
+                  <div class="cs-log">
+                    <p class="cs-log__head"><span class="cs-log__title">Run log</span><span class="cs-log__note">illustrative</span><span class="cs-log__status" data-cs-status><i class="cs-log__icon"></i><span class="cs-log__text">Succeeded</span></span></p>
+                    <ol class="cs-log__list">
+                      <li>Invoice received</li>
+                      <li>Document read</li>
+                      <li>Fields extracted</li>
+                      <li>Matched to order record</li>
+                      <li>Clean entry written</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 04 · Finance Document Agent -->
+            <article class="cs-case" id="cs-finance" data-cs-case aria-labelledby="cs-finance-title">
+              <div class="cs-case__body">
+                <p class="cs-case__meta"><span class="cs-case__num">04</span><span class="cs-case__tag">Financial Intelligence</span></p>
+                <h3 class="cs-case__title" id="cs-finance-title">Finance Document Agent</h3>
+                <p class="cs-case__client"><span>Client</span>Enterprise · Financial services</p>
+                <dl class="cs-facts">
+                  <div class="cs-fact">
+                    <dt>Problem</dt>
+                    <dd>Loan applications were assembled by hand from unstructured financial documents, the slowest part of every review.</dd>
+                  </div>
+                  <div class="cs-fact">
+                    <dt>System</dt>
+                    <dd>An AI agent reads and interprets unstructured financial documents using vector search and LLMs, then populates and formats a complete loan application.</dd>
+                  </div>
+                  <div class="cs-fact cs-fact--result">
+                    <dt>Result</dt>
+                    <dd>Drastically cut loan application processing time. Removed manual document review from standard application workflows.</dd>
+                  </div>
+                </dl>
+                <ul class="cs-stack" aria-label="Stack">
+                  <li><img src="assets/logos/openai.svg" alt="" width="16" height="16" loading="lazy" decoding="async">OpenAI</li>
+                  <li><img class="is-mono" src="assets/logos/pinecone.svg" alt="" width="16" height="16" loading="lazy" decoding="async">Pinecone</li>
+                  <li><img src="assets/logos/supabase.svg" alt="" width="16" height="16" loading="lazy" decoding="async">Supabase</li>
+                  <li><img src="assets/logos/gemini.svg" alt="" width="16" height="16" loading="lazy" decoding="async">Gemini</li>
+                </ul>
+                <a href="#contact" class="cs-cta"><span>Build something similar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+
+              <div class="cs-case__canvas">
+                <div class="cs-canvas" data-cs-canvas style="--mh:300px">
+                  <div class="cs-canvas__bar">
+                    <span class="cs-canvas__app cs-canvas__app--glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="8" width="16" height="12" rx="3.5"/><path d="M12 8V5.2"/><circle cx="12" cy="4" r="1.3"/><path d="M9.2 13.2v1.6M14.8 13.2v1.6"/></svg></span>
+                    <span class="cs-canvas__name">Loan document agent</span>
+                    <span class="cs-canvas__hint">How it runs</span>
+                    <span class="cs-canvas__env"><i class="cs-toggle"></i>Production</span>
+                  </div>
+                  <div class="cs-canvas__stage" data-cs-stage role="img" aria-label="Diagram of how the Finance Document Agent runs: documents arrive, an AI agent reads them with Gemini, retrieves context through Pinecone vector search, reasons with an OpenAI model, and saves a formatted loan application to Supabase." data-edges="a>c c-s1 c-s2 c-s3 c>e" data-run="a|a>c|c-s1|c-s2|c-s3|c>e">
+                    <p class="cs-sticky" aria-hidden="true"><span>Design note</span>Vector search and LLMs turn unstructured financial documents into a complete, formatted loan application.</p>
+                    <div class="cs-node cs-node--trigger" data-node="a" style="--x:12;--y:42;--mx:14;--my:16">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6.5V5a2 2 0 0 1 2-2h5.5L20 6.5V16a2 2 0 0 1-2 2h-1.5"/><rect x="4" y="6.5" width="12.5" height="14.5" rx="2"/><path d="M7.5 11.5h5.5M7.5 15h3.5"/></svg></span>
+                      <span class="cs-node__label">Documents in<small>Upload</small></span>
+                    </div>
+                    <div class="cs-node cs-node--agent" data-node="c" style="--x:48;--y:42;--mx:50;--my:16">
+                      <span class="cs-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="8" width="16" height="12" rx="3.5"/><path d="M12 8V5.2"/><circle cx="12" cy="4" r="1.3"/><path d="M9.2 13.2v1.6M14.8 13.2v1.6"/><path d="M2 12.5v3M22 12.5v3"/></svg></span>
+                      <span class="cs-node__inline">Finance agent<small>AI Agent</small></span>
+                    </div>
+                    <div class="cs-node cs-node--sub" data-node="s1" style="--x:30;--y:82;--mx:18;--my:64">
+                      <span class="cs-node__icon"><img src="assets/logos/gemini.svg" alt="" width="20" height="20" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Doc reader<small>Gemini</small></span>
+                    </div>
+                    <div class="cs-node cs-node--sub" data-node="s2" style="--x:48;--y:82;--mx:50;--my:64">
+                      <span class="cs-node__icon"><img class="is-mono" src="assets/logos/pinecone.svg" alt="" width="20" height="20" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Vector store<small>Pinecone</small></span>
+                    </div>
+                    <div class="cs-node cs-node--sub" data-node="s3" style="--x:66;--y:82;--mx:82;--my:64">
+                      <span class="cs-node__icon"><img src="assets/logos/openai.svg" alt="" width="20" height="20" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Chat model<small>OpenAI</small></span>
+                    </div>
+                    <div class="cs-node" data-node="e" style="--x:85;--y:42;--mx:86;--my:16">
+                      <span class="cs-node__icon"><img src="assets/logos/supabase.svg" alt="" width="26" height="26" loading="lazy" decoding="async"></span>
+                      <span class="cs-node__label">Loan application<small>Supabase</small></span>
+                    </div>
+                  </div>
+                  <div class="cs-log">
+                    <p class="cs-log__head"><span class="cs-log__title">Run log</span><span class="cs-log__note">illustrative</span><span class="cs-log__status" data-cs-status><i class="cs-log__icon"></i><span class="cs-log__text">Succeeded</span></span></p>
+                    <ol class="cs-log__list">
+                      <li>Documents received</li>
+                      <li>Agent started</li>
+                      <li>Documents read</li>
+                      <li>Context retrieved</li>
+                      <li>Application drafted</li>
+                      <li>Formatted application saved</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Desktop: one sticky canvas that morphs to the case in view (work.js moves the canvases in here) -->
+          <div class="cs-rail" data-cs-rail>
+            <div class="cs-rail__sticky">
+              <div class="cs-frame" data-cs-frame></div>
+              <div class="cs-progress">
+                <p class="cs-progress__count" aria-hidden="true"><span class="cs-progress__win"><span class="cs-progress__reel" data-cs-reel><span>01</span><span>02</span><span>03</span><span>04</span></span></span><span class="cs-progress__of">/ 04</span></p>
+                <ol class="cs-progress__track" aria-label="Case studies">
+                  <li><a href="#cs-sales" data-cs-seg><span class="cs-progress__fill"></span><span class="cs-sr">01 Automated Sales Pipeline</span></a></li>
+                  <li><a href="#cs-calls" data-cs-seg><span class="cs-progress__fill"></span><span class="cs-sr">02 Call Grading System</span></a></li>
+                  <li><a href="#cs-invoices" data-cs-seg><span class="cs-progress__fill"></span><span class="cs-sr">03 Invoice Parsing System</span></a></li>
+                  <li><a href="#cs-finance" data-cs-seg><span class="cs-progress__fill"></span><span class="cs-sr">04 Finance Document Agent</span></a></li>
+                </ol>
+                <p class="cs-progress__legend" aria-hidden="true"><span class="cs-lg cs-lg--done">Step complete</span><span class="cs-lg cs-lg--pulse">Data in flight</span></p>
+              </div>
             </div>
           </div>
         </div>
+
+        <p class="cs-more">The four above are a sample of <strong>10+ end-to-end systems</strong> and <strong>20+ AI agents</strong> deployed in production, mostly for Fortune 500 clients across sales, finance and operations.</p>
+
+        <!-- Qixazow: co-founded venture, closes the Work section -->
+        <aside class="cs-venture" aria-labelledby="cs-venture-title">
+          <div class="cs-venture__lead">
+            <p class="cs-venture__kicker">Co-founded venture</p>
+            <h3 class="cs-venture__title" id="cs-venture-title">Qixazow</h3>
+            <p class="cs-venture__desc">A publication and consultancy covering n8n, Claude and business AI integration, co-founded with two fellow AI professionals.</p>
+          </div>
+          <ul class="cs-venture__list">
+            <li><span class="cs-venture__k">Articles &amp; insights</span><span class="cs-venture__v">Expert AI guides and deep-dives</span></li>
+            <li><span class="cs-venture__k">Business AI</span><span class="cs-venture__v">Workflow automation consulting</span></li>
+            <li><span class="cs-venture__k">Video content</span><span class="cs-venture__v">AI tool breakdowns and tutorials</span></li>
+          </ul>
+          <a href="https://qixazow.com/" target="_blank" rel="noopener" class="btn btn--primary cs-venture__cta">
+            Visit qixazow.com
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="2"/></svg>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ─── 04 Experience: roles and outcomes ─── -->
+    <section id="experience" class="xp" data-xp aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-label-row reveal">
+          <span class="section-num">04</span>
+          <span class="section-tag">Experience</span>
+        </div>
+
+        <div class="xp-head">
+          <h2 class="section-heading reveal" id="experience-title">A <em>proven</em> track record.</h2>
+          <p class="xp-intro reveal">Where I have built, advised and presented, and what each role delivered.</p>
+        </div>
+
+        <div class="xp-cols" aria-hidden="true"><span>Period</span><span>Role and scope</span><span>Outcome</span></div>
+        <ol class="xp-ledger">
+          <li class="xp-row reveal">
+            <div class="xp-row__in">
+              <p class="xp-when">Early 2025<span>to present</span></p>
+              <div class="xp-main">
+                <h3 class="xp-role">Founding Engineer</h3>
+                <p class="xp-org"><a href="https://truehorizon.ai/" target="_blank" rel="noopener">TrueHorizon AI<svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.8"/></svg></a></p>
+                <p class="xp-desc">One of the first members of the team. Built the core automation infrastructure, with work spanning system architecture, client delivery and the repeatable frameworks that serve enterprise clients reliably at scale.</p>
+                <p class="xp-scope">Architecture · Client delivery · Repeatable frameworks</p>
+              </div>
+              <div class="xp-out"><span class="xp-fig">$2.5M <small>ARR</small></span><span class="xp-cap">Helped scale the company</span></div>
+            </div>
+          </li>
+          <li class="xp-row reveal">
+            <div class="xp-row__in">
+              <p class="xp-when">Now<span>in active development</span></p>
+              <div class="xp-main">
+                <h3 class="xp-role">AI Engineer</h3>
+                <p class="xp-org">THAI UI · TrueHorizon AI</p>
+                <p class="xp-desc">Designing the AI agents, skills and workflow automation inside THAI UI, TrueHorizon AI's AI agent platform, and developing the product around them myself: the Vue interface and the Node and MongoDB services underneath. Built with Claude Code and Codex.</p>
+                <p class="xp-scope">AI agents · Workflow automation · Product development</p>
+              </div>
+              <div class="xp-out"><span class="xp-fig">End to end</span><span class="xp-cap">From agent logic to shipped UI</span></div>
+            </div>
+          </li>
+          <li class="xp-row reveal">
+            <div class="xp-row__in">
+              <p class="xp-when">Guest<span>engagement</span></p>
+              <div class="xp-main">
+                <h3 class="xp-role">Guest Consultant</h3>
+                <p class="xp-org">Fortune 500 off-site</p>
+                <p class="xp-desc">Showed GTM leaders how to implement AI practically and accelerate adoption across their teams.</p>
+                <p class="xp-scope">GTM leadership · AI adoption · Practical implementation</p>
+              </div>
+              <div class="xp-out"><span class="xp-fig">Fortune 500</span><span class="xp-cap">Host of the off-site</span></div>
+            </div>
+          </li>
+          <li class="xp-row reveal">
+            <div class="xp-row__in">
+              <p class="xp-when">Ongoing<span>co-founded venture</span></p>
+              <div class="xp-main">
+                <h3 class="xp-role">Co-founder</h3>
+                <p class="xp-org"><a href="https://qixazow.com/" target="_blank" rel="noopener">Qixazow<svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M4 12 12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.8"/></svg></a></p>
+                <p class="xp-desc">A publication and consultancy covering n8n, Claude and business AI integration, built with two fellow AI professionals.</p>
+                <p class="xp-scope">Publication · Consulting · Video</p>
+              </div>
+              <div class="xp-out"><span class="xp-fig">AI media</span><span class="xp-cap">Publication and consultancy</span></div>
+            </div>
+          </li>
+          <li class="xp-row reveal">
+            <div class="xp-row__in">
+              <p class="xp-when">19 Sep 2026<span>Ho Chi Minh City</span></p>
+              <div class="xp-main">
+                <h3 class="xp-role">Speaker</h3>
+                <p class="xp-org"><a href="#speaking">n8n Builders Challenge</a></p>
+                <p class="xp-desc">Presented live n8n workflows on the big screen to a room of builders, then worked hands-on with the teams during build hours.</p>
+                <p class="xp-scope">Live demos · Workflow design · Build hours</p>
+              </div>
+              <div class="xp-out"><span class="xp-fig">Live on stage</span><span class="xp-cap">Then hands-on with the teams</span></div>
+            </div>
+          </li>
+          <li class="xp-row reveal">
+            <div class="xp-row__in">
+              <p class="xp-when">Since<span>college</span></p>
+              <div class="xp-main">
+                <h3 class="xp-role">AI Automation Engineer</h3>
+                <p class="xp-org">Independent</p>
+                <p class="xp-desc">Automation systems for finance, e-commerce and enterprise sales teams, starting with real client work delivered alongside coursework.</p>
+                <p class="xp-scope">Finance · E-commerce · Enterprise sales</p>
+              </div>
+              <div class="xp-out"><span class="xp-fig">First client</span><span class="xp-cap">Paid, before graduating</span></div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="xp-hire">
+          <div class="xp-hire__head">
+            <h3 class="xp-hire__title">What teams hire me for</h3>
+            <p class="xp-hire__sub">Three kinds of systems, each backed by a case study above.</p>
+          </div>
+
+          <div class="xp-pillars">
+            <article class="xp-pillar reveal">
+              <div class="xp-pillar__in">
+                <ul class="xp-pillar__logos" aria-hidden="true">
+                  <li><img src="assets/logos/n8n.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/logos/salesforce.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/logos/openai.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/logos/supabase.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                </ul>
+                <h4 class="xp-pillar__name">Revenue Automation</h4>
+                <p class="xp-pillar__desc">AI-powered sales pipelines, lead qualification systems, and CRM integrations that replace manual outreach and scale revenue without adding headcount.</p>
+                <p class="xp-pillar__proof"><span>Case study</span><a href="#cs-sales">Automated Sales Pipeline</a></p>
+              </div>
+            </article>
+            <article class="xp-pillar reveal">
+              <div class="xp-pillar__in">
+                <ul class="xp-pillar__logos" aria-hidden="true">
+                  <li><img src="assets/logos/openai.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/logos/mongodb.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                  <li><img class="is-mono" src="assets/logos/pinecone.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/logos/gemini.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                </ul>
+                <h4 class="xp-pillar__name">Document Intelligence</h4>
+                <p class="xp-pillar__desc">Automated parsing and analysis of financial documents, invoices, and structured data, turning unstructured input into clean, actionable output at volume.</p>
+                <p class="xp-pillar__proof"><span>Case studies</span><a href="#cs-invoices">Invoice Parsing System</a><a href="#cs-finance">Finance Document Agent</a></p>
+              </div>
+            </article>
+            <article class="xp-pillar reveal">
+              <div class="xp-pillar__in">
+                <ul class="xp-pillar__logos" aria-hidden="true">
+                  <li><img src="assets/logos/n8n.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                  <li><svg class="cs-glyph" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" focusable="false"><path d="M3 11v2M6.5 8v8M10 4.5v15M13.5 8.5v7M17 6v12M20.5 10.5v3"/></svg></li>
+                  <li><img src="assets/logos/openai.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/logos/supabase.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></li>
+                </ul>
+                <h4 class="xp-pillar__name">Process &amp; Content Systems</h4>
+                <p class="xp-pillar__desc">End-to-end content pipelines, call grading systems, and cross-platform workflow automation built to run reliably in production, not just in demos.</p>
+                <p class="xp-pillar__proof"><span>Case study</span><a href="#cs-calls">Call Grading System</a></p>
+              </div>
+            </article>
+          </div>
+
+          <div class="xp-industries">
+            <p class="xp-industries__label">Industries served</p>
+            <ul class="xp-industries__list">
+              <li><span class="xp-ind__name">Finance</span><span class="xp-ind__proof">Finance Document Agent</span></li>
+              <li><span class="xp-ind__name">E-commerce</span><span class="xp-ind__proof">Invoice Parsing System</span></li>
+              <li><span class="xp-ind__name">Enterprise sales</span><span class="xp-ind__proof">Call Grading System</span></li>
+              <li><span class="xp-ind__name">Nonprofit</span><span class="xp-ind__proof">Automated Sales Pipeline</span></li>
+            </ul>
+          </div>
+
+          <div class="xp-industries xp-industries--tools">
+            <p class="xp-industries__label">Builds with</p>
+            <ul class="xp-industries__list">
+              <li><span class="xp-ind__name">Claude Code</span><span class="xp-ind__proof">Coding agent</span></li>
+              <li><span class="xp-ind__name">Codex</span><span class="xp-ind__proof">Coding agent</span></li>
+              <li><span class="xp-ind__name">n8n</span><span class="xp-ind__proof">Workflow orchestration</span></li>
+              <li><span class="xp-ind__name">Full stack</span><span class="xp-ind__proof">Vue, Node and MongoDB</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 05 Writing ─── -->
+    <section id="writing">
+      <div class="container">
+        <div class="section-label-row reveal">
+          <span class="section-num">05</span>
+          <span class="section-tag">Writing</span>
+        </div>
+
+        <div class="writing-head">
+          <h2 class="section-heading reveal">Notes from <span class="nowrap">the <em>build.</em></span></h2>
+          <p class="writing-intro reveal">Field notes on agents, automation and putting AI to work inside real companies. First published on TrueHorizon AI.</p>
+        </div>
+
+        <div class="post-cards">
+          <a class="post-card reveal" href="blog/claude-design-enterprise-guide.html">
+            <span class="post-card__meta"><span class="post-card__cat">Enterprise AI</span><span aria-hidden="true">·</span>6 min read</span>
+            <h3 class="post-card__title">Claude Design for Enterprises: 6 Things to Know Before You Prototype</h3>
+            <span class="post-card__excerpt">It is not a prettier Canva. Design system extraction, the four-part prompt framework, and an honest map of where it still breaks.</span>
+            <span class="post-card__more">Read the note <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+          <a class="post-card reveal" href="blog/youtube-research-ai-agents.html">
+            <span class="post-card__meta"><span class="post-card__cat">AI Agents</span><span aria-hidden="true">·</span>5 min read</span>
+            <h3 class="post-card__title">The AI Agent That Does YouTube Research While You Sleep</h3>
+            <span class="post-card__excerpt">Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on validated data instead of guesswork.</span>
+            <span class="post-card__more">Read the note <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+          <a class="post-card reveal" href="blog/n8n-mcp-claude-code.html">
+            <span class="post-card__meta"><span class="post-card__cat">Automation</span><span aria-hidden="true">·</span>5 min read</span>
+            <h3 class="post-card__title">Stop Prototyping Slowly: n8n MCP + Claude Code</h3>
+            <span class="post-card__excerpt">From plain-English prompt to production-shaped workflow in about 20 minutes. Why MCP changes what Claude actually knows about your stack, and where humans still matter.</span>
+            <span class="post-card__more">Read the note <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+
+        <a class="text-link writing-all reveal" href="thoughts.html">All writing <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -498,10 +955,10 @@
     <section id="contact">
       <div class="container">
         <div class="section-label-row reveal">
-          <span class="section-num">04</span>
-          <span class="section-tag">Get in Touch</span>
+          <span class="section-num">06</span>
+          <span class="section-tag">Contact</span>
         </div>
-        <h2 class="section-heading reveal">Let's build something<br><em>exceptional.</em></h2>
+        <h2 class="section-heading reveal">Let's build <span class="nowrap">something <em>exceptional.</em></span></h2>
 
         <div class="contact-grid">
           <div class="reveal">
@@ -595,5 +1052,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/fence.js"></script>
+  <script src="js/work.js"></script>
 </body>
 </html>

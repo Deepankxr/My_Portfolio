@@ -33,6 +33,12 @@
 
 <body>
 
+  <!-- ─── Wire fence, ambient (WebGL lattice + flowing tool chips, filled by js/fence.js) ─── -->
+  <div class="fence" data-fence data-fence-mode="ambient" data-fence-safe=".about-hero__heading, .about-hero__sub, .about-hero__intro, .nav-bar" data-fence-fade=".about-hero" data-fence-logos="../assets/logos/" aria-hidden="true">
+    <canvas class="fence__gl"></canvas>
+    <div class="fence__chips"></div>
+  </div>
+
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scroll-progress"></div>
 
@@ -106,7 +112,7 @@
 
   <main class="about-main">
 
-    <!-- ─── Hero: content LEFT, photo RIGHT ─── -->
+    <!-- ─── Hero: copy on the left, the ambient fence behind it ─── -->
     <section class="about-hero">
       <div class="container">
         <div class="about-hero-grid">
@@ -132,6 +138,8 @@
 
         </div>
       </div>
+      <!-- the fence settles into the page veil at the bottom of the hero -->
+      <div class="hero-fade" aria-hidden="true"></div>
     </section>
 
     <!-- ─── Sections ─── -->
@@ -224,6 +232,13 @@
               building repeatable frameworks that served enterprise clients
               reliably at scale.
             </p>
+            <p>
+              Today I am also building THAI UI, TrueHorizon AI's AI agent platform.
+              I design the agents, skills and workflow automation that run inside it,
+              and I develop the product around them too: the Vue interface and the
+              Node and MongoDB services underneath. Claude Code and Codex are the
+              coding agents I build it with.
+            </p>
 
             <div class="about-stat-callout">
               <span class="about-stat__number" data-count="2500000" data-prefix="$"
@@ -234,32 +249,101 @@
         </div>
 
         <!-- 04 Speaking and Recognition -->
-        <div class="about-section about-section--photo-right reveal">
+        <div class="about-section about-section--talk reveal" id="speaking">
           <div class="about-section__label">
             <span class="section-num">04</span>
           </div>
-          <div class="about-section__content">
+          <div class="about-section__content about-talk__head">
             <h2>Speaking and Recognition</h2>
-            <p>
-              Alongside client work, I've been invited to speak at enterprise events.
-              I served as a guest consultant at an off-site event hosted by a
-              Fortune 500 company, where I demonstrated how GTM leaders can
-              implement AI practically and accelerate adoption across their teams.
-            </p>
           </div>
-          <div class="about-section__side-photo about-section__side-photo--landscape">
-            <picture>
-              <source type="image/webp" srcset="../assets/speaking-1000.webp">
-              <img src="../assets/speaking-1000.jpg" width="1000" height="750"
-                   alt="Deepankar Bhadrasen presenting at an enterprise event"
-                   loading="lazy" decoding="async"
-                   onerror="this.closest('.about-section__side-photo').style.display='none'">
-            </picture>
+
+          <!-- lead: the presenting photo, kept whole (3:2), slow Ken Burns -->
+          <figure class="about-talk">
+            <div class="about-section__side-photo about-talk__frame" data-kenburns style="--kb-dur:26s">
+              <picture>
+                <source type="image/webp"
+                        srcset="../assets/hcmc/speaking-960.webp 960w, ../assets/hcmc/speaking-1600.webp 1600w"
+                        sizes="(max-width: 1160px) 92vw, 1032px">
+                <img src="../assets/hcmc/speaking-960.jpg"
+                     srcset="../assets/hcmc/speaking-960.jpg 960w, ../assets/hcmc/speaking-1600.jpg 1600w"
+                     sizes="(max-width: 1160px) 92vw, 1032px"
+                     width="1600" height="1067"
+                     alt="Deepankar presenting a live workflow on a large screen to a room of builders at the n8n Builders Challenge"
+                     loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="about-photo-caption about-photo-caption--rule">Speaking at the n8n Builders Challenge · <span class="nowrap">Ho Chi Minh City, Sep 2026</span></figcaption>
+          </figure>
+
+          <div class="about-section__content about-talk__body">
+            <p>
+              On 19 September 2026 I spoke at the n8n Builders Challenge in Ho Chi Minh City,
+              Vietnam. I presented live n8n workflows on the big screen to a room of builders,
+              then stayed on the floor through the build hours, working hands-on with the
+              teams on what they were building.
+            </p>
+
+            <div class="about-talk-strip">
+              <figure class="about-talk-shot">
+                <div class="about-section__side-photo" data-kenburns style="--kb-dur:24s;--kb-x:2%;--kb-y:-1.2%">
+                  <picture>
+                    <source type="image/webp" srcset="../assets/hcmc/pitch-800.webp 800w, ../assets/hcmc/pitch-1400.webp 1400w" sizes="(max-width: 719px) 46vw, 340px">
+                    <img src="../assets/hcmc/pitch-800.jpg" width="800" height="533"
+                         alt="Pointing at an n8n workflow on screen beside the n8n Builders Challenge banner"
+                         loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <figcaption class="about-photo-caption about-photo-caption--plain">Walking through a live n8n workflow</figcaption>
+              </figure>
+              <figure class="about-talk-shot">
+                <div class="about-section__side-photo" data-kenburns style="--kb-dur:21s;--kb-x:-1.8%;--kb-y:1%">
+                  <picture>
+                    <source type="image/webp" srcset="../assets/hcmc/demo-800.webp 800w, ../assets/hcmc/demo-1400.webp 1400w" sizes="(max-width: 719px) 46vw, 340px">
+                    <img src="../assets/hcmc/demo-800.jpg" width="800" height="533"
+                         alt="Gesturing at a screen showing a consultation intake form"
+                         loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <figcaption class="about-photo-caption about-photo-caption--plain">Breaking down an intake flow on screen</figcaption>
+              </figure>
+              <figure class="about-talk-shot about-talk-shot--tall">
+                <div class="about-section__side-photo" data-kenburns style="--kb-dur:26s;--kb-x:-1.2%;--kb-y:-2%">
+                  <picture>
+                    <source type="image/webp" srcset="../assets/hcmc/focus-600.webp 600w, ../assets/hcmc/focus-900.webp 900w" sizes="(max-width: 719px) 92vw, 200px">
+                    <img src="../assets/hcmc/focus-600.jpg" width="600" height="702"
+                         alt="Deepankar at a laptop, hand on chin, thinking through a problem"
+                         loading="lazy" decoding="async">
+                  </picture>
+                </div>
+                <figcaption class="about-photo-caption about-photo-caption--plain">Thinking through a build</figcaption>
+              </figure>
+            </div>
+
+            <div class="about-talk-offsite">
+              <div class="about-talk-offsite__text">
+                <span class="stack-label about-eyebrow">Guest consultant · Fortune 500 off-site</span>
+                <p>
+                  Alongside client work, I've been invited to speak at enterprise events.
+                  I served as a guest consultant at an off-site event hosted by a
+                  Fortune 500 company, where I demonstrated how GTM leaders can
+                  implement AI practically and accelerate adoption across their teams.
+                </p>
+              </div>
+              <div class="about-section__side-photo about-section__side-photo--landscape">
+                <picture>
+                  <source type="image/webp" srcset="../assets/speaking-1000.webp">
+                  <img src="../assets/speaking-1000.jpg" width="1000" height="750"
+                       alt="Deepankar Bhadrasen presenting at an enterprise event"
+                       loading="lazy" decoding="async"
+                       onerror="this.closest('.about-section__side-photo').style.display='none'">
+                </picture>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- 05 Anshul and Qixazow -->
-        <div class="about-section reveal">
+        <div class="about-section about-section--photo-right about-section--photo-wide reveal">
           <div class="about-section__label">
             <span class="section-num">05</span>
           </div>
@@ -282,6 +366,17 @@
               accessible to anyone who wants to learn it seriously.
             </p>
           </div>
+          <figure class="about-figure">
+            <div class="about-section__side-photo about-figure__frame" data-kenburns style="--kb-dur:24s;--kb-x:1.6%;--kb-y:-1%">
+              <picture>
+                <source type="image/webp" srcset="../assets/hcmc/stage-800.webp 800w, ../assets/hcmc/stage-1400.webp 1400w" sizes="(max-width: 1023px) 92vw, 400px">
+                <img src="../assets/hcmc/stage-800.jpg" width="800" height="533"
+                     alt="Deepankar Bhadrasen standing with arms crossed while Anshul Namdev speaks on the mic at the n8n Builders Challenge"
+                     loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="about-photo-caption about-photo-caption--rule">At the n8n Builders Challenge, <span class="nowrap">Ho Chi Minh City</span></figcaption>
+          </figure>
         </div>
 
         <!-- 06 What I Use -->
@@ -294,27 +389,30 @@
             <p>
               I build on the latest AI automation stack: workflow orchestration,
               vector databases, and the enterprise platforms serious teams trust
-              for privacy and security. Everything I ship is production-proven,
-              reliable and safe, and it stays updated to the bleeding edge of AI.
+              for privacy and security. I write code with Claude Code and Codex,
+              and I build full stack when a system needs its own product around it.
+              Everything I ship is production-proven, reliable and safe, and it
+              stays updated to the bleeding edge of AI.
             </p>
 
             <span class="stack-label">My Tech Stack</span>
             <div class="stack-grid">
-              <div class="stack-item"><img src="https://cdn.simpleicons.org/n8n" alt="n8n" loading="lazy"><span>n8n</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/lucide:terminal.svg?color=%234DA3FF&amp;width=96&amp;height=96" alt="Claude Code" loading="lazy"><span>Claude Code</span></div>
-              <div class="stack-item"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" loading="lazy"><span>Claude</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/simple-icons:openai.svg?color=%2310A37F&amp;width=96&amp;height=96" alt="OpenAI" loading="lazy"><span>OpenAI</span></div>
-              <div class="stack-item"><img src="https://cdn.simpleicons.org/googlegemini/8AB4F8" alt="Google Gemini" loading="lazy"><span>Gemini</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/logos:supabase-icon.svg" alt="Supabase" loading="lazy"><span>Supabase</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/logos:mongodb-icon.svg" alt="MongoDB" loading="lazy"><span>MongoDB</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/logos:snowflake-icon.svg" alt="Snowflake" loading="lazy"><span>Snowflake</span></div>
-              <div class="stack-item stack-item--invert"><img src="https://api.iconify.design/logos:pinecone-icon.svg" alt="Pinecone" loading="lazy"><span>Pinecone</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/logos:salesforce.svg" alt="Salesforce" loading="lazy"><span>Salesforce</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/logos:jira.svg" alt="Jira" loading="lazy"><span>Jira</span></div>
-              <div class="stack-item"><img src="https://cdn.simpleicons.org/atlassian/2684FF" alt="Atlassian" loading="lazy"><span>Atlassian</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/logos:google-icon.svg" alt="Google Workspace" loading="lazy"><span>Google</span></div>
-              <div class="stack-item"><img src="https://api.iconify.design/logos:microsoft-icon.svg" alt="Microsoft 365" loading="lazy"><span>Microsoft 365</span></div>
-              <div class="stack-item"><img src="https://cdn.simpleicons.org/modelcontextprotocol/4DA3FF" alt="Model Context Protocol" loading="lazy"><span>MCP</span></div>
+              <div class="stack-item"><img src="../assets/logos/n8n.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>n8n</span></div>
+              <div class="stack-item"><img src="../assets/logos/claude-code.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Claude Code</span></div>
+              <div class="stack-item"><img src="../assets/logos/codex.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Codex</span></div>
+              <div class="stack-item"><img src="../assets/logos/claude.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Claude</span></div>
+              <div class="stack-item"><img src="../assets/logos/openai.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>OpenAI</span></div>
+              <div class="stack-item"><img src="../assets/logos/gemini.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Gemini</span></div>
+              <div class="stack-item"><img src="../assets/logos/supabase.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Supabase</span></div>
+              <div class="stack-item"><img src="../assets/logos/mongodb.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>MongoDB</span></div>
+              <div class="stack-item"><img src="../assets/logos/snowflake.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Snowflake</span></div>
+              <div class="stack-item stack-item--invert"><img src="../assets/logos/pinecone.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Pinecone</span></div>
+              <div class="stack-item"><img src="../assets/logos/salesforce.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Salesforce</span></div>
+              <div class="stack-item"><img src="../assets/logos/jira.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Jira</span></div>
+              <div class="stack-item"><img src="../assets/logos/atlassian.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Atlassian</span></div>
+              <div class="stack-item"><img src="../assets/logos/google.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Google</span></div>
+              <div class="stack-item"><img src="../assets/logos/microsoft.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>Microsoft 365</span></div>
+              <div class="stack-item stack-item--invert"><img src="../assets/logos/mcp.svg" width="34" height="34" alt="" loading="lazy" decoding="async"><span>MCP</span></div>
             </div>
 
             <p class="stack-more">
@@ -414,6 +512,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
   <script src="../js/config.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/fence.js"></script>
 </body>
 
 </html>

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!reduceMotion && typeof Lenis !== 'undefined') {
     document.documentElement.style.scrollBehavior = 'auto';
     const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    window.lenis = lenis;   // shared with page modules (fence, work canvas) and tooling
     if (hasGSAP) {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(t => lenis.raf(t * 1000));
@@ -109,11 +110,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Cursor spotlight (CSS variable, GPU-composited - zero layout cost) ──
+  // ── Cursor spotlight ──
+  // A fixed glow element moved with transform only. (Writing --mouse-x/--mouse-y on
+  // <body> restyled every element on each mousemove, which cost more than the whole
+  // fence frame; body::before stays as the no-JS fallback.)
   if (finePointer && !reduceMotion) {
+    const spot = document.createElement('div');
+    spot.className = 'cursor-spotlight';
+    spot.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(spot);
+    document.documentElement.classList.add('has-spotlight');
+    let spotX = -9999, spotY = -9999, spotQueued = false;
+    const moveSpot = () => {
+      spotQueued = false;
+      spot.style.transform = 'translate3d(' + spotX + 'px,' + spotY + 'px,0)';
+    };
     document.addEventListener('mousemove', e => {
-      document.body.style.setProperty('--mouse-x', e.clientX + 'px');
-      document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+      spotX = e.clientX; spotY = e.clientY;
+      if (!spotQueued) { spotQueued = true; requestAnimationFrame(moveSpot); }
     }, { passive: true });
   }
 
@@ -170,29 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // ── Mouse parallax on hero image (landing page) ──
-  const heroSection = document.getElementById('hero');
-  const heroVisual = document.getElementById('hero-visual');
-  if (heroSection && heroVisual && finePointer && !reduceMotion) {
-    let ticking = false;
-    let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
-
-    heroSection.addEventListener('mousemove', e => {
-      const rect = heroSection.getBoundingClientRect();
-      targetX = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
-      targetY = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
-      if (!ticking) { requestAnimationFrame(animateParallax); ticking = true; }
-    });
-    heroSection.addEventListener('mouseleave', () => { targetX = 0; targetY = 0; });
-
-    function animateParallax() {
-      currentX += (targetX - currentX) * 0.07;
-      currentY += (targetY - currentY) * 0.07;
-      heroVisual.style.transform = `perspective(1000px) translate(${currentX * 14}px, ${currentY * 10}px) rotateY(${currentX * 3.5}deg) rotateX(${-currentY * 3.5}deg)`;
-      ticking = Math.abs(targetX - currentX) > 0.001 || Math.abs(targetY - currentY) > 0.001;
-      if (ticking) requestAnimationFrame(animateParallax);
-    }
-  }
+  // (The hero cut-out stands still on its floor spot; the stage fence behind
+  //  him carries the pointer parallax, see js/fence.js.)
 
   // ── Magnetic primary buttons (subtle pull toward cursor) ──
   if (finePointer && !reduceMotion) {
@@ -319,238 +312,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
 
-  // ── Work card flip ──
-  document.querySelectorAll('.work-card').forEach(card => {
-    function flip() { card.classList.toggle('is-flipped'); }
-
-    card.addEventListener('click', flip);
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
-    });
-
-    const closeBtn = card.querySelector('.work-card__close');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', e => {
-        e.stopPropagation();
-        card.classList.remove('is-flipped');
-      });
-    }
-  });
-
-  // ── Logo sphere orbiting the photo + scroll morph into a flowing line ──
-  const globeCanvas = document.getElementById('globe');
-  if (globeCanvas && globeCanvas.getContext && typeof HERO_LOGOS !== 'undefined' && HERO_LOGOS.length) {
-    const ctx = globeCanvas.getContext('2d');
-    const anchor = document.getElementById('globe-anchor') || globeCanvas;
-    const marqueeEl = document.querySelector('.marquee-section');
-
-    // Preload the logo images (Iconify icons get an explicit size so they rasterize crisply).
-    const sized = u => u.indexOf('api.iconify.design') > -1
-      ? u + (u.indexOf('?') > -1 ? '&' : '?') + 'width=96&height=96' : u;
-    const logos = HERO_LOGOS.map(l => {
-      const img = new Image();
-      const o = { img, ok: false, w: l.w || 1, floor: l.floor || 0 };
-      img.onload = () => { o.ok = true; };
-      img.onerror = () => { o.ok = false; };
-      img.src = sized(l.u);
-      return o;
-    });
-
-    // Accent colour for the photo halo (tracks the theme)
-    const hexToRgb = h => {
-      h = (h || '').replace('#', '').trim();
-      if (h.length === 3) h = h.split('').map(c => c + c).join('');
-      const n = parseInt(h || '4DA3FF', 16);
-      return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
-    };
-    let col = hexToRgb(getComputedStyle(document.documentElement).getPropertyValue('--accent'));
-    new MutationObserver(() => {
-      col = hexToRgb(getComputedStyle(document.documentElement).getPropertyValue('--accent'));
-    }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-
-    // Cut-out photo at the centre. Pre-composite a bottom dissolve into it so the hard
-    // edge melts into the page; a soft accent halo is drawn behind it every frame.
-    const photo = new Image();
-    const photoCanvas = document.createElement('canvas');
-    let photoOK = false;
-    photo.onload = () => {
-      photoCanvas.width = photo.naturalWidth;
-      photoCanvas.height = photo.naturalHeight;
-      const pctx = photoCanvas.getContext('2d');
-      pctx.drawImage(photo, 0, 0);
-      pctx.globalCompositeOperation = 'destination-out';
-      const fade = pctx.createLinearGradient(0, photoCanvas.height * 0.68, 0, photoCanvas.height);
-      fade.addColorStop(0, 'rgba(0,0,0,0)');
-      fade.addColorStop(1, 'rgba(0,0,0,1)');
-      pctx.fillStyle = fade;
-      pctx.fillRect(0, photoCanvas.height * 0.68, photoCanvas.width, photoCanvas.height * 0.32);
-      // gentle edge melt: hair top and shoulder/arm sides dissolve softly into the
-      // background (only the outer 10-12%, so the face itself stays fully crisp)
-      let melt = pctx.createLinearGradient(0, 0, 0, photoCanvas.height * 0.10);
-      melt.addColorStop(0, 'rgba(0,0,0,0.45)');
-      melt.addColorStop(1, 'rgba(0,0,0,0)');
-      pctx.fillStyle = melt;
-      pctx.fillRect(0, 0, photoCanvas.width, photoCanvas.height * 0.10);
-      melt = pctx.createLinearGradient(0, 0, photoCanvas.width * 0.12, 0);
-      melt.addColorStop(0, 'rgba(0,0,0,0.55)');
-      melt.addColorStop(1, 'rgba(0,0,0,0)');
-      pctx.fillStyle = melt;
-      pctx.fillRect(0, 0, photoCanvas.width * 0.12, photoCanvas.height);
-      melt = pctx.createLinearGradient(photoCanvas.width, 0, photoCanvas.width * 0.88, 0);
-      melt.addColorStop(0, 'rgba(0,0,0,0.55)');
-      melt.addColorStop(1, 'rgba(0,0,0,0)');
-      pctx.fillStyle = melt;
-      pctx.fillRect(photoCanvas.width * 0.88, 0, photoCanvas.width * 0.12, photoCanvas.height);
-      photoOK = true;
-      if (reduceMotion) renderGlobe();
-    };
-    photo.src = 'assets/deepankar-cutout.webp';
-
-    const N = logos.length;
-    const GA = Math.PI * (3 - Math.sqrt(5));   // golden angle → even spread on the sphere
-    const pts = [];
-    for (let i = 0; i < N; i++) {
-      const y = 1 - (i / (N - 1)) * 2;
-      const r = Math.sqrt(Math.max(0, 1 - y * y));
-      const t = GA * i;
-      pts.push({ x: Math.cos(t) * r, y: y, z: Math.sin(t) * r, logo: logos[i] });
-    }
-
-    // Fixed full-viewport canvas: canvas coords = viewport coords
-    let W = 0, H = 0;
-    function resizeGlobe() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = window.innerWidth; H = window.innerHeight;
-      globeCanvas.width = Math.round(W * dpr);
-      globeCanvas.height = Math.round(H * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    resizeGlobe();
-    window.addEventListener('resize', resizeGlobe, { passive: true });
-
-    let mx = -9999, my = -9999;
-    if (finePointer) {
-      window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
-      window.addEventListener('mouseout', e => { if (!e.relatedTarget) { mx = -9999; my = -9999; } }, { passive: true });
-    }
-
-    const clamp01 = v => v < 0 ? 0 : v > 1 ? 1 : v;
-    const easeIO = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    let rx = -0.22, ry = 0, near = 0, sYs = window.scrollY, pS = 0;
-
-    function renderGlobe() {
-      const aRect = anchor.getBoundingClientRect();
-      const acx = aRect.left + aRect.width / 2, acy = aRect.top + aRect.height / 2;
-      const aMin = Math.min(aRect.width, aRect.height) || 1;
-      const RAD = aMin * 0.43, base = aMin * 0.04;
-
-      // Smoothed scroll drives the morph: 0 = sphere in the hero, 1 = logos lined up
-      sYs += (window.scrollY - sYs) * 0.12;
-      pS += (clamp01(sYs / (window.innerHeight * 0.85)) - pS) * 0.09;
-      const drift = sYs * 0.35;
-      const now = performance.now();
-
-      // The line rides just above the marquee band, anchored to the page as it scrolls
-      const mRect = marqueeEl ? marqueeEl.getBoundingClientRect() : null;
-      const lineY = mRect ? mRect.top - 46 : aRect.bottom + 60;
-      const lineFade = clamp01((lineY + 30) / 150);
-
-      let tRx = -0.22, leanY = 0, influence = 0;
-      if (mx > -9000) {
-        const dx = mx - acx, dy = my - acy;
-        influence = Math.max(0, 1 - Math.hypot(dx, dy) / (aRect.width * 0.95 || 1)) * (1 - pS);
-        tRx = -0.22 + (dy / (aRect.height || 1)) * 0.7 * (1 - pS);
-        leanY = (dx / (aRect.width || 1)) * 0.7;
-      }
-      near += (influence - near) * 0.07;
-      ry += 0.0024 * (1 + near * 1.6);            // spins faster as the cursor nears
-      rx += (tRx - rx) * 0.05;
-      const ryEff = ry + leanY * near;            // leans toward the cursor
-
-      ctx.clearRect(0, 0, W, H);
-
-      const drawPhoto = () => {
-        if (!photoOK || aRect.bottom < -60 || aRect.top > H + 60) return;
-        const ph = aRect.height * 0.86;
-        const pw = ph * (photoCanvas.width / photoCanvas.height);
-        // soft accent halo behind the cut-out for premium depth
-        const g = ctx.createRadialGradient(acx, acy + ph * 0.06, ph * 0.05, acx, acy + ph * 0.06, ph * 0.62);
-        g.addColorStop(0, 'rgba(' + col.r + ',' + col.g + ',' + col.b + ',0.30)');
-        g.addColorStop(0.55, 'rgba(' + col.r + ',' + col.g + ',' + col.b + ',0.12)');
-        g.addColorStop(1, 'rgba(' + col.r + ',' + col.g + ',' + col.b + ',0)');
-        ctx.globalAlpha = 1;
-        ctx.fillStyle = g;
-        ctx.fillRect(acx - ph * 0.75, acy - ph * 0.6, ph * 1.5, ph * 1.3);
-        ctx.drawImage(photoCanvas, acx - pw / 2, acy - ph / 2, pw, ph);
-      };
-
-      // Line slots: evenly spaced, endlessly drifting left, with a gentle bob
-      const gap = Math.max(84, (W - 40) / N);
-      const total = gap * N;
-      const lineFor = i => {
-        let x = i * gap + gap / 2 - drift;
-        x = ((x % total) + total) % total;
-        return { x: x + (W - total) / 2, y: lineY + Math.sin(now * 0.0018 + i * 0.7) * 3 };
-      };
-
-      const cX = Math.cos(rx), sX = Math.sin(rx), cY = Math.cos(ryEff), sY = Math.sin(ryEff);
-      const proj = [];
-      for (let i = 0; i < N; i++) {
-        const p = pts[i];
-        const x1 = p.x * cY - p.z * sY;
-        const z1 = p.x * sY + p.z * cY;
-        const y2 = p.y * cX - z1 * sX;
-        const z2 = p.y * sX + z1 * cX;
-        const persp = 2.2 / (2.2 + z2);
-        // staggered peel-off: each logo leaves the sphere at its own moment
-        const ti = easeIO(clamp01(pS * 1.35 - (i / N) * 0.35));
-        const L = lineFor(i);
-        const sxS = acx + x1 * RAD * persp, syS = acy + y2 * RAD * persp;
-        proj.push({
-          logo: p.logo, depth: (z2 + 1) / 2, persp: persp, ti: ti,
-          sx: sxS + (L.x - sxS) * ti,
-          sy: syS + (L.y - syS) * ti
-        });
-      }
-      proj.sort((a, b) => b.depth - a.depth);     // far → near
-      let photoDrawn = false;
-      for (const q of proj) {
-        if (q.depth < 0.5 && !photoDrawn) { drawPhoto(); photoDrawn = true; }  // photo sits mid-sphere
-        if (!q.logo.ok) continue;
-        const front = 1 - q.depth;                 // 1 = nearest the viewer, 0 = farthest
-        const sphereSize = base * q.persp * q.logo.w;
-        const lineSize = Math.min(30, base * 0.8) * (q.logo.w > 1.4 ? 1.3 : 1);
-        let size = sphereSize + (lineSize - sphereSize) * q.ti;
-        const sphereAlpha = Math.max(0.3 + front * 0.7, q.logo.floor);
-        let alpha = sphereAlpha + (0.9 * lineFade - sphereAlpha) * q.ti;
-        if (mx > -9000 && q.ti < 0.4) {
-          const dd = Math.hypot(q.sx - mx, q.sy - my);
-          if (dd < 75) { const b = 1 - dd / 75; size += b * base * 0.45; alpha = Math.min(1, alpha + b * 0.3); }
-        }
-        ctx.globalAlpha = clamp01(alpha);
-        ctx.drawImage(q.logo.img, q.sx - size / 2, q.sy - size / 2, size, size);
-      }
-      if (!photoDrawn) drawPhoto();
-      ctx.globalAlpha = 1;
-    }
-
-    if (reduceMotion) {
-      setTimeout(renderGlobe, 500);               // single static frame once images load
+  // ── Ken Burns on event photos: play only while the frame is on screen ──
+  // The CSS animation starts paused; this toggles .is-playing per frame so offscreen
+  // photos cost nothing. Under reduced motion the CSS removes the animation entirely.
+  const kbFrames = document.querySelectorAll('[data-kenburns]');
+  if (kbFrames.length && !reduceMotion) {
+    if ('IntersectionObserver' in window) {
+      const kbObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => entry.target.classList.toggle('is-playing', entry.isIntersecting));
+      }, { threshold: 0, rootMargin: '80px 0px' });
+      kbFrames.forEach(el => kbObserver.observe(el));
     } else {
-      let raf = null;
-      const loop = () => { renderGlobe(); raf = requestAnimationFrame(loop); };
-      // keep animating while the hero OR the marquee band is anywhere near the viewport
-      const vis = new Set();
-      const io = new IntersectionObserver(es => {
-        es.forEach(en => { en.isIntersecting ? vis.add(en.target) : vis.delete(en.target); });
-        if (vis.size && !raf) loop();
-        else if (!vis.size && raf) { cancelAnimationFrame(raf); raf = null; ctx.clearRect(0, 0, W, H); }
-      }, { threshold: 0, rootMargin: '140px 0px' });
-      io.observe(document.getElementById('hero'));
-      if (marqueeEl) io.observe(marqueeEl);
+      kbFrames.forEach(el => el.classList.add('is-playing'));
     }
   }
-
 
   // ── Project budget bar (GSAP-smoothed fill, counting value, ultra state) ──
   function formatBudget(v) {
