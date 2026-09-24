@@ -45,8 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
   html.setAttribute('data-theme', savedTheme);
 
   function updateThemeLabel() {
+    const dark = html.getAttribute('data-theme') === 'dark';
     document.querySelectorAll('.theme-mode-label').forEach(el => {
-      el.textContent = html.getAttribute('data-theme') === 'dark' ? 'Light' : 'Dark';
+      el.textContent = dark ? 'Light' : 'Dark';
+    });
+    document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(btn => {
+      btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
     });
   }
   updateThemeLabel();
@@ -82,17 +86,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // Skip link: the first Tab stop on every page jumps past the nav to the content
+  const mainEl = document.querySelector('main');
+  if (mainEl) {
+    if (!mainEl.id) mainEl.id = 'main';
+    mainEl.setAttribute('tabindex', '-1');
+    const skip = document.createElement('a');
+    skip.className = 'skip-link';
+    skip.href = '#' + mainEl.id;
+    skip.textContent = 'Skip to content';
+    skip.addEventListener('click', e => { e.preventDefault(); mainEl.focus({ preventScroll: true }); mainEl.scrollIntoView(); });
+    document.body.prepend(skip);
+  }
+
+  // The current page's nav link is announced as such
+  document.querySelectorAll('.nav-link--active').forEach(a => a.setAttribute('aria-current', 'page'));
+
   // ── Liquid-glass card nav (hamburger expands the cards) ──
   const navRoot = document.getElementById('nav');
   const navBurger = document.getElementById('nav-burger');
   const navCards = document.getElementById('nav-cards');
   if (navRoot && navBurger && navCards) {
-    const setNavOpen = open => {
+    const setNavOpen = (open, refocus) => {
       navRoot.classList.toggle('menu-open', open);
       navBurger.setAttribute('aria-expanded', open ? 'true' : 'false');
       navBurger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       navCards.setAttribute('aria-hidden', open ? 'false' : 'true');
+      navCards.inert = !open;              // closed cards leave the tab order
+      if (!open && refocus) navBurger.focus();
     };
+    navCards.inert = true;
     navBurger.addEventListener('click', e => {
       e.stopPropagation();
       setNavOpen(!navRoot.classList.contains('menu-open'));
@@ -106,7 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (navRoot.classList.contains('menu-open') && !navRoot.contains(e.target)) setNavOpen(false);
     });
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && navRoot.classList.contains('menu-open')) setNavOpen(false);
+      // Escape closes it and, if focus was inside the menu, hands it back to the button
+      if (e.key === 'Escape' && navRoot.classList.contains('menu-open')) setNavOpen(false, navCards.contains(document.activeElement));
     });
   }
 
@@ -347,8 +371,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let isUltra = null;
 
     const paint = () => {
-      fill.style.width = pctOf(shown.v) + '%';
-      out.textContent = formatBudget(shown.v);
+      const unset = range.dataset.touched !== '1';
+      bar.classList.toggle('is-unset', unset);
+      fill.style.width = (unset ? 0 : pctOf(shown.v)) + '%';
+      out.textContent = unset ? 'Not set' : formatBudget(shown.v);
+      range.setAttribute('aria-valuetext', unset ? 'Not set' : formatBudget(range.value));
       const ultra = Number(range.value) >= MAX;
       if (ultra !== isUltra) {
         isUltra = ultra;
@@ -365,6 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // drag: follow the finger exactly, no lag
     range.addEventListener('input', () => {
+      range.dataset.touched = '1';
       if (hasGSAP) gsap.killTweensOf(shown);
       shown.v = Number(range.value);
       paint();
@@ -374,12 +402,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // chips: glide to the value instead of jumping
     function syncChips() {
       if (!chips) return;
-      const v = Number(range.value);
-      chips.forEach(c => c.classList.toggle('is-on', Number(c.dataset.budget) === v));
+      const v = range.dataset.touched === '1' ? Number(range.value) : NaN;
+      chips.forEach(c => {
+        const on = Number(c.dataset.budget) === v;
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
     }
     if (chips) chips.forEach(chip => {
       chip.addEventListener('click', () => {
         const target = Number(chip.dataset.budget);
+        range.dataset.touched = '1';
         range.value = target;
         syncChips();
         if (hasGSAP && !reduceMotion) {
@@ -391,7 +424,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // after a form reset: back to the untouched default, and the bar shows it
+    if (range.form) range.form.addEventListener('reset', () => setTimeout(() => {
+      delete range.dataset.touched;
+      if (hasGSAP) gsap.killTweensOf(shown);
+      shown.v = Number(range.value);
+      paint();
+      syncChips();
+    }));
+
     paint();
+    syncChips();
   });
 
   // ── Webhook form submission ──
@@ -415,6 +458,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     formEl.addEventListener('submit', async e => {
       e.preventDefault();
+      // a name or message of only spaces counts as empty
+      for (const el of formEl.querySelectorAll('[name="name"], [name="message"]')) {
+        if (!el.value.trim()) { el.value = ''; el.reportValidity(); el.focus(); return; }
+      }
       const btn = formEl.querySelector('button[type="submit"]');
       const original = btn.textContent;
       btn.textContent = 'Sending...';
@@ -422,13 +469,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (statusEl) { statusEl.textContent = ''; statusEl.className = 'form-status'; }
 
       const budgetEl = formEl.querySelector('[name="budget"]');
+      const budgetSet = !!(budgetEl && budgetEl.dataset.touched === '1');
       const data = {
         name: formEl.querySelector('[name="name"]')?.value || '',
         email: formEl.querySelector('[name="email"]')?.value || '',
         role: formEl.querySelector('[name="role"]')?.value || '',
         company: formEl.querySelector('[name="company"]')?.value || '',
-        budget: budgetEl ? formatBudget(budgetEl.value) : '',
-        budget_value: budgetEl ? Number(budgetEl.value) : null,
+        budget: budgetSet ? formatBudget(budgetEl.value) : '',
+        budget_value: budgetSet ? Number(budgetEl.value) : null,
         message: formEl.querySelector('[name="message"]')?.value || '',
       };
 
@@ -447,11 +495,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // No webhook configured - silent success (dev mode)
         btn.textContent = 'Sent.';
         btn.style.opacity = '0.55';
+        if (statusEl) { statusEl.textContent = 'Your message was received.'; statusEl.className = 'form-status'; }
         formEl.reset();
       }
     });
   }
 
-  handleForm(document.getElementById('contact-form'), 'landing_page', null);
+  handleForm(document.getElementById('contact-form'), 'landing_page', 'contact-form-status');
   handleForm(document.getElementById('about-contact-form'), 'about_page', 'about-form-status');
 });

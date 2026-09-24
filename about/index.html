@@ -12,13 +12,13 @@
   <link rel="canonical" href="https://deepankar.xyz/about/">
 
   <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
-  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://deepankar.xyz/about/">
   <meta property="og:title" content="About Deepankar Bhadrasen, AI Automation Engineer">
-  <meta property="og:description" content="Two years, 20+ AI systems shipped for Fortune 500 clients. Founding Engineer at TrueHorizon AI.">
+  <meta property="og:description" content="20+ AI agents and 10+ end-to-end systems in production, mostly for Fortune 500 clients. Founding Engineer at TrueHorizon AI.">
   <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -28,13 +28,13 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
 
-  <link rel="stylesheet" href="../css/style.css?v=20260924">
+  <link rel="stylesheet" href="../css/style.css?v=20260924.2">
 </head>
 
 <body>
 
   <!-- ─── Wire fence, ambient (WebGL lattice + flowing tool chips, filled by js/fence.js) ─── -->
-  <div class="fence" data-fence data-fence-mode="ambient" data-fence-safe=".about-hero__heading, .about-hero__sub, .about-hero__intro, .nav-bar" data-fence-fade=".about-hero" data-fence-logos="../assets/logos/" aria-hidden="true">
+  <div class="fence" data-fence data-fence-mode="ambient" data-fence-safe=".about-hero .label, .about-hero__heading, .about-hero__sub, .about-hero__intro, .nav-bar" data-fence-fade=".about-hero" data-fence-logos="../assets/logos/" aria-hidden="true">
     <canvas class="fence__gl"></canvas>
     <div class="fence__chips"></div>
   </div>
@@ -122,16 +122,15 @@
             <p class="label reveal">About</p>
 
             <h1 class="hero-h1 about-hero__heading reveal">
-              <span class="hero-h1__line"><span class="inner">Building AI systems</span></span>
-              <span class="hero-h1__line"><span class="inner">that <em>actually ship.</em></span></span>
+              <span class="hero-h1__line"><span class="inner about-hero__heading-text">Building AI systems that actually <em>ship.</em></span></span>
             </h1>
 
             <p class="about-hero__sub reveal">
-              Deepankar Bhadrasen &nbsp;·&nbsp; Founding Engineer &nbsp;·&nbsp; Bhopal, India
+              <span class="nowrap">Deepankar Bhadrasen</span> <span class="nowrap">&nbsp;·&nbsp; Founding Engineer</span> <span class="nowrap">&nbsp;·&nbsp; Bhopal, India</span>
             </p>
 
             <p class="about-hero__intro">
-              AI automation engineer. Two years. 20+ systems deployed.
+              AI automation engineer. Two years. 20+ AI agents and 10+ systems deployed.
               Fortune 500 clients. Started in college, never looked back.
             </p>
           </div>
@@ -189,14 +188,14 @@
               saw where it was going.
             </p>
             <p>
-              In my final year I pivoted everything. I started building obsessively,
+              So I pivoted everything. I started building obsessively,
               managing lectures and coursework by day while delivering AI automation
               solutions for real clients on the side. It was a grind, but the discipline
               of balancing college and client work taught me how to ship under pressure.
               I landed my first paying client before even graduating. That was the beginning.
             </p>
             <p>
-              What started as freelance work in my final year grew into
+              What started as freelance work in college grew into
               founding-team contributions at a fast-growing AI company, consulting
               at enterprise events, and delivering systems for Fortune 500 clients,
               all within two years of picking up the field.
@@ -268,7 +267,7 @@
                      srcset="../assets/hcmc/speaking-960.jpg 960w, ../assets/hcmc/speaking-1600.jpg 1600w"
                      sizes="(max-width: 1160px) 92vw, 1032px"
                      width="1600" height="1067"
-                     alt="Deepankar presenting a live workflow on a large screen to a room of builders at the n8n Builders Challenge"
+                     alt="Deepankar presenting to a room of builders at the n8n Builders Challenge, a consultation intake form on the big screen behind him"
                      loading="lazy" decoding="async">
               </picture>
             </div>
@@ -356,7 +355,7 @@
               one of the most
               driven people I know. Watching him grow the n8n community while consistently
               pushing what was possible with AI agents has been a constant motivation for
-              me to work harder and build bigger. He has been part of this journey from
+              me to work harder and build bigger. He has been part of it from
               the very beginning.
             </p>
             <p>
@@ -371,7 +370,7 @@
               <picture>
                 <source type="image/webp" srcset="../assets/hcmc/stage-800.webp 800w, ../assets/hcmc/stage-1400.webp 1400w" sizes="(max-width: 1023px) 92vw, 400px">
                 <img src="../assets/hcmc/stage-800.jpg" width="800" height="533"
-                     alt="Deepankar Bhadrasen standing with arms crossed while Anshul Namdev speaks on the mic at the n8n Builders Challenge"
+                     alt="Deepankar Bhadrasen, arms crossed, beside Anshul Namdev holding a microphone at the n8n Builders Challenge"
                      loading="lazy" decoding="async">
               </picture>
             </div>
@@ -447,16 +446,16 @@
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="about-role">Your role</label>
+                  <label for="about-role">Your role <span class="label-opt">(optional)</span></label>
                   <input type="text" id="about-role" name="role" placeholder="Head of Operations">
                 </div>
                 <div class="form-group">
-                  <label for="about-company">Company</label>
+                  <label for="about-company">Company <span class="label-opt">(optional)</span></label>
                   <input type="text" id="about-company" name="company" placeholder="Company name">
                 </div>
               </div>
               <div class="form-group">
-                <label for="about-budget">Project budget</label>
+                <label for="about-budget">Project budget <span class="label-opt">(optional)</span></label>
                 <div class="budget-bar" id="about-budget-bar">
                   <div class="budget-fill" id="about-budget-fill"></div>
                   <div class="budget-bar__text">
@@ -480,8 +479,8 @@
                 <textarea id="about-message" name="message" rows="4" placeholder="Tell me about your project..."
                   required></textarea>
               </div>
-              <div class="form-status" id="about-form-status"></div>
-              <button type="submit" class="btn btn--primary">Let's Talk</button>
+              <div class="form-status" id="about-form-status" role="status" aria-live="polite"></div>
+              <button type="submit" class="btn btn--primary btn--full">Send Message</button>
               <p class="form-consent">By sending this, you agree I may use these details to reply to your enquiry. See the <a href="../privacy.html">privacy policy</a>.</p>
             </form>
           </div>
@@ -510,9 +509,9 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
-  <script src="../js/config.js?v=20260924"></script>
-  <script src="../js/main.js?v=20260924"></script>
-  <script src="../js/fence.js?v=20260924"></script>
+  <script src="../js/config.js?v=20260924.2"></script>
+  <script src="../js/main.js?v=20260924.2"></script>
+  <script src="../js/fence.js?v=20260924.2"></script>
 </body>
 
 </html>

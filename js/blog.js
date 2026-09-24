@@ -336,6 +336,12 @@
       chips.forEach(function (c) {
         var on = c.getAttribute('data-topic') === state.topic;
         if (c.getAttribute('aria-pressed') !== String(on)) c.setAttribute('aria-pressed', String(on));
+        // on phones the chip row scrolls sideways: keep the selected chip in view
+        var row = on && c.parentElement;
+        if (row && row.scrollWidth > row.clientWidth + 1) {
+          var left = row.scrollLeft + (c.getBoundingClientRect().left - row.getBoundingClientRect().left) - (row.clientWidth - c.offsetWidth) / 2;
+          row.scrollLeft = Math.max(0, left);
+        }
       });
       if (input && !opts.fromInput && input.value !== state.q) input.value = state.q;
       if (form) form.classList.toggle('has-value', !!state.q);
@@ -731,7 +737,7 @@
           d.appendChild(doc.createTextNode('The archive'));
           if (dir === 'next') d.appendChild(icon('arrowR', 14));
           a.appendChild(d);
-          a.appendChild(make('span', 'post-pager__name', dir === 'prev' ? 'This is the newest essay. See all ' + posts.length : 'That was the oldest essay. See all ' + posts.length));
+          a.appendChild(make('span', 'post-pager__name', 'Browse all ' + posts.length + ' essays'));
           a.appendChild(make('span', 'post-pager__meta', 'Search by title or browse by topic'));
         }
         return a;

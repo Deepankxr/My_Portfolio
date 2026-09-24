@@ -294,7 +294,7 @@
   color: var(--blog-on-accent);
 }
 .blog-chip[aria-pressed="true"] .blog-chip__n {
-  background: rgba(7, 9, 15, 0.16);
+  background: rgba(7, 9, 15, 0.18);
   color: var(--blog-on-accent);
 }
 [data-theme="light"] .blog-chip[aria-pressed="true"] .blog-chip__n { background: rgba(255, 255, 255, 0.2); }
@@ -1430,3 +1430,31 @@
   .post-related__all:hover svg { transform: none; }
   .toc-fill { transition: none; }
 }
+
+/* ═══ Design review fixes (September 2026) ═══ */
+/* "writing next": a compact list instead of dashed placeholder cards */
+.blog-notes__grid { gap: 0 36px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.blog-note {
+  min-height: 0;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid var(--blog-border);
+  border-radius: 0;
+  background: none;
+}
+.blog-note__topic { flex: 0 0 96px; }
+.blog-note__title { font-size: 17px; }
+@media (max-width: 760px) {
+  .blog-notes__grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .blog-note { flex-direction: column; gap: 4px; }
+  .blog-note__topic { flex: none; }
+}
+/* the search box only reserves room for the "/" hint when it is shown */
+.blog-search:not(.has-key) .blog-search__input { padding-right: 18px; }
+/* buttons use the site's corner radius */
+.blog-empty__btn { border-radius: 3px; }
+/* the end of the essay list is a normal card, not a warning */
+.post-pager__link--index { border-style: solid; }

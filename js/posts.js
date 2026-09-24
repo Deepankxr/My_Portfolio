@@ -31,7 +31,7 @@
 window.BLOG_POSTS = [
   {
     slug: "claude-design-enterprise-guide",
-    title: "Claude Design for Enterprises: 6 Things to Know Before You Prototype",
+    title: "Claude Design for Enterprises: 6\u00a0Things to Know Before You Prototype",
     excerpt: "It is not a prettier Canva. Design system extraction, the four-part prompt framework, and an honest map of where it still breaks.",
     category: "Enterprise AI",
     minutes: 6
