@@ -1,3 +1,44 @@
+# ---- OS / editor junk ----
 .DS_Store
-assets/.DS_Store
+**/.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/
+
+# ---- Secrets ----
 .env
+.env.*
+!.env.example
+
+# ---- Raw photo originals (278 MB) ----
+# Web-ready exports live in assets/hcmc/ and assets/deepankar-hcmc-*.webp
+N8n hackathon Vietnam HCMC*/
+
+# Full-size PNG sources of the hero cutout (only the .webp exports are used)
+assets/deepankar-hcmc-*.png
+
+# Other large source files that should never ship
+*.psd
+*.ai
+*.fig
+*.sketch
+*.mov
+*.mp4
+*.zip
+
+# ---- Local tooling (Claude Code, dev server) ----
+.claude/settings.local.json
+.claude/settings.json
+.claude/devserver.py
+.claude/skills/
+js/frontend-pr-description/
+
+# ---- Dependencies / build output (if ever added) ----
+node_modules/
+dist/
+build/
+.cache/
+*.log

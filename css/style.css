@@ -4,26 +4,13 @@
    no visitor IP is sent to Google. Weights here must stay in sync
    with the weights actually used below.
 ═══════════════════════════════════════════════════════ */
+/* Inter, Space Grotesk and Playfair (upright) are variable fonts: one file per
+   subset covers the whole weight range, so each family is declared once with a
+   weight range instead of once per weight (the per-weight files were identical). */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('../assets/fonts/inter-300-normal-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('../assets/fonts/inter-300-normal-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
+  font-weight: 300 600;
   font-display: swap;
   src: url('../assets/fonts/inter-400-normal-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -31,41 +18,9 @@
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300 600;
   font-display: swap;
   src: url('../assets/fonts/inter-400-normal-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/inter-500-normal-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/inter-500-normal-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/inter-600-normal-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/inter-600-normal-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -87,7 +42,7 @@
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 700;
   font-display: swap;
   src: url('../assets/fonts/playfair-display-400-normal-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -95,31 +50,15 @@
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 700;
   font-display: swap;
   src: url('../assets/fonts/playfair-display-400-normal-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../assets/fonts/playfair-display-700-normal-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../assets/fonts/playfair-display-700-normal-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
   font-family: 'Space Grotesk';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 500;
   font-display: swap;
   src: url('../assets/fonts/space-grotesk-400-normal-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
@@ -127,25 +66,9 @@
 @font-face {
   font-family: 'Space Grotesk';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 500;
   font-display: swap;
   src: url('../assets/fonts/space-grotesk-400-normal-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/space-grotesk-500-normal-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/space-grotesk-500-normal-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -156,7 +79,7 @@
   --bg: #0A0B10;
   --bg-2: #12141C;
   --text: #E8ECF4;
-  --muted: #717787;
+  --muted: #8C93A4;
   --line: rgba(120, 160, 255, 0.10);
   --accent: #4DA3FF;
   --glow: rgba(77, 163, 255, 0.20);
@@ -190,7 +113,7 @@
   --text: #0F1320;
   --muted: #5A6275;
   --line: rgba(20, 50, 110, 0.10);
-  --accent: #1F6FE5;
+  --accent: #1B63D6;
   --accent-fg: #F4F6FB;
   --glow: rgba(31, 111, 229, 0.12);
   --glow-soft: rgba(31, 111, 229, 0.05);
@@ -447,9 +370,10 @@ section[id] { scroll-margin-top: 88px; }
   z-index: 1;
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.5s var(--ease-out);
+  visibility: hidden;              /* closed: its links leave the tab order */
+  transition: grid-template-rows 0.5s var(--ease-out), visibility 0s linear 0.5s;
 }
-#nav.menu-open .nav-cards { grid-template-rows: 1fr; }
+#nav.menu-open .nav-cards { grid-template-rows: 1fr; visibility: visible; transition: grid-template-rows 0.5s var(--ease-out); }
 .nav-cards__inner { overflow: hidden; min-height: 0; }
 .nav-cards__grid {
   display: grid;
@@ -931,7 +855,7 @@ a.contact-detail__value:hover { color: var(--accent); }
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: var(--muted); }
 .form-group input:focus,
-.form-group textarea:focus { border-color: var(--accent); }
+.form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 
 /* Form status message */
 .form-status {
@@ -1121,11 +1045,11 @@ a.contact-detail__value:hover { color: var(--accent); }
   object-position: top center;
   min-height: 400px;
   max-height: 520px;
-  transform: scale(1.06);
   transition: transform 1.2s var(--ease-out), opacity 0.8s var(--ease-out);
-  opacity: 0;
 }
+.js .about-section__side-photo img { transform: scale(1.06); opacity: 0; }
 
+.js .about-section__side-photo.photo-visible img,
 .about-section__side-photo.photo-visible img {
   transform: scale(1);
   opacity: 1;
@@ -1230,12 +1154,14 @@ a.contact-detail__value:hover { color: var(--accent); }
 /* ═══════════════════════════════════════════════════════
    REVEAL (SCROLL ANIMATIONS)
 ═══════════════════════════════════════════════════════ */
-.reveal {
+/* content is only hidden for the entrance when JS runs (html.js is set in each
+   page's head script), so the page stays fully readable if scripts fail */
+.js .reveal {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
 }
-.reveal.visible { opacity: 1; transform: none; }
+.js .reveal.visible { opacity: 1; transform: none; }
 /* When GSAP drives the reveals, let it control opacity/transform (no CSS transition fighting it) */
 .has-gsap .reveal { transition: none; will-change: opacity, transform; }
 html.lenis, html.lenis body { height: auto; }
@@ -1447,7 +1373,7 @@ html.lenis, html.lenis body { height: auto; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 1; transform: none; }
   .tool { opacity: 1; transform: none; }
   .about-section__full-photo { clip-path: none; }
   .about-section__full-photo img { transform: none; }
@@ -2373,9 +2299,11 @@ main, #footer { position: relative; z-index: 1; }
 .hero-figure__mark { left: 50%; top: 94%; width: 1px; height: 1px; margin: -1px 0 0 -0.5px; }
 
 /* ── Entrance (transform and opacity only; nothing moves under reduced motion) ── */
-@keyframes heroUp       { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+/* fades start at 0.01, not 0: invisible to the eye, but the browser then counts
+   the hero as painted at first paint instead of after the entrance (LCP) */
+@keyframes heroUp       { from { opacity: 0.01; transform: translateY(22px); } to { opacity: 1; transform: none; } }
 @keyframes heroGlowIn   { from { opacity: 0; } to { opacity: 1; } }
-@keyframes heroRise     { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@keyframes heroRise     { from { opacity: 0.01; transform: translateY(26px); } to { opacity: 1; transform: none; } }
 @keyframes heroRiseRefl { from { opacity: 0; transform: translateY(-12px) scaleY(-0.44); } to { opacity: var(--refl); transform: scaleY(-0.44); } }
 @keyframes heroSpotOn   { from { opacity: 0; transform: translate(-50%, -50%) scale(0.55, 0.4); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
 @keyframes heroSpotBreath { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
@@ -3400,7 +3328,7 @@ html:not([data-theme="light"]) .xp img.is-mono { filter: invert(1) brightness(1.
           mask: var(--cs-check) center / contain no-repeat;
   transition: opacity 0.3s ease, transform 0.45s var(--ease-out);
 }
-.cs.is-live .cs-log__list li { opacity: 0.38; }
+.cs.is-live .cs-log__list li { opacity: 0.62; }
 .cs.is-live .cs-log__list li::after { opacity: 0; transform: scale(0.5); }
 .cs.is-live .cs-log__list li.is-on { opacity: 1; }
 .cs.is-live .cs-log__list li.is-on::after { opacity: 1; transform: none; }
@@ -3463,7 +3391,8 @@ html:not([data-theme="light"]) .xp img.is-mono { filter: invert(1) brightness(1.
 .cs.is-split .cs-case { min-height: max(600px, 94vh); }
 .cs.is-split .cs-case + .cs-case { margin-top: 0; padding-top: 0; border-top: 0; }
 .cs.is-split .cs-case__canvas { display: none; }
-.cs.is-split .cs-case__body { opacity: 0.26; }
+.cs.is-split .cs-case__body { opacity: 1; }
+.cs.is-split .cs-case:not(.is-current):not(:focus-within) :is(.cs-case__title, .cs-case__num) { color: var(--muted); }
 .cs.is-split .cs-case.is-current .cs-case__body,
 .cs.is-split .cs-case:focus-within .cs-case__body { opacity: 1; }
 
@@ -4000,3 +3929,142 @@ html:not([data-theme="light"]) .xp img.is-mono { filter: invert(1) brightness(1.
 
 /* Stacked ledger rows (Industries served + Builds with) share one hairline */
 .xp-industries + .xp-industries { margin-top: 0; border-top: 0; }
+
+/* ═══════════════════════════════════════════════════════
+   ACCESSIBILITY HELPERS
+═══════════════════════════════════════════════════════ */
+/* "(optional)" beside a form label, quieter than the label itself */
+.label-opt { text-transform: none; letter-spacing: 0.02em; opacity: 0.85; }
+/* Skip link: off screen until a keyboard user tabs to it */
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: calc(12px + env(safe-area-inset-top, 0px));
+  z-index: 1000;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform 0.2s var(--ease-out);
+}
+.skip-link:focus { transform: none; }
+/* the skip link moves focus to <main>; no outline around the whole page for that */
+main:focus { outline: none; }
+
+/* no single word stranded on the last line of ledger and case-study copy */
+.xp-desc, .xp-pillar__desc, .cs-facts dd, .cs-venture__desc { text-wrap: pretty; }
+
+/* ═══════════════════════════════════════════════════════
+   DESIGN REVIEW FIXES (September 2026)
+═══════════════════════════════════════════════════════ */
+/* even, lining numerals everywhere (Playfair defaults to old-style figures) */
+html { font-variant-numeric: lining-nums; }
+
+/* hero: the positioning line never drops below body size, and hard proof sits
+   under the CTAs so the first screen carries numbers */
+.hero-sub { font-size: clamp(16px, 1.25vw, 17px); font-weight: 400; }
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin-top: 22px;
+  font-family: var(--font-label);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--body-text);
+}
+.hero-facts span { white-space: nowrap; }
+.hero-facts b { font-weight: 500; color: var(--accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-facts { animation: heroUp 0.7s var(--ease-out) 0.76s backwards; }
+}
+@media (max-width: 420px) { .hero-facts { gap: 4px 16px; margin-top: 18px; font-size: 12.5px; } }
+/* short landscape phones keep their tighter hero */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero-sub { font-size: 14px; }
+  .hero-facts { margin-top: 12px; }
+}
+
+/* forms: the status line takes no space until it has something to say */
+.form-status:empty { display: none; }
+.about-contact-form .form-consent { font-size: 12.5px; }
+/* contact details that are links look like links */
+a.contact-detail__value {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(77, 163, 255, 0.4);
+  text-underline-offset: 3px;
+}
+a.contact-detail__value:hover { text-decoration-color: currentColor; }
+[data-theme="light"] a.contact-detail__value { text-decoration-color: rgba(27, 99, 214, 0.35); }
+/* budget chips stay solid so the fence behind never shows through them */
+.budget-chip:not(.is-on) { background: var(--bg); }
+
+/* track record: only real numbers get the big display figure */
+.xp-fig--label {
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+@media (max-width: 760px) { .xp-fig { font-size: 20px; } .xp-fig--label { font-size: 13px; } }
+
+/* stats row: "Fortune 500" fits on 360px phones */
+@media (max-width: 480px) { .proof__value--text { font-size: clamp(22px, 7.4vw, 30px); } }
+
+/* headings: balanced lines, no single stranded word */
+.cs-case__title, .post-card__title, .xp-pillar__name { text-wrap: balance; }
+@media (min-width: 1024px) { .post-card__title { min-height: calc(3 * 1.28em); } }
+
+/* Speaking on phones: the event facts already live in the intro and the
+   caption, and the photo strip becomes one swipeable row */
+@media (max-width: 760px) {
+  .talk-facts { display: none; }
+  .talk-strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    scroll-padding-inline: var(--gutter);
+  }
+  .talk-strip::-webkit-scrollbar { display: none; }
+  .talk-shot { flex: 0 0 76%; scroll-snap-align: start; }
+  .talk-shot--tall .talk-shot__frame { aspect-ratio: 3 / 2; }
+}
+
+/* phones: small print at least 11 to 12px, and every tap target about 44px */
+@media (max-width: 760px) {
+  .form-group label, .contact-detail__label, .talk-facts dt { font-size: 12px; }
+  .cs-node__label small, .cs-node__inline small { font-size: 11px; }
+  .budget-chip { min-height: 44px; }
+  .text-link, .cs-cta { padding-block: 10px; }
+  .footer-link { display: inline-block; padding: 12px 4px; }
+  .nav-burger { width: 44px; height: 44px; }
+  .theme-btn { width: 44px; height: 44px; }
+}
+
+/* About: the same body size and colour as the home page, section numbers level
+   with their headings, and the portrait keeps his hair in frame */
+.about-section__content p { font-size: 16px; color: var(--body-text); }
+.about-section--photo-right { align-items: start; }
+.about-talk-shot--tall .about-section__side-photo img { object-position: 50% 12%; }
+@media (max-width: 600px) { .about-hero { min-height: 0; } }
+
+/* no faux italics: Inter ships without an italic face here */
+.stack-more, .cs-log__note { font-style: normal; }
+
+/* budget not chosen yet: the bar reads "Not set", quietly */
+.budget-bar.is-unset .budget-val { color: var(--muted); font-weight: 500; }
+
+/* About heading: one sentence, wrapped into even lines at every width */
+.about-hero__heading-text { text-wrap: balance; }
