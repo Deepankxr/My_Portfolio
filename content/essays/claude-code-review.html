@@ -1,0 +1,32 @@
+<p class="post-body__lede">Code review has been the reliable bottleneck in software delivery for decades. Necessary, slow, thorough when someone had time and inconsistent when they did not. That constraint is being reshaped, and not by another linter.</p>
+
+        <h2>Several specialists, not one scanner</h2>
+        <p>The structural difference is that this is not one algorithm sweeping a diff. It is a set of agents with distinct focuses. One looks at security exposure. Another at architectural consistency. Another at performance consequences. Another at accessibility.</p>
+        <p>The coordination is the clever part. They share context and cross-check each other, so when one raises something the others can weigh whether it is a real problem given the surrounding code and the conventions this project actually follows. That is what keeps the false positive rate low enough to stay useful.</p>
+
+        <h2>Comments where the code is</h2>
+        <p>There is no separate dashboard to visit and no report to parse. Feedback lands inline on the pull request, attached to the specific lines it concerns.</p>
+        <p>The comments are specific rather than vague. Not a warning about potential issues, but why a particular function will leak, how a component could be restructured to be testable, where an authentication path exposes a timing difference.</p>
+        <p>That changes the feedback loop more than it sounds like it should. Developers learn in context, at the exact moment they are still holding the problem in their head. Knowledge transfer stops being a scheduled activity and becomes continuous.</p>
+
+        <h2>Depth that matches risk</h2>
+        <p>The capability I find most valuable is that review effort scales with what the change actually touches. A small styling adjustment gets a light pass. A rewrite of authentication middleware triggers a serious security review. A schema change pulls in migration safety and performance implications.</p>
+        <p>It also gets more useful over time as it learns the codebase, the naming conventions, and the testing philosophy of the team. Early reviews read generically. Later ones read like someone who has worked here for a while.</p>
+        <p>The practical result is a better signal to noise ratio. Critical things surface immediately and minor suggestions appear only when they are relevant, which is the difference between a tool people use and a tool people mute.</p>
+
+        <h2>What it does to the team</h2>
+        <p>This does not remove human review. It changes what humans spend review time on. Senior engineers stop catching missing null checks and start weighing architecture and mentoring. Junior developers get consistent, patient feedback without the social cost of interrupting someone busy.</p>
+        <p>Security teams get an always-on first pass that catches the common categories before anything reaches a human reviewer, which is exactly where automation should sit.</p>
+        <p>The trade-off curve genuinely improves: faster shipping alongside deeper analysis, rather than the usual choice between the two.</p>
+        <p>We have watched this pattern before with continuous integration and with cloud infrastructure. Teams that adopted early gained years of compounding advantage. I would put intelligent review in the same category, and the window where it counts as an edge rather than a baseline is not going to stay open long.</p>
+
+
+        <aside class="post-source">
+          <span class="post-source__label">Originally published</span>
+          <p>I first wrote about this on the <a href="https://truehorizon.ai/news/claude-code-review-changed-software-development" target="_blank" rel="noopener">TrueHorizon AI blog</a>, where I write about enterprise AI automation. This is my personal, adapted take. You can browse all of TrueHorizon's articles at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
+        </aside>
+
+        <div class="post-cta">
+          <p>Want AI wired into your engineering workflow properly?</p>
+          <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
+        </div>

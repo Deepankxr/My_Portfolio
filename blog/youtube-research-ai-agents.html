@@ -1,36 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0A0B10">
-  <title>The AI Agent That Does YouTube Research While You Sleep | Deepankar Bhadrasen</title>
-  <meta name="description" content="Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on data instead of guesswork.">
-  <meta name="author" content="Deepankar Bhadrasen">
-  <link rel="canonical" href="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
-
-  <!-- Apply saved theme before first paint (prevents flash of wrong theme) -->
-  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
-
-  <!-- Open Graph / social sharing -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
-  <meta property="og:title" content="The AI Agent That Does YouTube Research While You Sleep">
-  <meta property="og:description" content="Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on data instead of guesswork.">
-  <meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
-
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-
-
-  <link rel="stylesheet" href="../css/style.css?v=20260924.2">
-  <link rel="stylesheet" href="../css/blog.css?v=20260924.2">
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
+<!doctype html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171717"><title>The AI Agent That Does YouTube Research While You Sleep | Deepankar Bhadrasen</title><meta name="description" content="Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on data instead of guesswork.">
+<meta name="author" content="Deepankar Bhadrasen">
+<link rel="canonical" href="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deepankar.xyz/blog/youtube-research-ai-agents.html">
+<meta property="og:title" content="The AI Agent That Does YouTube Research While You Sleep">
+<meta property="og:description" content="Viral outlier detection, transcript analysis, and thumbnail vision models: a content research pipeline built on data instead of guesswork.">
+<meta property="og:image" content="https://deepankar.xyz/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://deepankar.xyz/assets/og-image.jpg">
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -45,106 +26,20 @@
     "keywords": ["AI agents", "content research", "YouTube automation", "Apify", "workflow automation"]
   }
   </script>
-</head>
-
-<body>
-
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress" id="scroll-progress"></div>
-
-  <!-- ─── Liquid-glass card nav ─── -->
-  <header id="nav">
-    <div class="nav-shell">
-      <div class="nav-bar">
-        <a href="../index.html" class="nav-logo">Deepankar Bhadrasen</a>
-
-        <nav class="nav-links">
-          <a href="../about/" class="nav-link">About</a>
-          <a href="../thoughts.html" class="nav-link nav-link--active">Thoughts</a>
-        </nav>
-
-        <div class="nav-actions">
-          <a href="../index.html#contact" class="nav-link--cta">Work with Me</a>
-          <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-            <span class="theme-icon theme-icon--light">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-              </svg>
-            </span>
-            <span class="theme-icon theme-icon--dark">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-              </svg>
-            </span>
-          </button>
-          <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-cards">
-            <span></span><span></span>
-          </button>
-        </div>
-      </div>
-
-      <div class="nav-cards" id="nav-cards" aria-hidden="true">
-        <div class="nav-cards__inner">
-          <div class="nav-cards__grid">
-            <div class="nav-card">
-              <span class="nav-card__label">Explore</span>
-              <div class="nav-card__links">
-                <a class="nav-card__link" href="../index.html">Home</a>
-                <a class="nav-card__link" href="../about/">About</a>
-                <a class="nav-card__link" href="../thoughts.html">Thoughts</a>
-              </div>
-            </div>
-            <div class="nav-card">
-              <span class="nav-card__label">Latest Writing</span>
-              <div class="nav-card__links">
-                <a class="nav-card__link" href="claude-design-enterprise-guide.html">Designing with Claude</a>
-                <a class="nav-card__link" href="youtube-research-ai-agents.html">YouTube Research Agents</a>
-                <a class="nav-card__link" href="../thoughts.html">All posts</a>
-              </div>
-            </div>
-            <div class="nav-card">
-              <span class="nav-card__label">Connect</span>
-              <div class="nav-card__links">
-                <a class="nav-card__link" href="../index.html#contact">Work with Me</a>
-                <a class="nav-card__link" href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener">LinkedIn</a>
-                <a class="nav-card__link" href="mailto:sales@deepankar.xyz">Email</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="post-main">
-
-    <section class="post-hero">
-      <div class="container">
-        <a href="../thoughts.html" class="post-back">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          All thoughts
-        </a>
-        <p class="post-meta"><span class="post-cat">AI Agents</span> <span>·</span> <span>5 min read</span> <span>·</span> <span>Deepankar Bhadrasen</span></p>
-        <h1 class="post-title">The AI Agent That Does YouTube Research While You Sleep</h1>
-      </div>
-    </section>
-
-    <div class="container">
-      <article class="post-body">
-
-        <p class="post-body__lede">Every creator, founder, and marketing team I know shares the same quiet problem: hours disappearing into YouTube, scrolling for trends that have usually peaked by the time they reach anyone's home feed. Reacting to your feed is not a strategy. It is a gamble with bad odds.</p>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="preload" href="../assets/fonts/archivo-variable.ttf" as="font" type="font/ttf" crossorigin><script src="../js/noir-theme.js"></script><link rel="stylesheet" href="../css/noir.css">
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script><script defer src="../js/config.js"></script><script defer src="../js/noir.js"></script></head>
+<body class="article-page"><a class="skip" href="#main">Skip to content</a>
+<header class="header " id="nav"><a class="wordmark" href="../index.html" aria-label="Deepankar Bhadrasen, home">Deepankar<span>Bhadrasen</span></a>
+<nav aria-label="Main navigation"><a href="../index.html#work" >Work</a><a href="../about/" >About</a><a href="../thoughts.html" aria-current="page">Thoughts</a><a href="../index.html#contact" class="nav-contact">Work with Me <span aria-hidden="true">↗</span></a></nav>
+<button class="menu-toggle" aria-controls="menu" aria-expanded="false" aria-haspopup="dialog">Menu <span aria-hidden="true">＋</span></button></header><main id="main"><div class="reading-progress" aria-hidden="true"><span></span></div><section class="post-hero wrap"><a href="../thoughts.html" class="text-link back-link">← All thoughts</a><p class="post-meta"><a href="../thoughts.html?topic=ai-agents#essays">AI Agents</a><span>5 min read</span><time datetime="2026-05-14">2026-05-14</time></p><h1 class="post-title">The AI Agent That Does YouTube Research While You Sleep</h1><div class="post-byline"><img src="../assets/avatar-540.webp" width="44" height="44" alt=""><p>Deepankar Bhadrasen<span>AI automation engineer &amp; founding engineer</span></p><button type="button" data-copy-link>Copy link ↗</button></div></section><div class="post-layout wrap"><aside class="post-rail"><nav aria-label="On this page"><p>On this page</p><ol><li><a href="#the-viral-outlier-strategy">The viral outlier strategy</a></li><li><a href="#how-the-pipeline-works">How the pipeline works</a></li><li><a href="#what-comes-out-the-other-end">What comes out the other end</a></li><li><a href="#built-like-client-work-not-a-weekend-hack">Built like client work, not a weekend hack</a></li><li><a href="#the-bigger-point">The bigger point</a></li></ol></nav><a href="#main" class="text-link">Back to top ↑</a></aside><div class="article-column"><details class="mobile-toc"><summary>On this page</summary><ol><li><a href="#the-viral-outlier-strategy">The viral outlier strategy</a></li><li><a href="#how-the-pipeline-works">How the pipeline works</a></li><li><a href="#what-comes-out-the-other-end">What comes out the other end</a></li><li><a href="#built-like-client-work-not-a-weekend-hack">Built like client work, not a weekend hack</a></li><li><a href="#the-bigger-point">The bigger point</a></li></ol></details><article class="post-body" id="essay"><p class="post-body__lede">Every creator, founder, and marketing team I know shares the same quiet problem: hours disappearing into YouTube, scrolling for trends that have usually peaked by the time they reach anyone's home feed. Reacting to your feed is not a strategy. It is a gamble with bad odds.</p>
 
         <p>So at TrueHorizon I built an AI agent that does the research continuously, around the clock, and reports back with topics that are provably working right now. Here is how it thinks.</p>
 
-        <h2>The viral outlier strategy</h2>
+        <h2 id="the-viral-outlier-strategy">The viral outlier strategy</h2>
         <p>The system hunts for one specific signal: videos from small channels experiencing explosive growth. When a channel with 500 subscribers pulls 10,000 views on a single video, that tells you something important. The topic has more leverage than the brand. Nobody clicked because of the channel name. They clicked because of the subject itself.</p>
         <p>So the agent filters for two hard criteria: more than 10,000 views, and a view count greater than the channel's subscriber count. Content that passes both is worth studying. Everything else is noise.</p>
 
-        <h2>How the pipeline works</h2>
+        <h2 id="how-the-pipeline-works">How the pipeline works</h2>
         <p>The workflow runs on a simple, durable loop. Browser automation through Apify scrapes the newest and trending videos in the target niche, one hundred at a time, restricted to the last 60 days so the data stays fresh. Conditional logic applies the outlier filter. A dedupe check makes sure nothing gets analyzed twice, and every new find is logged to a tracking sheet that grows into a research database over time.</p>
         <p>Then the real analysis starts, in two layers:</p>
         <ul>
@@ -153,13 +48,13 @@
         </ul>
         <p>Together, those two layers answer the question that matters: not just what a video covers, but why viewers chose it. That is the insight that separates creators who compound from creators who guess.</p>
 
-        <h2>What comes out the other end</h2>
+        <h2 id="what-comes-out-the-other-end">What comes out the other end</h2>
         <p>The agent produces search-friendly title variations built on what already works, and reframed content outlines that leave room for your own perspective. Not copies. Blueprints for adding unique value to topics the market has already validated. You bring the taste. The data brings the confidence.</p>
 
-        <h2>Built like client work, not a weekend hack</h2>
+        <h2 id="built-like-client-work-not-a-weekend-hack">Built like client work, not a weekend hack</h2>
         <p>Because this system runs on the same standards we apply to enterprise builds at TrueHorizon, it ships with rate limiting and throttling to protect APIs, a modular design that adapts across niches, and outputs that land wherever your team already lives: Google Sheets, Monday, ClickUp, Trello, or Asana. Trigger it from an embedded form and it simply runs. No manual activation, no babysitting.</p>
 
-        <h2>The bigger point</h2>
+        <h2 id="the-bigger-point">The bigger point</h2>
         <p>None of this replaces creativity. It refuses to waste your sharpest hours on scrolling. The agent handles the research, the filtering, and the pattern detection while you sleep. You spend the reclaimed energy on the one thing it cannot do: making something only you could make.</p>
 
         <aside class="post-source">
@@ -171,32 +66,5 @@
           <p>Want a research agent working for your team overnight?</p>
           <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
         </div>
-
-      </article>
-    </div>
-
-  </main>
-
-  <!-- ─── Footer ─── -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <p class="footer-copy">&copy; <span id="year"></span> Deepankar Bhadrasen</p>
-        <div class="footer-links">
-          <a href="../privacy.html" class="footer-link">Privacy</a>
-          <a href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Smooth scroll + scroll animations -->
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
-  <script src="../js/config.js?v=20260924.2"></script>
-  <script src="../js/main.js?v=20260924.2"></script>
-  <script src="../js/posts.js?v=20260924.2"></script>
-  <script src="../js/blog.js?v=20260924.2"></script>
-</body>
-</html>
+</article><div class="article-share"><p>Found this useful?</p><button type="button" data-copy-link>Copy link ↗</button><span data-copy-status role="status" aria-live="polite"></span></div></div></div><section class="keep-reading wrap section"><h2>Keep reading<span class="accent">.</span></h2><nav class="post-pager" aria-label="Previous and next essay"><a href="claude-design-enterprise-guide.html" rel="prev"><span>Previous essay</span><h3>Claude Design for Enterprises: 6 Things to Know Before You Prototype</h3><p>Enterprise AI · 6 min read</p></a><a href="n8n-mcp-claude-code.html" rel="next"><span>Next essay</span><h3>Stop Prototyping Slowly: n8n MCP + Claude Code</h3><p>Automation · 5 min read</p></a></nav><h3 class="related-heading">More to think about</h3><a href="../blog/autonomous-ai-agents-2026.html" class="essay"><span>AI Agents<small>4 min read</small></span><h3>Why 2026 Belongs to Autonomous AI Agents</h3><span aria-hidden="true">↗</span></a></section></main><footer class="footer wrap" id="footer"><a class="footer-name" href="../index.html">Deepankar Bhadrasen</a><div><a href="https://www.linkedin.com/in/deepankarbhadrasen/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="mailto:sales@deepankar.xyz">Email ↗</a><a href="../privacy.html">Privacy</a><button data-theme-toggle>Light theme</button><button data-motion-toggle aria-pressed="false">Pause motion</button><a href="#main" class="back-top" aria-label="Back to top">↑</a></div><span class="copyright">© <span data-year>2026</span></span></footer>
+<dialog class="mobile-menu" id="menu" aria-label="Navigation"><button class="close-dialog" data-close-menu>Close ×</button><p class="menu-caption">Deepankar Bhadrasen</p><nav aria-label="Mobile navigation"><a href="../index.html#work">Work</a><a href="../about/">About</a><a href="../thoughts.html">Thoughts</a><a href="../index.html#contact">Work with Me ↗</a></nav><a class="menu-email" href="mailto:sales@deepankar.xyz">sales@deepankar.xyz</a></dialog><div class="hover-label" aria-hidden="true"></div></body></html>

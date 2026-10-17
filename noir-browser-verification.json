@@ -1,0 +1,383 @@
+{
+  "mobile": [
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/about/",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/work/",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/work/automated-sales-pipeline.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/work/call-grading-system.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/work/invoice-parsing-system.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/work/finance-document-agent.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/thoughts.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/privacy.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/claude-design-enterprise-guide.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/youtube-research-ai-agents.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/n8n-mcp-claude-code.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/ai-chatbots-context-problem.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/ai-speed-vs-skill.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/project-glasswing-ai-regulation.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/ai-lead-qualification-outbound.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/is-n8n-dead.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/autonomous-ai-agents-2026.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/ai-for-accountants.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/claude-code-review.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/claude-code-n8n-one-person-team.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/n8n-enterprise-automation.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/n8n-revenue-multiplication.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/moltbook-implications.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/upskilling-for-ai-workplace.html",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "badImages": [],
+      "h1": 1,
+      "path": "/blog/fortune-500-automation-audit.html",
+      "scrollWidth": 320,
+      "width": 320
+    }
+  ],
+  "desktopLight": [
+    {
+      "badImages": [],
+      "path": "/",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/about/",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/work/",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/work/automated-sales-pipeline.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/work/call-grading-system.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/work/invoice-parsing-system.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/work/finance-document-agent.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/thoughts.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/privacy.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/claude-design-enterprise-guide.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/youtube-research-ai-agents.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/n8n-mcp-claude-code.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/ai-chatbots-context-problem.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/ai-speed-vs-skill.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/project-glasswing-ai-regulation.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/ai-lead-qualification-outbound.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/is-n8n-dead.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/autonomous-ai-agents-2026.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/ai-for-accountants.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/claude-code-review.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/claude-code-n8n-one-person-team.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/n8n-enterprise-automation.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/n8n-revenue-multiplication.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/moltbook-implications.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/upskilling-for-ai-workplace.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "badImages": [],
+      "path": "/blog/fortune-500-automation-audit.html",
+      "scrollWidth": 1440,
+      "theme": "light",
+      "width": 1440
+    }
+  ],
+  "portrait": {
+    "initialWidth": 210,
+    "afterScrollWidth": 201.831,
+    "afterScrollOpacity": 0.4037,
+    "behavior": "shrinks and blends; never expands to full screen"
+  },
+  "archive": {
+    "topicFilter": true,
+    "search": true,
+    "emptyStateRecovery": true
+  },
+  "consoleErrors": [],
+  "liveContactSubmissionTested": false
+}

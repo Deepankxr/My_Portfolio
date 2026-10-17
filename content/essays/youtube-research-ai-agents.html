@@ -1,0 +1,35 @@
+<p class="post-body__lede">Every creator, founder, and marketing team I know shares the same quiet problem: hours disappearing into YouTube, scrolling for trends that have usually peaked by the time they reach anyone's home feed. Reacting to your feed is not a strategy. It is a gamble with bad odds.</p>
+
+        <p>So at TrueHorizon I built an AI agent that does the research continuously, around the clock, and reports back with topics that are provably working right now. Here is how it thinks.</p>
+
+        <h2>The viral outlier strategy</h2>
+        <p>The system hunts for one specific signal: videos from small channels experiencing explosive growth. When a channel with 500 subscribers pulls 10,000 views on a single video, that tells you something important. The topic has more leverage than the brand. Nobody clicked because of the channel name. They clicked because of the subject itself.</p>
+        <p>So the agent filters for two hard criteria: more than 10,000 views, and a view count greater than the channel's subscriber count. Content that passes both is worth studying. Everything else is noise.</p>
+
+        <h2>How the pipeline works</h2>
+        <p>The workflow runs on a simple, durable loop. Browser automation through Apify scrapes the newest and trending videos in the target niche, one hundred at a time, restricted to the last 60 days so the data stays fresh. Conditional logic applies the outlier filter. A dedupe check makes sure nothing gets analyzed twice, and every new find is logged to a tracking sheet that grows into a research database over time.</p>
+        <p>Then the real analysis starts, in two layers:</p>
+        <ul>
+          <li><strong>Transcript analysis.</strong> The agent pulls the video captions and runs them through a language model to map the content structure, the key points, and how the messaging is paced.</li>
+          <li><strong>Thumbnail analysis.</strong> Vision models break down the layout and composition, facial expressions and emotion, color palette choices, and the visual elements that actually earn the click.</li>
+        </ul>
+        <p>Together, those two layers answer the question that matters: not just what a video covers, but why viewers chose it. That is the insight that separates creators who compound from creators who guess.</p>
+
+        <h2>What comes out the other end</h2>
+        <p>The agent produces search-friendly title variations built on what already works, and reframed content outlines that leave room for your own perspective. Not copies. Blueprints for adding unique value to topics the market has already validated. You bring the taste. The data brings the confidence.</p>
+
+        <h2>Built like client work, not a weekend hack</h2>
+        <p>Because this system runs on the same standards we apply to enterprise builds at TrueHorizon, it ships with rate limiting and throttling to protect APIs, a modular design that adapts across niches, and outputs that land wherever your team already lives: Google Sheets, Monday, ClickUp, Trello, or Asana. Trigger it from an embedded form and it simply runs. No manual activation, no babysitting.</p>
+
+        <h2>The bigger point</h2>
+        <p>None of this replaces creativity. It refuses to waste your sharpest hours on scrolling. The agent handles the research, the filtering, and the pattern detection while you sleep. You spend the reclaimed energy on the one thing it cannot do: making something only you could make.</p>
+
+        <aside class="post-source">
+          <span class="post-source__label">Originally published</span>
+          <p>I first wrote about this system on the <a href="https://truehorizon.ai/news/stop-guessing-youtube-trends-automate-research" target="_blank" rel="noopener">TrueHorizon AI blog</a>. This is my personal, adapted take. More of TrueHorizon's enterprise AI writing is at <a href="https://truehorizon.ai/news" target="_blank" rel="noopener">truehorizon.ai/news</a>.</p>
+        </aside>
+
+        <div class="post-cta">
+          <p>Want a research agent working for your team overnight?</p>
+          <a href="../index.html#contact" class="btn btn--primary">Work with Me</a>
+        </div>
