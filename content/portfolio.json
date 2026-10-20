@@ -6,9 +6,9 @@
       "category": "Revenue Automation",
       "client": "US-based nonprofit · Catholic organization",
       "fields": {
-        "Problem": "Outreach was manual: every lead was qualified, followed up on and entered into the CRM by hand, for hours every day.",
-        "System": "An end-to-end pipeline that replaces manual outreach with intelligent workflows. Leads are qualified automatically, follow-ups sequenced and all data synced to Salesforce, with no human input at any step.",
-        "Result": "Eliminated hours of daily manual outreach. Scaled lead engagement without adding a single person."
+        "Problem": "A US-based nonprofit was qualifying leads, sending follow-ups and updating Salesforce by hand. The same outreach steps had to be repeated for each new lead.",
+        "What I built": "I connected lead qualification, follow-up sequencing and CRM updates in one pipeline. n8n coordinates the steps, OpenAI supports qualification, Supabase holds workflow data and Salesforce receives the CRM updates.",
+        "Outcome": "The system replaced recurring manual outreach steps and kept lead records in sync. Hours saved, conversion lift and error rates were not measured in this case study."
       },
       "stack": [
         "n8n",
@@ -23,9 +23,9 @@
       "category": "Process Automation",
       "client": "Enterprise · Sales and support teams",
       "fields": {
-        "Problem": "Coaching depended on hours of manual call review across sales and support teams.",
-        "System": "Automatically ingests, transcribes and scores calls against custom rubrics. It surfaces coachable moments and flags underperforming patterns, all before the manager opens their inbox.",
-        "Result": "Replaced hours of manual call review. Enabled consistent, data-driven coaching at scale."
+        "Problem": "Sales and support coaching depended on managers listening through call recordings. Reviewing calls by hand made it difficult to apply the same rubric consistently.",
+        "What I built": "I built a workflow that ingests calls, produces transcripts and scores them against a custom rubric. n8n coordinates processing, OpenAI supports the analysis, and Supabase stores results for review. The workflow surfaces coachable moments and recurring patterns.",
+        "Outcome": "Call review became a repeatable workflow that surfaces coaching signals for managers. Time saved, scoring accuracy and coaching outcomes are unmeasured here."
       },
       "stack": [
         "openai",
@@ -39,9 +39,9 @@
       "category": "Document Intelligence",
       "client": "E-commerce brands",
       "fields": {
-        "Problem": "Invoices in every format, keyed in by hand across high-volume order flows.",
-        "System": "Reads incoming invoices in any format, extracts structured data, validates it against order records and writes clean entries to the database. Thousands of documents, no manual input required.",
-        "Result": "Eliminated manual invoice entry entirely. Scaled to high document volumes with zero additional effort."
+        "Problem": "E-commerce teams were entering invoice details by hand across varied document formats and order flows. The useful fields had to be extracted and checked before they could be stored.",
+        "What I built": "I used n8n to coordinate invoice ingestion, OpenAI to extract structured fields and MongoDB for order validation and record storage. The workflow turns incoming invoices into structured entries checked against order records.",
+        "Outcome": "The workflow automated extraction, validation and database entry in the documented invoice flow. Document throughput, extraction accuracy and hours saved were not measured for publication."
       },
       "stack": [
         "openai",
@@ -55,9 +55,9 @@
       "category": "Financial Intelligence",
       "client": "Enterprise · Financial services",
       "fields": {
-        "Problem": "Loan applications were assembled by hand from unstructured financial documents, the slowest part of every review.",
-        "System": "An AI agent reads and interprets unstructured financial documents using vector search and LLMs, then populates and formats a complete loan application.",
-        "Result": "Drastically cut loan application processing time. Removed manual document review from standard application workflows."
+        "Problem": "A financial-services workflow required people to read unstructured documents and assemble loan application details by hand. Finding and re-entering the relevant information slowed preparation.",
+        "What I built": "I built an agent that reads financial documents, retrieves relevant context with Pinecone and uses Gemini and OpenAI to interpret and structure the information. Supabase supports the application data. The output is a prepared loan application.",
+        "Outcome": "The system automated document interpretation and application preparation within the described workflow. Processing-time reduction, accuracy and financial outcomes are unmeasured here."
       },
       "stack": [
         "openai",

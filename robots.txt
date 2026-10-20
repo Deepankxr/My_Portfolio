@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /assets/
+
 Sitemap: https://deepankar.xyz/sitemap.xml
+Sitemap: https://deepankar.xyz/page-sitemap.xml
+Sitemap: https://deepankar.xyz/image-sitemap.xml

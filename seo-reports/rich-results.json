@@ -1,0 +1,14 @@
+{
+  "method": "Google Rich Results Test — code input",
+  "home": {
+    "url": "https://search.google.com/test/rich-results/result?id=wT0HtGvtzqG5kxdJnPLyxA",
+    "result": "No items detected",
+    "note": "Person and WebSite do not create an eligible rich-result item by themselves."
+  },
+  "project": {
+    "url": "https://search.google.com/test/rich-results/result?id=Feq9C0l8dFol807PEnw4XQ",
+    "result": "1 valid item detected",
+    "type": "Breadcrumbs"
+  },
+  "source": "Generated local HTML submitted with explicit user approval; this is not a deployed URL crawl."
+}

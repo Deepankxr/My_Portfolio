@@ -1,0 +1,7 @@
+# Supported by Netlify and Cloudflare Pages. Other hosts: apply equivalent rules.
+/*.xml
+  Content-Type: application/xml; charset=utf-8
+/404.html
+  X-Robots-Tag: noindex
+/googleREPLACE_WITH_SEARCH_CONSOLE_TOKEN.html
+  X-Robots-Tag: noindex

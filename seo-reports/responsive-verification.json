@@ -1,0 +1,220 @@
+{
+  "checks": [
+    {
+      "label": "home-desktop-1440",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": {
+        "radius": "999px",
+        "width": 158.96875
+      },
+      "teaser": {
+        "height": 425,
+        "width": 340
+      },
+      "url": "/index.html",
+      "width": 1440
+    },
+    {
+      "label": "home-touch-390",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": {
+        "radius": "999px",
+        "width": 39.7734375
+      },
+      "teaser": {
+        "height": 375,
+        "width": 300
+      },
+      "url": "/index.html",
+      "width": 390
+    },
+    {
+      "label": "home-touch-320",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": {
+        "radius": "999px",
+        "width": 34.796875
+      },
+      "teaser": {
+        "height": 345,
+        "width": 276
+      },
+      "url": "/",
+      "width": 320
+    },
+    {
+      "label": "about-touch-320",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/about/",
+      "width": 320
+    },
+    {
+      "label": "work/automated-sales-pipeline.html-touch-320",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/work/automated-sales-pipeline.html",
+      "width": 320
+    },
+    {
+      "label": "blog/n8n-mcp-claude-code.html-touch-320",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/blog/n8n-mcp-claude-code.html",
+      "width": 320
+    },
+    {
+      "label": "thoughts.html-touch-320",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/thoughts.html",
+      "width": 320
+    },
+    {
+      "label": "work/-touch-320",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/work/",
+      "width": 320
+    },
+    {
+      "label": "work-index-desktop-1440",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/work/",
+      "width": 1440
+    },
+    {
+      "label": "about/-desktop-1440",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/about/",
+      "width": 1440
+    },
+    {
+      "label": "work/automated-sales-pipeline.html-desktop-1440",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/work/automated-sales-pipeline.html",
+      "width": 1440
+    },
+    {
+      "label": "blog/n8n-mcp-claude-code.html-desktop-1440",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": null,
+      "teaser": null,
+      "url": "/blog/n8n-mcp-claude-code.html",
+      "width": 1440
+    },
+    {
+      "label": "home-final-desktop-1440",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": {
+        "radius": "999px",
+        "width": 158.96875
+      },
+      "teaser": {
+        "height": 425,
+        "width": 340
+      },
+      "url": "/",
+      "width": 1440
+    },
+    {
+      "label": "home-tablet-1024",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": {
+        "radius": "999px",
+        "width": 113.046875
+      },
+      "teaser": {
+        "height": 409.109375,
+        "width": 327.2890625
+      },
+      "url": "/",
+      "width": 1024
+    },
+    {
+      "label": "home-tablet-768",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": {
+        "radius": "999px",
+        "width": 88.46875
+      },
+      "teaser": {
+        "height": 306.8359375,
+        "width": 245.46875
+      },
+      "url": "/",
+      "width": 768
+    },
+    {
+      "label": "home-default-pane",
+      "h1": 1,
+      "loadedBroken": [],
+      "overflow": false,
+      "pill": {
+        "radius": "999px",
+        "width": 55.1796875
+      },
+      "teaser": {
+        "height": 375,
+        "width": 300
+      },
+      "url": "/",
+      "width": 541
+    }
+  ],
+  "search": {
+    "query": "n8n",
+    "visibleEssays": 5,
+    "canonical": "https://deepankar.xyz/thoughts.html"
+  },
+  "keyboardPortraitLink": "Enter navigated to /about/; portrait visible",
+  "consoleErrors": [
+    {
+      "level": "error",
+      "message": "InvalidStateError: Transition was aborted because of invalid state. Page already revealed",
+      "timestamp": "2026-10-20T23:15:39.436Z",
+      "url": "http://127.0.0.1:8767/about/"
+    }
+  ]
+}

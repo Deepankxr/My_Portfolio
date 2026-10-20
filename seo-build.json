@@ -1,0 +1,550 @@
+{
+  "base_url": "https://deepankar.xyz/",
+  "environment": "production",
+  "pages": [
+    {
+      "path": "index.html",
+      "url": "https://deepankar.xyz/",
+      "lastmod": "2026-10-21",
+      "title": "Deepankar Bhadrasen | AI Automation Engineer",
+      "description": "I build AI agents and n8n automation for sales, finance and enterprise teams. Explore my work, case studies and writing on putting AI into production.",
+      "og": "assets/og/home-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/home-social-card.jpg",
+          "title": "Deepankar Bhadrasen | AI Automation Engineer — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/hcmc/deepankar-n8n-builders-challenge-speaking-1600.webp",
+          "title": "Deepankar demonstrating a live workflow at the n8n Builders Challenge"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/hcmc/n8n-builders-challenge-teams-800.webp",
+          "title": "N8n builders challenge teams"
+        },
+        {
+          "path": "assets/hcmc/deepankar-n8n-workshop-portrait-600.webp",
+          "title": "Deepankar n8n workshop portrait"
+        },
+        {
+          "path": "assets/deepankar-enterprise-team-900.webp",
+          "title": "Deepankar enterprise team"
+        },
+        {
+          "path": "assets/hcmc/deepankar-anshul-n8n-builders-challenge-800.webp",
+          "title": "Deepankar anshul n8n builders challenge"
+        },
+        {
+          "path": "assets/hcmc/deepankar-n8n-builders-challenge-speaking-960.webp",
+          "title": "Deepankar n8n builders challenge speaking"
+        },
+        {
+          "path": "assets/deepankar-symbiosis-graduation-900.webp",
+          "title": "Deepankar symbiosis graduation"
+        },
+        {
+          "path": "assets/hcmc/deepankar-n8n-workshop-portrait-900.webp",
+          "title": "Deepankar working through a build at his laptop"
+        }
+      ]
+    },
+    {
+      "path": "about/index.html",
+      "url": "https://deepankar.xyz/about/",
+      "lastmod": "2026-10-21",
+      "title": "About Deepankar | AI Engineer at TrueHorizon AI",
+      "description": "Meet Deepankar Bhadrasen, an AI automation engineer in Bhopal. My story spans client work, TrueHorizon AI and speaking at the n8n Builders Challenge.",
+      "og": "assets/og/about-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/about-social-card.jpg",
+          "title": "About Deepankar | AI Engineer at TrueHorizon AI — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/hcmc/deepankar-n8n-workshop-portrait-900.webp",
+          "title": "Deepankar concentrating on a build at the n8n Builders Challenge"
+        },
+        {
+          "path": "assets/deepankar-symbiosis-graduation-900.webp",
+          "title": "Deepankar graduating from Symbiosis Centre for Management Studies, Pune",
+          "caption": "Graduating from Symbiosis, Pune."
+        },
+        {
+          "path": "assets/hcmc/n8n-builders-challenge-teams-1400.webp",
+          "title": "Builders working together in Ho Chi Minh City",
+          "caption": "Learning by building, together."
+        },
+        {
+          "path": "assets/deepankar-enterprise-team-900.webp",
+          "title": "Deepankar with attendees at an enterprise event",
+          "caption": "Sharing a practical approach to AI with enterprise teams."
+        },
+        {
+          "path": "assets/deepankar-enterprise-ai-presentation-1000.webp",
+          "title": "Deepankar presenting a practical approach to AI at an enterprise event",
+          "caption": "Putting AI into practice with enterprise teams."
+        },
+        {
+          "path": "assets/hcmc/deepankar-n8n-builders-challenge-speaking-1600.webp",
+          "title": "Deepankar demonstrating a workflow to the n8n Builders Challenge audience"
+        },
+        {
+          "path": "assets/hcmc/deepankar-n8n-workflow-demo-800.webp",
+          "title": "Deepankar explaining an n8n workflow on screen",
+          "caption": "Walking through the workflow."
+        },
+        {
+          "path": "assets/hcmc/n8n-builders-challenge-teams-800.webp",
+          "title": "Deepankar building alongside teams at the n8n Builders Challenge",
+          "caption": "Building together, around the table."
+        },
+        {
+          "path": "assets/hcmc/deepankar-anshul-n8n-builders-challenge-1400.webp",
+          "title": "Deepankar with his brother Anshul Namdev at the n8n Builders Challenge",
+          "caption": "With Anshul at the n8n Builders Challenge."
+        }
+      ]
+    },
+    {
+      "path": "work/index.html",
+      "url": "https://deepankar.xyz/work/",
+      "lastmod": "2026-10-21",
+      "title": "AI Automation Case Studies | Deepankar Bhadrasen",
+      "description": "Explore four AI automation case studies: sales pipelines, call grading, invoice parsing and financial documents, with architectures and tools explained.",
+      "og": "assets/og/work-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/work-social-card.jpg",
+          "title": "AI Automation Case Studies | Deepankar Bhadrasen — Deepankar Bhadrasen"
+        }
+      ]
+    },
+    {
+      "path": "work/automated-sales-pipeline.html",
+      "url": "https://deepankar.xyz/work/automated-sales-pipeline.html",
+      "lastmod": "2026-10-21",
+      "title": "n8n Sales Pipeline Automation | Deepankar Bhadrasen",
+      "description": "How I built a sales pipeline with n8n, OpenAI, Salesforce and Supabase to qualify leads, sequence follow-ups and keep CRM records in sync for a nonprofit.",
+      "og": "assets/og/work-automated-sales-pipeline-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/work-automated-sales-pipeline-social-card.jpg",
+          "title": "n8n Sales Pipeline Automation | Deepankar Bhadrasen — Deepankar Bhadrasen"
+        }
+      ]
+    },
+    {
+      "path": "work/call-grading-system.html",
+      "url": "https://deepankar.xyz/work/call-grading-system.html",
+      "lastmod": "2026-10-21",
+      "title": "AI Call Grading System | Deepankar Bhadrasen",
+      "description": "A case study in automating sales and support call reviews with OpenAI, n8n and Supabase: transcripts, custom scoring rubrics and coaching signals for teams.",
+      "og": "assets/og/work-call-grading-system-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/work-call-grading-system-social-card.jpg",
+          "title": "AI Call Grading System | Deepankar Bhadrasen — Deepankar Bhadrasen"
+        }
+      ]
+    },
+    {
+      "path": "work/invoice-parsing-system.html",
+      "url": "https://deepankar.xyz/work/invoice-parsing-system.html",
+      "lastmod": "2026-10-21",
+      "title": "AI Invoice Parsing Automation | Deepankar Bhadrasen",
+      "description": "How I built an invoice processing workflow using OpenAI, MongoDB and n8n to extract fields, validate them against orders and store structured business data.",
+      "og": "assets/og/work-invoice-parsing-system-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/work-invoice-parsing-system-social-card.jpg",
+          "title": "AI Invoice Parsing Automation | Deepankar Bhadrasen — Deepankar Bhadrasen"
+        }
+      ]
+    },
+    {
+      "path": "work/finance-document-agent.html",
+      "url": "https://deepankar.xyz/work/finance-document-agent.html",
+      "lastmod": "2026-10-21",
+      "title": "Finance Document AI Agent | Deepankar Bhadrasen",
+      "description": "Inside a finance document agent using Gemini, Pinecone, OpenAI and Supabase to retrieve financial information and prepare structured loan application data.",
+      "og": "assets/og/work-finance-document-agent-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/work-finance-document-agent-social-card.jpg",
+          "title": "Finance Document AI Agent | Deepankar Bhadrasen — Deepankar Bhadrasen"
+        }
+      ]
+    },
+    {
+      "path": "thoughts.html",
+      "url": "https://deepankar.xyz/thoughts.html",
+      "lastmod": "2026-10-21",
+      "title": "AI Agents, n8n & Automation Essays | Deepankar",
+      "description": "Read 17 essays by Deepankar Bhadrasen on AI agents, n8n, Claude Code and enterprise automation. Search practical ideas for building systems teams can use.",
+      "og": "assets/og/thoughts-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/thoughts-social-card.jpg",
+          "title": "AI Agents, n8n & Automation Essays | Deepankar — Deepankar Bhadrasen"
+        }
+      ]
+    },
+    {
+      "path": "blog/claude-design-enterprise-guide.html",
+      "url": "https://deepankar.xyz/blog/claude-design-enterprise-guide.html",
+      "lastmod": "2026-10-21",
+      "title": "Claude Design for Enterprises: A Practical Guide",
+      "description": "A practical guide to Claude Design for enterprise teams: extracting design systems, structuring prompts and understanding the limits before you prototype.",
+      "og": "assets/og/blog-claude-design-enterprise-guide-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-claude-design-enterprise-guide-social-card.jpg",
+          "title": "Claude Design for Enterprises: A Practical Guide — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/youtube-research-ai-agents.html",
+      "url": "https://deepankar.xyz/blog/youtube-research-ai-agents.html",
+      "lastmod": "2026-10-21",
+      "title": "Building an AI Agent for YouTube Research",
+      "description": "How an AI research pipeline combines YouTube outlier detection, transcript analysis and thumbnail vision models to find content ideas using validated data.",
+      "og": "assets/og/blog-youtube-research-ai-agents-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-youtube-research-ai-agents-social-card.jpg",
+          "title": "Building an AI Agent for YouTube Research — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/n8n-mcp-claude-code.html",
+      "url": "https://deepankar.xyz/blog/n8n-mcp-claude-code.html",
+      "lastmod": "2026-10-21",
+      "title": "n8n MCP and Claude Code: From Prompt to Workflow",
+      "description": "How n8n MCP gives Claude Code access to workflow context, making automation faster to build while keeping validation, credentials and human review in view.",
+      "og": "assets/og/blog-n8n-mcp-claude-code-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-n8n-mcp-claude-code-social-card.jpg",
+          "title": "n8n MCP and Claude Code: From Prompt to Workflow — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/ai-chatbots-context-problem.html",
+      "url": "https://deepankar.xyz/blog/ai-chatbots-context-problem.html",
+      "lastmod": "2026-10-21",
+      "title": "Why AI Chatbots Fail Without Business Context",
+      "description": "Why support chatbots fail when they lack business context, and how a context-first AI architecture can connect useful data while retaining human approval.",
+      "og": "assets/og/blog-ai-chatbots-context-problem-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-ai-chatbots-context-problem-social-card.jpg",
+          "title": "Why AI Chatbots Fail Without Business Context — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/ai-speed-vs-skill.html",
+      "url": "https://deepankar.xyz/blog/ai-speed-vs-skill.html",
+      "lastmod": "2026-10-21",
+      "title": "AI Speed vs Skill: Keeping Your Own Judgment",
+      "description": "AI can make work faster while making expertise harder to judge. A practical perspective on using AI tools without outsourcing the skills you still need.",
+      "og": "assets/og/blog-ai-speed-vs-skill-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-ai-speed-vs-skill-social-card.jpg",
+          "title": "AI Speed vs Skill: Keeping Your Own Judgment — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/project-glasswing-ai-regulation.html",
+      "url": "https://deepankar.xyz/blog/project-glasswing-ai-regulation.html",
+      "lastmod": "2026-10-21",
+      "title": "Project Glasswing and the Case for AI Regulation",
+      "description": "A perspective on Project Glasswing and AI regulation: why high-impact decisions need adaptive governance, with oversight matched to the risks involved.",
+      "og": "assets/og/blog-project-glasswing-ai-regulation-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-project-glasswing-ai-regulation-social-card.jpg",
+          "title": "Project Glasswing and the Case for AI Regulation — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/ai-lead-qualification-outbound.html",
+      "url": "https://deepankar.xyz/blog/ai-lead-qualification-outbound.html",
+      "lastmod": "2026-10-21",
+      "title": "AI Lead Qualification: Fixing the Outbound Bottleneck",
+      "description": "Why faster AI-written emails do not solve outbound sales. Start with lead qualification, better signals and deciding which prospects deserve a conversation.",
+      "og": "assets/og/blog-ai-lead-qualification-outbound-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-ai-lead-qualification-outbound-social-card.jpg",
+          "title": "AI Lead Qualification: Fixing the Outbound Bottleneck — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/is-n8n-dead.html",
+      "url": "https://deepankar.xyz/blog/is-n8n-dead.html",
+      "lastmod": "2026-10-21",
+      "title": "Is n8n Dead? Why It Is Becoming Infrastructure",
+      "description": "The n8n hype cycle quieted down, but automation work did not stop. A builder's perspective on the shift from demos to infrastructure inside real businesses.",
+      "og": "assets/og/blog-is-n8n-dead-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-is-n8n-dead-social-card.jpg",
+          "title": "Is n8n Dead? Why It Is Becoming Infrastructure — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/autonomous-ai-agents-2026.html",
+      "url": "https://deepankar.xyz/blog/autonomous-ai-agents-2026.html",
+      "lastmod": "2026-10-21",
+      "title": "Autonomous AI Agents in 2026: From Demo to Deployment",
+      "description": "What changes when AI agents can plan and act across platforms? An engineer's view of autonomous systems, practical deployment, audits and data entry work.",
+      "og": "assets/og/blog-autonomous-ai-agents-2026-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-autonomous-ai-agents-2026-social-card.jpg",
+          "title": "Autonomous AI Agents in 2026: From Demo to Deployment — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/ai-for-accountants.html",
+      "url": "https://deepankar.xyz/blog/ai-for-accountants.html",
+      "lastmod": "2026-10-21",
+      "title": "AI for Accountants: Audit and Tax Automation in 2026",
+      "description": "How AI and continuous reconciliation can change accounting, audit and tax workflows, moving accountants toward verification and judgment over data discovery.",
+      "og": "assets/og/blog-ai-for-accountants-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-ai-for-accountants-social-card.jpg",
+          "title": "AI for Accountants: Audit and Tax Automation in 2026 — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/claude-code-review.html",
+      "url": "https://deepankar.xyz/blog/claude-code-review.html",
+      "lastmod": "2026-10-21",
+      "title": "Claude Code Review and the Pull Request Bottleneck",
+      "description": "Explore how specialised AI agents can review code, cross-check findings and comment on pull requests, with review depth matched to the risk of each change.",
+      "og": "assets/og/blog-claude-code-review-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-claude-code-review-social-card.jpg",
+          "title": "Claude Code Review and the Pull Request Bottleneck — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/claude-code-n8n-one-person-team.html",
+      "url": "https://deepankar.xyz/blog/claude-code-n8n-one-person-team.html",
+      "lastmod": "2026-10-21",
+      "title": "Claude Code and n8n: Building as a One-Person Team",
+      "description": "How Claude Code and n8n combine product development with workflow automation, letting one builder cover more ground while keeping responsibility for the work.",
+      "og": "assets/og/blog-claude-code-n8n-one-person-team-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-claude-code-n8n-one-person-team-social-card.jpg",
+          "title": "Claude Code and n8n: Building as a One-Person Team — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/n8n-enterprise-automation.html",
+      "url": "https://deepankar.xyz/blog/n8n-enterprise-automation.html",
+      "lastmod": "2026-10-21",
+      "title": "n8n for Enterprise Automation: Control and Tradeoffs",
+      "description": "A practical view of n8n for enterprise automation: control over workflow hosting, data handling and implementation, with tradeoffs beyond vendor contracts.",
+      "og": "assets/og/blog-n8n-enterprise-automation-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-n8n-enterprise-automation-social-card.jpg",
+          "title": "n8n for Enterprise Automation: Control and Tradeoffs — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/n8n-revenue-multiplication.html",
+      "url": "https://deepankar.xyz/blog/n8n-revenue-multiplication.html",
+      "lastmod": "2026-10-21",
+      "title": "n8n and Agentic AI for Revenue Automation",
+      "description": "How agentic AI differs from scripted workflows in revenue operations, and where n8n connects reasoning, business signals and practical automation for teams.",
+      "og": "assets/og/blog-n8n-revenue-multiplication-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-n8n-revenue-multiplication-social-card.jpg",
+          "title": "n8n and Agentic AI for Revenue Automation — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/moltbook-implications.html",
+      "url": "https://deepankar.xyz/blog/moltbook-implications.html",
+      "lastmod": "2026-10-21",
+      "title": "Moltbook: Designing Platforms for Understanding",
+      "description": "What would a platform look like if it optimised for understanding? A perspective on Moltbook, engagement incentives and the quality of online knowledge.",
+      "og": "assets/og/blog-moltbook-implications-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-moltbook-implications-social-card.jpg",
+          "title": "Moltbook: Designing Platforms for Understanding — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/upskilling-for-ai-workplace.html",
+      "url": "https://deepankar.xyz/blog/upskilling-for-ai-workplace.html",
+      "lastmod": "2026-10-21",
+      "title": "Closing the AI Skills Gap at Work",
+      "description": "Why buying AI infrastructure is only part of workplace adoption. A practical look at AI literacy, team training and building skills for working with models.",
+      "og": "assets/og/blog-upskilling-for-ai-workplace-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-upskilling-for-ai-workplace-social-card.jpg",
+          "title": "Closing the AI Skills Gap at Work — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "blog/fortune-500-automation-audit.html",
+      "url": "https://deepankar.xyz/blog/fortune-500-automation-audit.html",
+      "lastmod": "2026-10-21",
+      "title": "Finding AI Opportunities with an Automation Audit",
+      "description": "How an automation audit helps enterprise teams find costly manual processes and turn them into a practical AI implementation roadmap with clearer priorities.",
+      "og": "assets/og/blog-fortune-500-automation-audit-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/blog-fortune-500-automation-audit-social-card.jpg",
+          "title": "Finding AI Opportunities with an Automation Audit — Deepankar Bhadrasen"
+        },
+        {
+          "path": "assets/deepankar-portrait-540.webp",
+          "title": "Deepankar portrait"
+        }
+      ]
+    },
+    {
+      "path": "privacy.html",
+      "url": "https://deepankar.xyz/privacy.html",
+      "lastmod": "2026-10-21",
+      "title": "Privacy Policy | Deepankar Bhadrasen",
+      "description": "Read how Deepankar Bhadrasen handles information submitted through this portfolio, including contact enquiries, data use, retention and your privacy rights.",
+      "og": "assets/og/privacy-social-card.jpg",
+      "indexable": true,
+      "images": [
+        {
+          "path": "assets/og/privacy-social-card.jpg",
+          "title": "Privacy Policy | Deepankar Bhadrasen — Deepankar Bhadrasen"
+        }
+      ]
+    }
+  ],
+  "sitemaps": [
+    "sitemap.xml",
+    "page-sitemap.xml",
+    "image-sitemap.xml"
+  ],
+  "verification_meta_enabled": false,
+  "verification_file_enabled": false
+}

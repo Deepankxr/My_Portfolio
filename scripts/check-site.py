@@ -10,7 +10,7 @@ class Doc(HTMLParser):
   super().__init__(convert_charrefs=True);self.nodes=[];self.feed(source)
  def handle_starttag(self,tag,attrs):self.nodes.append((tag,dict(attrs)))
  def handle_startendtag(self,tag,attrs):self.handle_starttag(tag,attrs)
-files=[ROOT/x for x in ('index.html','thoughts.html','privacy.html')]+sorted((ROOT/'about').glob('*.html'))+sorted((ROOT/'work').glob('*.html'))+sorted((ROOT/'blog').glob('*.html'))
+files=[ROOT/x for x in ('index.html','thoughts.html','privacy.html','404.html')]+sorted((ROOT/'about').glob('*.html'))+sorted((ROOT/'work').glob('*.html'))+sorted((ROOT/'blog').glob('*.html'))
 docs={p:Doc(p.read_text())for p in files};errors=[];links=0
 for path,doc in docs.items():
  rel=str(path.relative_to(ROOT));counts=Counter(a['id'] for _,a in doc.nodes if 'id'in a)
@@ -26,7 +26,7 @@ for path,doc in docs.items():
    if key not in a:continue
    url=urlsplit(a[key])
    if url.scheme or url.netloc:continue
-   target=(path.parent/unquote(url.path)).resolve() if url.path else path
+   target=((ROOT/unquote(url.path).lstrip('/')) if url.path.startswith('/') else (path.parent/unquote(url.path))).resolve() if url.path else path
    if target.is_dir():target=target/'index.html'
    links+=1
    if not target.exists():errors.append(f'{rel}: missing {a[key]}');continue

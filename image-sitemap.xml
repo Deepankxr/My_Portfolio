@@ -1,0 +1,410 @@
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://deepankar.xyz/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/home-social-card.jpg</image:loc>
+      <image:title>Deepankar Bhadrasen | AI Automation Engineer — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-n8n-builders-challenge-speaking-1600.webp</image:loc>
+      <image:title>Deepankar demonstrating a live workflow at the n8n Builders Challenge</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/n8n-builders-challenge-teams-800.webp</image:loc>
+      <image:title>N8n builders challenge teams</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-n8n-workshop-portrait-600.webp</image:loc>
+      <image:title>Deepankar n8n workshop portrait</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-enterprise-team-900.webp</image:loc>
+      <image:title>Deepankar enterprise team</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-anshul-n8n-builders-challenge-800.webp</image:loc>
+      <image:title>Deepankar anshul n8n builders challenge</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-n8n-builders-challenge-speaking-960.webp</image:loc>
+      <image:title>Deepankar n8n builders challenge speaking</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-symbiosis-graduation-900.webp</image:loc>
+      <image:title>Deepankar symbiosis graduation</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-n8n-workshop-portrait-900.webp</image:loc>
+      <image:title>Deepankar working through a build at his laptop</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/about/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/about-social-card.jpg</image:loc>
+      <image:title>About Deepankar | AI Engineer at TrueHorizon AI — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-n8n-workshop-portrait-900.webp</image:loc>
+      <image:title>Deepankar concentrating on a build at the n8n Builders Challenge</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-symbiosis-graduation-900.webp</image:loc>
+      <image:title>Deepankar graduating from Symbiosis Centre for Management Studies, Pune</image:title>
+      <image:caption>Graduating from Symbiosis, Pune.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/n8n-builders-challenge-teams-1400.webp</image:loc>
+      <image:title>Builders working together in Ho Chi Minh City</image:title>
+      <image:caption>Learning by building, together.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-enterprise-team-900.webp</image:loc>
+      <image:title>Deepankar with attendees at an enterprise event</image:title>
+      <image:caption>Sharing a practical approach to AI with enterprise teams.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-enterprise-ai-presentation-1000.webp</image:loc>
+      <image:title>Deepankar presenting a practical approach to AI at an enterprise event</image:title>
+      <image:caption>Putting AI into practice with enterprise teams.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-n8n-builders-challenge-speaking-1600.webp</image:loc>
+      <image:title>Deepankar demonstrating a workflow to the n8n Builders Challenge audience</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-n8n-workflow-demo-800.webp</image:loc>
+      <image:title>Deepankar explaining an n8n workflow on screen</image:title>
+      <image:caption>Walking through the workflow.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/n8n-builders-challenge-teams-800.webp</image:loc>
+      <image:title>Deepankar building alongside teams at the n8n Builders Challenge</image:title>
+      <image:caption>Building together, around the table.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/hcmc/deepankar-anshul-n8n-builders-challenge-1400.webp</image:loc>
+      <image:title>Deepankar with his brother Anshul Namdev at the n8n Builders Challenge</image:title>
+      <image:caption>With Anshul at the n8n Builders Challenge.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/work/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/work-social-card.jpg</image:loc>
+      <image:title>AI Automation Case Studies | Deepankar Bhadrasen — Deepankar Bhadrasen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/work/automated-sales-pipeline.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/work-automated-sales-pipeline-social-card.jpg</image:loc>
+      <image:title>n8n Sales Pipeline Automation | Deepankar Bhadrasen — Deepankar Bhadrasen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/work/call-grading-system.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/work-call-grading-system-social-card.jpg</image:loc>
+      <image:title>AI Call Grading System | Deepankar Bhadrasen — Deepankar Bhadrasen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/work/invoice-parsing-system.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/work-invoice-parsing-system-social-card.jpg</image:loc>
+      <image:title>AI Invoice Parsing Automation | Deepankar Bhadrasen — Deepankar Bhadrasen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/work/finance-document-agent.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/work-finance-document-agent-social-card.jpg</image:loc>
+      <image:title>Finance Document AI Agent | Deepankar Bhadrasen — Deepankar Bhadrasen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/thoughts.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/thoughts-social-card.jpg</image:loc>
+      <image:title>AI Agents, n8n &amp; Automation Essays | Deepankar — Deepankar Bhadrasen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/claude-design-enterprise-guide.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-claude-design-enterprise-guide-social-card.jpg</image:loc>
+      <image:title>Claude Design for Enterprises: A Practical Guide — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/youtube-research-ai-agents.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-youtube-research-ai-agents-social-card.jpg</image:loc>
+      <image:title>Building an AI Agent for YouTube Research — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/n8n-mcp-claude-code.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-n8n-mcp-claude-code-social-card.jpg</image:loc>
+      <image:title>n8n MCP and Claude Code: From Prompt to Workflow — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/ai-chatbots-context-problem.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-ai-chatbots-context-problem-social-card.jpg</image:loc>
+      <image:title>Why AI Chatbots Fail Without Business Context — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/ai-speed-vs-skill.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-ai-speed-vs-skill-social-card.jpg</image:loc>
+      <image:title>AI Speed vs Skill: Keeping Your Own Judgment — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/project-glasswing-ai-regulation.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-project-glasswing-ai-regulation-social-card.jpg</image:loc>
+      <image:title>Project Glasswing and the Case for AI Regulation — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/ai-lead-qualification-outbound.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-ai-lead-qualification-outbound-social-card.jpg</image:loc>
+      <image:title>AI Lead Qualification: Fixing the Outbound Bottleneck — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/is-n8n-dead.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-is-n8n-dead-social-card.jpg</image:loc>
+      <image:title>Is n8n Dead? Why It Is Becoming Infrastructure — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/autonomous-ai-agents-2026.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-autonomous-ai-agents-2026-social-card.jpg</image:loc>
+      <image:title>Autonomous AI Agents in 2026: From Demo to Deployment — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/ai-for-accountants.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-ai-for-accountants-social-card.jpg</image:loc>
+      <image:title>AI for Accountants: Audit and Tax Automation in 2026 — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/claude-code-review.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-claude-code-review-social-card.jpg</image:loc>
+      <image:title>Claude Code Review and the Pull Request Bottleneck — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/claude-code-n8n-one-person-team.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-claude-code-n8n-one-person-team-social-card.jpg</image:loc>
+      <image:title>Claude Code and n8n: Building as a One-Person Team — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/n8n-enterprise-automation.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-n8n-enterprise-automation-social-card.jpg</image:loc>
+      <image:title>n8n for Enterprise Automation: Control and Tradeoffs — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/n8n-revenue-multiplication.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-n8n-revenue-multiplication-social-card.jpg</image:loc>
+      <image:title>n8n and Agentic AI for Revenue Automation — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/moltbook-implications.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-moltbook-implications-social-card.jpg</image:loc>
+      <image:title>Moltbook: Designing Platforms for Understanding — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/upskilling-for-ai-workplace.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-upskilling-for-ai-workplace-social-card.jpg</image:loc>
+      <image:title>Closing the AI Skills Gap at Work — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/blog/fortune-500-automation-audit.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/blog-fortune-500-automation-audit-social-card.jpg</image:loc>
+      <image:title>Finding AI Opportunities with an Automation Audit — Deepankar Bhadrasen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/deepankar-portrait-540.webp</image:loc>
+      <image:title>Deepankar portrait</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://deepankar.xyz/privacy.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://deepankar.xyz/assets/og/privacy-social-card.jpg</image:loc>
+      <image:title>Privacy Policy | Deepankar Bhadrasen — Deepankar Bhadrasen</image:title>
+    </image:image>
+  </url>
+</urlset>

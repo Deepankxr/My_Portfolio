@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss version="2.0">
+  <channel>
+    <title>Deepankar Bhadrasen — Project write-ups</title>
+    <link>https://deepankar.xyz/work/</link>
+    <description>Case studies in AI automation for sales, finance and operations.</description>
+    <language>en-in</language>
+    <item>
+      <title>Automated Sales Pipeline</title>
+      <link>https://deepankar.xyz/work/automated-sales-pipeline.html</link>
+      <guid>https://deepankar.xyz/work/automated-sales-pipeline.html</guid>
+      <description>How I built a sales pipeline with n8n, OpenAI, Salesforce and Supabase to qualify leads, sequence follow-ups and keep CRM records in sync for a nonprofit.</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Call Grading System</title>
+      <link>https://deepankar.xyz/work/call-grading-system.html</link>
+      <guid>https://deepankar.xyz/work/call-grading-system.html</guid>
+      <description>A case study in automating sales and support call reviews with OpenAI, n8n and Supabase: transcripts, custom scoring rubrics and coaching signals for teams.</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Invoice Parsing System</title>
+      <link>https://deepankar.xyz/work/invoice-parsing-system.html</link>
+      <guid>https://deepankar.xyz/work/invoice-parsing-system.html</guid>
+      <description>How I built an invoice processing workflow using OpenAI, MongoDB and n8n to extract fields, validate them against orders and store structured business data.</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Finance Document Agent</title>
+      <link>https://deepankar.xyz/work/finance-document-agent.html</link>
+      <guid>https://deepankar.xyz/work/finance-document-agent.html</guid>
+      <description>Inside a finance document agent using Gemini, Pinecone, OpenAI and Supabase to retrieve financial information and prepare structured loan application data.</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

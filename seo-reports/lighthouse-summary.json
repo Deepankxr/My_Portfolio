@@ -1,0 +1,43 @@
+{
+  "tool": "Lighthouse 13.5.0",
+  "mode": "Default mobile, simulated throttling, temporary headless Chrome profiles, local production output",
+  "date": "2026-10-21",
+  "pages": {
+    "home": {
+      "url": "http://127.0.0.1:8767/",
+      "scores": {
+        "performance": 92,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": [],
+      "runtime_error": null,
+      "metrics": {
+        "first-contentful-paint": "1.4\u00a0s",
+        "largest-contentful-paint": "3.4\u00a0s",
+        "total-blocking-time": "0\u00a0ms",
+        "cumulative-layout-shift": "0"
+      },
+      "console_audit": 1
+    },
+    "project": {
+      "url": "http://127.0.0.1:8767/work/automated-sales-pipeline.html",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "warnings": [],
+      "runtime_error": null,
+      "metrics": {
+        "first-contentful-paint": "1.2\u00a0s",
+        "largest-contentful-paint": "2.6\u00a0s",
+        "total-blocking-time": "0\u00a0ms",
+        "cumulative-layout-shift": "0"
+      },
+      "console_audit": 1
+    }
+  }
+}
