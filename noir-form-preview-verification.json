@@ -1,0 +1,324 @@
+{
+  "date": "2026-10-20",
+  "branch": "codex/noir-redesign",
+  "result": "passed",
+  "reference": "https://www.stefanobg.com/#work",
+  "workHover": {
+    "active": true,
+    "caption": "Automated Sales Pipeline",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 622.6265258789062,
+      "height": 312.0234375,
+      "left": 593.2000122070312,
+      "right": 1003.2000122070312,
+      "top": 310.60308837890625,
+      "width": 410,
+      "x": 593.2000122070312,
+      "y": 310.60308837890625
+    },
+    "row": "01Revenue AutomationAutomated Sales PipelineFrom a new lead to a qualified, synced CRM record.\u2197A lead. A conversation.A "
+  },
+  "rapidRowSwitch": {
+    "active": true,
+    "caption": "Call Grading System",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 719.334228515625,
+      "height": 312.0234375,
+      "left": 593.2000122070312,
+      "right": 1003.2000122070312,
+      "top": 407.310791015625,
+      "width": 410,
+      "x": 593.2000122070312,
+      "y": 407.310791015625
+    },
+    "row": "02Process AutomationCall Grading SystemCall recordings become consistent coaching signals.\u2197Better calls.Better coaching."
+  },
+  "previewLeave": {
+    "active": false,
+    "caption": "Call Grading System",
+    "opacity": "0",
+    "panels": 1,
+    "rect": {
+      "bottom": 719.334228515625,
+      "height": 312.0234375,
+      "left": 593.2000122070312,
+      "right": 1003.2000122070312,
+      "top": 407.310791015625,
+      "width": 410,
+      "x": 593.2000122070312,
+      "y": 407.310791015625
+    }
+  },
+  "caseNavigation": {
+    "title": "Call Grading System.",
+    "url": "http://127.0.0.1:8767/work/call-grading-system.html"
+  },
+  "historyPreview": {
+    "active": false,
+    "caption": "",
+    "opacity": "0",
+    "panels": 0,
+    "rect": {
+      "bottom": 297.0234375,
+      "height": 297.0234375,
+      "left": 0,
+      "right": 410,
+      "top": 0,
+      "width": 410,
+      "x": 0,
+      "y": 0
+    }
+  },
+  "experienceHover": {
+    "active": true,
+    "caption": "TrueHorizon AI",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 553.7639312744141,
+      "height": 312.0234375,
+      "left": 703.2000122070312,
+      "right": 1113.199951171875,
+      "top": 241.7404937744141,
+      "width": 409.99993896484375,
+      "x": 703.2000122070312,
+      "y": 241.7404937744141
+    },
+    "row": "Early 2025 to presentFounding EngineerTrueHorizon AI\uff0b",
+    "source": "assets/hcmc/room-800.webp"
+  },
+  "experienceClick": {
+    "open": true,
+    "previewActive": false
+  },
+  "serviceHover": {
+    "active": true,
+    "caption": "Revenue automation",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 580.549072265625,
+      "height": 312.0234680175781,
+      "left": 703.2000122070312,
+      "right": 1113.199951171875,
+      "top": 268.5256042480469,
+      "width": 409.99993896484375,
+      "x": 703.2000122070312,
+      "y": 268.5256042480469
+    },
+    "row": "Revenue automationLead qualification, outreach and CRM integrations that keep sales moving.\u2197"
+  },
+  "archiveHover": {
+    "active": true,
+    "caption": "Enterprise AI",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 796.470947265625,
+      "height": 312.0234375,
+      "left": 703.2000122070312,
+      "right": 1113.199951171875,
+      "top": 484.447509765625,
+      "width": 409.99993896484375,
+      "x": 703.2000122070312,
+      "y": 484.447509765625
+    },
+    "row": "01Enterprise AI \u00b7 6 min readClaude Design for Enterprises: 6\u00a0Things to Know Before You PrototypeIt is not a prettier Can"
+  },
+  "archiveFilter": {
+    "count": "4 essays \u00b7 18 minutes of reading",
+    "preview": false,
+    "selected": "Enterprise AI 4",
+    "shown": 4
+  },
+  "mobileForm": {
+    "columns": "304px",
+    "inputs": [
+      {
+        "name": "name",
+        "width": 304
+      },
+      {
+        "name": "email",
+        "width": 304
+      },
+      {
+        "name": "role",
+        "width": 304
+      },
+      {
+        "name": "company",
+        "width": 304
+      }
+    ],
+    "overflow": false,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobileWork": {
+    "inlineVisuals": [
+      "block",
+      "block",
+      "block",
+      "block"
+    ],
+    "logoPosition": "static",
+    "overflow": false,
+    "previewDisplay": "none",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "previewTransition": {
+    "active": true,
+    "caption": "Call Grading System",
+    "opacity": "0.9229",
+    "panels": 2,
+    "rect": {
+      "bottom": 749.4341430664062,
+      "height": 312.0234375,
+      "left": 704.4678955078125,
+      "right": 1114.4678955078125,
+      "top": 437.41070556640625,
+      "width": 410,
+      "x": 704.4678955078125,
+      "y": 437.41070556640625
+    },
+    "row": "02Process AutomationCall Grading SystemCall recordings become consistent coaching signals.\u2197Better calls.Better coaching."
+  },
+  "previewTransitionSettled": {
+    "active": true,
+    "caption": "Call Grading System",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 816.3687744140625,
+      "height": 312.0234680175781,
+      "left": 763.2000122070312,
+      "right": 1173.199951171875,
+      "top": 504.3453063964844,
+      "width": 409.99993896484375,
+      "x": 763.2000122070312,
+      "y": 504.3453063964844
+    },
+    "row": "02Process AutomationCall Grading SystemCall recordings become consistent coaching signals.\u2197Better calls.Better coaching."
+  },
+  "keyboardPreview": {
+    "active": true,
+    "caption": "Call Grading System",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 893.334228515625,
+      "height": 312.0234375,
+      "left": 868.7999877929688,
+      "right": 1278.800048828125,
+      "top": 581.310791015625,
+      "width": 410.00006103515625,
+      "x": 868.7999877929688,
+      "y": 581.310791015625
+    },
+    "row": "02Process AutomationCall Grading SystemCall recordings become consistent coaching signals.\u2197Better calls.Better coaching."
+  },
+  "escapePreview": {
+    "active": false,
+    "caption": "Call Grading System",
+    "opacity": "0",
+    "panels": 1,
+    "rect": {
+      "bottom": 893.334228515625,
+      "height": 312.0234375,
+      "left": 868.7999877929688,
+      "right": 1278.800048828125,
+      "top": 581.310791015625,
+      "width": 410.00006103515625,
+      "x": 868.7999877929688,
+      "y": 581.310791015625
+    }
+  },
+  "replacementPhoto": {
+    "alt": "Deepankar building alongside teams at the n8n Builders Challenge",
+    "caption": "Building together, around the table.",
+    "src": "../assets/hcmc/room-800.webp"
+  },
+  "aboutHeroRestored": {
+    "letterOpacity": [
+      "1",
+      "1"
+    ],
+    "opacity": "0.9992",
+    "scrollY": 0
+  },
+  "articlePreviews": {
+    "articleLinks": [
+      "youtube-research-ai-agents.html"
+    ],
+    "previewLinks": 4
+  },
+  "finalWorkPreview": {
+    "active": true,
+    "caption": "Automated Sales Pipeline",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 525.592041015625,
+      "height": 312.0234375,
+      "left": 593.2000122070312,
+      "right": 1003.2000122070312,
+      "top": 213.568603515625,
+      "width": 410,
+      "x": 593.2000122070312,
+      "y": 213.568603515625
+    },
+    "row": "01Revenue AutomationAutomated Sales PipelineFrom a new lead to a qualified, synced CRM record.\u2197A lead. A conversation.A "
+  },
+  "consoleErrors": [],
+  "touchWork": {
+    "inlineVisuals": [
+      "block",
+      "block",
+      "block",
+      "block"
+    ],
+    "logoPosition": "static",
+    "overflow": false,
+    "previewDisplay": "none",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "narrowDesktopPreview": {
+    "active": true,
+    "caption": "Automated Sales Pipeline",
+    "opacity": "1",
+    "panels": 1,
+    "rect": {
+      "bottom": 426.68408203125,
+      "height": 224.18748474121097,
+      "left": 225.6000061035156,
+      "right": 505.6000061035156,
+      "top": 202.49659729003903,
+      "width": 280,
+      "x": 225.6000061035156,
+      "y": 202.49659729003903
+    },
+    "row": "01Revenue AutomationAutomated Sales PipelineFrom a new lead to a qualified, synced CRM record.\u2197A lead. A conversation.A "
+  },
+  "budget_validation": "Superseded by noir-budget-boost-verification.json after the requested animation refinement.",
+  "static_validation": {
+    "javascript_syntax": "passed",
+    "contact_handler_regression": "passed; no network",
+    "pages_checked": 26,
+    "local_references_checked": 1095,
+    "original_essays_preserved": 17,
+    "privacy_copy_preserved": true
+  }
+}

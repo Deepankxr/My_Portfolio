@@ -163,3 +163,65 @@ Browser regression evidence and measured states are saved in
 `noir-about-motion-verification.json`; before-story, restored-top and
 mid-dissolve screenshots are in `noir-previews/`. This change is local to
 `codex/noir-redesign` and has not been pushed or deployed.
+
+
+## Enquiry form, list previews and workshop photo, 20 October 2026
+
+The homepage and About enquiry forms now share a numbered editorial layout.
+The invitation and panel align on desktop, fields align in two columns, and
+narrow screens use one column. The custom budget control retains a native,
+keyboard-accessible range input. Quick choices animate the fill, thumb and
+visible dollar counter together; dragging tracks the input immediately.
+Above $40,000, the bar gradually gains a warm perimeter glow, layered
+flowing light and a charge indicator, reaching full intensity at $50,000+.
+The previous sweeping highlight and arrival pop have been removed.
+Continuous animation pauses off screen.
+Reduced motion and the existing Pause motion control settle the counter and
+disable continuous effects. Selected states adapt to both themes.
+
+The budget starts unselected at the minimum position. Submission still sends
+an empty optional budget until the visitor chooses one. The original field
+names, payload, page sources and endpoint are preserved. Tests include
+submitting during a counter animation: the payload uses the chosen input
+value rather than the intermediate displayed number. No real enquiry was sent.
+
+The live [Stefano selected-work interaction](https://www.stefanobg.com/#work)
+was inspected in the browser. Its floating image, pointer-following movement,
+slight tilt and transitions between rows informed a new shared preview.
+Home/work projects now use editorial rows. Experience, service, essay,
+archive and article-navigation lists use the same preview controller.
+Project previews use the site's architecture illustrations; experience
+previews use Deepankar's existing photos, and writing previews use the essay's
+own title and relevant logo. No reference-site art, photos or code is shipped.
+
+The preview uses one frame and at most two transitioning panels. It dismisses
+on pointer exit, scrolling, navigation, Escape, window blur and motion pause.
+Keyboard focus can also show it. On touch devices, projects retain inline diagrams
+and the floating frame is hidden. Narrow desktop panes keep the hover effect. No wheel/touch interception was introduced.
+
+The About image previously captioned “Working through the build” now uses
+`assets/hcmc/room-800.webp`, captioned “Building together, around the table.”
+It is an original workshop photo of Deepankar building alongside the teams.
+
+Evidence: `noir-form-preview-verification.json`, updated contact regression
+tests, the static site checker and the `budget-boost-` / `*-fluid-preview` screenshots
+in `noir-previews/`. Changes remain local on `codex/noir-redesign`.
+
+
+## More work and progressive budget energy, 20 October 2026
+
+Home and the work index now end the four selected projects with an oversized
+“And many more.” section, outlined type that fills on hover, and a direct
+invitation to discuss the next build. `/index.html#work-more` opens this ending.
+
+The revised budget effect follows the visible counter: intensity is zero at
+$40,000, 10% at $41,000, 50% at $45,000 and full at $50,000+. Warm light layers
+rotate and drift within the filled track, a soft aura surrounds it, and a
+small charge indicator grows with intensity. There is no white sweep or
+sudden whole-bar scale jump. Mouse selection keeps a clean single edge;
+keyboard focus retains its visible outline. Both forms share the control.
+
+Budget effects use transforms and opacity, pause outside the viewport, and
+become static under reduced motion or Pause motion. The original enquiry
+payload remains unchanged. `noir-budget-boost-verification.json` records the
+thresholds, motion states, work ending and final browser checks.

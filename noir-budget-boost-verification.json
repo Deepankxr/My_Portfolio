@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-20",
+  "branch": "codex/noir-redesign",
+  "result": "passed",
+  "maxFirstFrame": {
+    "auraOpacity": "0",
+    "boost": "1.0000",
+    "boosting": true,
+    "energyOpacity": "0",
+    "hasWhiteSweep": false,
+    "max": true,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "running",
+    "orbTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "output": "$50,000+",
+    "value": 50000
+  },
+  "max": {
+    "auraOpacity": "0.8",
+    "boost": "1.0000",
+    "boosting": true,
+    "energyOpacity": "1",
+    "hasWhiteSweep": false,
+    "max": true,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "running",
+    "orbTransform": "matrix(-0.622165, -0.886901, 0.76178, -0.534391, 0, 0)",
+    "output": "$50,000+",
+    "value": 50000
+  },
+  "at40000": {
+    "auraOpacity": "0",
+    "boost": "0.0000",
+    "boosting": false,
+    "energyOpacity": "0",
+    "hasWhiteSweep": false,
+    "max": false,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "paused",
+    "orbTransform": "matrix(1.00073, 0.0384634, -0.0383601, 0.99804, 0, 0)",
+    "output": "$40,000",
+    "value": 40000
+  },
+  "at41000": {
+    "auraOpacity": "0.188",
+    "boost": "0.1000",
+    "boosting": true,
+    "energyOpacity": "0.325",
+    "hasWhiteSweep": false,
+    "max": false,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "running",
+    "orbTransform": "matrix(0.0305445, -1.05846, 0.950523, 0.0274297, 0, 0)",
+    "output": "$41,000",
+    "value": 41000
+  },
+  "at45000": {
+    "auraOpacity": "0.344586",
+    "boost": "0.5000",
+    "boosting": true,
+    "energyOpacity": "0.509963",
+    "hasWhiteSweep": false,
+    "max": false,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "running",
+    "orbTransform": "matrix(0.130708, -1.04713, 0.946607, 0.11816, 0, 0)",
+    "output": "$45,000",
+    "value": 45000
+  },
+  "at50000": {
+    "auraOpacity": "0.8",
+    "boost": "1.0000",
+    "boosting": true,
+    "energyOpacity": "1",
+    "hasWhiteSweep": false,
+    "max": true,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "running",
+    "orbTransform": "matrix(-1.09874, -0.182079, 0.147992, -0.893048, 0, 0)",
+    "output": "$50,000+",
+    "value": 50000
+  },
+  "maxSecondFrame": {
+    "auraOpacity": "0.8",
+    "boost": "1.0000",
+    "boosting": true,
+    "energyOpacity": "1",
+    "hasWhiteSweep": false,
+    "max": true,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "running",
+    "orbTransform": "matrix(-1.08158, -0.254708, 0.207991, -0.883202, 0, 0)",
+    "output": "$50,000+",
+    "value": 50000
+  },
+  "offscreen": {
+    "auraOpacity": "0.8",
+    "boost": "1.0000",
+    "boosting": true,
+    "energyOpacity": "1",
+    "hasWhiteSweep": false,
+    "max": true,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "paused",
+    "orbTransform": "matrix(-0.796465, -0.74597, 0.63161, -0.674364, 0, 0)",
+    "output": "$50,000+",
+    "value": 50000
+  },
+  "reducedMotion": {
+    "auraOpacity": "0.8",
+    "boost": "1.0000",
+    "boosting": true,
+    "energyOpacity": "1",
+    "hasWhiteSweep": false,
+    "max": true,
+    "orbAnimation": "none",
+    "orbPlayState": "running",
+    "orbTransform": "none",
+    "output": "$50,000+",
+    "value": 50000
+  },
+  "workEnding": {
+    "href": "index.html#contact",
+    "overflow": false,
+    "title": "And many more.",
+    "top": 99.8359375
+  },
+  "homeChipDuringGlide": {
+    "auraOpacity": "0",
+    "boost": "0.2377",
+    "boosting": true,
+    "energyOpacity": "0",
+    "hasWhiteSweep": false,
+    "max": true,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "running",
+    "orbTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "output": "$42,377",
+    "value": 50000
+  },
+  "homeChipSettled": {
+    "auraOpacity": "0.8",
+    "boost": "1.0000",
+    "boosting": true,
+    "energyOpacity": "1",
+    "hasWhiteSweep": false,
+    "max": true,
+    "orbAnimation": "budget-plasma",
+    "orbPlayState": "running",
+    "orbTransform": "matrix(0.961141, -0.317365, 0.310363, 0.939933, 0, 0)",
+    "output": "$50,000+",
+    "value": 50000
+  },
+  "lightTheme": {
+    "background": "rgb(46, 29, 32)",
+    "boost": "1.0000",
+    "labelColor": "rgb(245, 215, 191)",
+    "overflow": false,
+    "theme": "light"
+  },
+  "touch": {
+    "boost": "1.0000",
+    "label": {
+      "bottom": 498.75,
+      "height": 54,
+      "left": 82,
+      "right": 308,
+      "top": 444.75,
+      "width": 226,
+      "x": 82,
+      "y": 444.75
+    },
+    "overflow": false,
+    "previewDisplay": "none",
+    "track": {
+      "bottom": 499.75,
+      "height": 56,
+      "left": 43,
+      "right": 347,
+      "top": 443.75,
+      "width": 304,
+      "x": 43,
+      "y": 443.75
+    }
+  },
+  "reducedFinal": {
+    "auraDisplay": "none",
+    "charge": "none",
+    "orb": "none",
+    "output": "$50,000+"
+  },
+  "workIndexEnding": {
+    "href": "../index.html#contact",
+    "title": "And many more."
+  },
+  "consoleErrors": []
+}

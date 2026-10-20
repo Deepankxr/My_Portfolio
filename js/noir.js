@@ -4,7 +4,8 @@
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
   const html = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let paused = reduced.matches, motionContext, wordTimer, portraitExit;
+  let paused = reduced.matches, motionContext, wordTimer, portraitExit, previewController;
+  const budgetControllers=[];
   $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 
   const menu=$('#menu'), toggle=$('.menu-toggle');
@@ -33,6 +34,7 @@
   const hover=$('.hover-label');
   if(hover&&matchMedia('(hover:hover) and (pointer:fine)').matches){
     $$('[data-hover]').forEach(el=>{
+      if(el.hasAttribute('data-preview'))return;
       el.addEventListener('pointerenter',event=>{if(paused)return;hover.textContent=el.dataset.hover;hover.style.left=event.clientX+'px';hover.style.top=event.clientY+'px';hover.classList.add('active');});
       el.addEventListener('pointermove',event=>{hover.style.left=event.clientX+'px';hover.style.top=event.clientY+'px';});
       ['pointerleave','click'].forEach(type=>el.addEventListener(type,()=>hover.classList.remove('active')));
@@ -62,6 +64,7 @@
   function initMotion(){
     stopWords();motionContext?.revert();motionContext=null;portraitExit=null;
     html.dataset.motion=paused?'paused':'on';hover?.classList.remove('active');
+    previewController?.hide(true);budgetControllers.forEach(control=>control.settle());
     $$('[data-motion-toggle]').forEach(b=>{b.textContent=paused?'Play motion':'Pause motion';b.setAttribute('aria-pressed',String(paused));});
     word?.getAnimations().forEach(a=>a.cancel());if(word){word.textContent=words[0];wordIndex=0;}
     if(paused){$('.about-portrait')?.removeAttribute('style');return;}
@@ -99,20 +102,114 @@
   }
   $$('[data-motion-toggle]').forEach(b=>b.addEventListener('click',()=>{paused=!paused;initMotion();}));
   reduced.addEventListener('change',event=>{paused=event.matches;initMotion();});
-  document.addEventListener('visibilitychange',()=>document.hidden?stopWords():startWords());
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopWords();previewController?.hide(true);}else startWords();});
   window.addEventListener('load',syncMotion);
   window.addEventListener('hashchange',syncMotion);
-  window.addEventListener('pagehide',()=>{stopWords();motionContext?.revert();motionContext=null;portraitExit=null;});
+  window.addEventListener('pagehide',()=>{stopWords();previewController?.hide(true);budgetControllers.forEach(control=>control.settle());motionContext?.revert();motionContext=null;portraitExit=null;});
   window.addEventListener('pageshow',event=>{if(event.persisted)initMotion();syncMotion();});
   initMotion();
+
+  // One shared preview follows the pointer across relevant editorial lists.
+  // Each preview uses this portfolio's own media or architecture illustrations.
+  const preview=$('.list-preview'),previewRows=$$('[data-preview]');
+  const finePointer=matchMedia('(hover:hover) and (pointer:fine)');
+  if(preview&&previewRows.length&&window.gsap){
+    const frame=$('.list-preview-frame',preview),panels=$('.list-preview-panels',preview),caption=$('.list-preview-caption',preview),action=$('.list-preview-action',preview);
+    let current=null,lastX=0,keyboardRow=null;
+    const moveX=gsap.quickTo(preview,'x',{duration:.42,ease:'power3.out'});
+    const moveY=gsap.quickTo(preview,'y',{duration:.42,ease:'power3.out'});
+    const tilt=gsap.quickTo(frame,'rotation',{duration:.55,ease:'power3.out'});
+    const allowed=()=>!paused&&finePointer.matches;
+    function position(event,instant=false){
+      const w=preview.offsetWidth,h=preview.offsetHeight;
+      const x=Math.max(18,Math.min(innerWidth-w-18,event.clientX-w*.48));
+      const y=Math.max(92,Math.min(innerHeight-h-22,event.clientY-h*.52));
+      if(instant){moveX(x,x);moveY(y,y);moveX.tween.progress(1);moveY.tween.progress(1);lastX=event.clientX;}
+      else{moveX(x);moveY(y);tilt(gsap.utils.clamp(-5,5,(event.clientX-lastX)*.12));lastX=event.clientX;}
+    }
+    function hide(immediate=false){
+      if(!immediate&&!current)return;
+      current?.classList.remove('is-previewed');current=null;keyboardRow=null;preview.classList.remove('is-active');
+      gsap.to(frame,{autoAlpha:0,scale:.94,rotation:0,duration:immediate?0:.24,overwrite:true,ease:'power2.out'});
+      gsap.to(caption,{opacity:0,duration:immediate?0:.18,overwrite:true});
+      if(immediate){gsap.killTweensOf([...panels.children]);panels.replaceChildren();}
+    }
+    function show(row,event){
+      if(!allowed())return;
+      const template=$('template[data-preview-content]',row);if(!template)return;
+      // Adjacent rows share the same moving frame; do not teleport it when a
+      // pointerleave and pointerenter arrive together during a fast row change.
+      const entering=Number(gsap.getProperty(frame,'opacity'))<.02;
+      if(current!==row){
+        current?.classList.remove('is-previewed');current=row;row.classList.add('is-previewed');
+        const panel=document.createElement('div');panel.className='list-preview-panel';panel.append(template.content.cloneNode(true));
+        const previous=[...panels.children],old=previous.slice(-1);
+        previous.slice(0,-1).forEach(node=>{gsap.killTweensOf(node);node.remove();});panels.append(panel);
+        if(old.length)gsap.to(old,{yPercent:-12,opacity:0,duration:.3,overwrite:true,onComplete:()=>old.forEach(node=>node.remove())});
+        gsap.fromTo(panel,{yPercent:18,scale:1.06,opacity:0},{yPercent:0,scale:1,opacity:1,duration:.55,ease:'expo.out'});
+        caption.textContent=row.dataset.previewTitle||'';action.textContent=row.dataset.previewAction||'View project ↗';
+      }
+      position(event,entering);preview.classList.add('is-active');hover?.classList.remove('active');
+      gsap.to(frame,{autoAlpha:1,scale:1,duration:.45,ease:'expo.out',overwrite:'auto'});
+      gsap.to(caption,{opacity:1,duration:.3,overwrite:true});
+    }
+    previewRows.forEach(row=>{
+      row.addEventListener('pointerenter',event=>{if(!keyboardRow)show(row,event);});
+      row.addEventListener('pointermove',event=>{if(!allowed()||(keyboardRow&&!event.movementX&&!event.movementY))return;keyboardRow=null;if(current!==row)show(row,event);else position(event);});
+      row.addEventListener('pointerleave',()=>{if(current===row&&keyboardRow!==row)hide();});
+      row.addEventListener('click',()=>hide(true));
+      row.addEventListener('focusin',()=>{if(!allowed())return;keyboardRow=row;const rect=row.getBoundingClientRect();show(row,{clientX:innerWidth*.74,clientY:rect.top+rect.height/2});});
+      row.addEventListener('focusout',()=>hide());
+    });
+    const warmPreviews=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      if(finePointer.matches)$('template[data-preview-content]',entry.target)?.content.querySelectorAll('img').forEach(source=>{const image=new Image();image.src=source.src;});
+      warmPreviews.unobserve(entry.target);
+    }),{rootMargin:'250px'});
+    previewRows.forEach(row=>warmPreviews.observe(row));
+    window.addEventListener('scroll',()=>{
+      if(keyboardRow&&document.activeElement===keyboardRow){const rect=keyboardRow.getBoundingClientRect();position({clientX:innerWidth*.74,clientY:rect.top+rect.height/2});}
+      else hide();
+    },{passive:true});
+    window.addEventListener('resize',()=>hide(true));
+    window.addEventListener('blur',()=>hide(true));
+    document.addEventListener('keydown',event=>{if(event.key==='Escape')hide();});
+    finePointer.addEventListener('change',()=>hide(true));
+    previewController={hide};hide(true);
+  }
 
   // Contact: keep the original field names, payload and page sources.
   const formatBudget=value=>Number(value)>=50000?'$50,000+':'$'+Number(value).toLocaleString('en-US');
   $$('.contact-form').forEach(form=>{
     const range=$('[name=budget]',form),output=$('[data-budget-value]',form),status=$('.form-status',form),submit=$('[type=submit]',form);
-    function budget(value){range.value=value;range.dataset.touched='1';output.textContent=formatBudget(value);$$('[data-budget]',form).forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.budget===String(value))));}
+    const track=$('[data-budget-track]',form),fill=$('[data-budget-fill]',form),thumb=$('[data-budget-thumb]',form),chips=$$('[data-budget]',form);
+    const shown={value:Number(range.value)},min=Number(range.min),max=Number(range.max);
+    function paintBudget(){
+      const touched=range.dataset.touched==='1',position=Math.max(0,Math.min(1,(shown.value-min)/(max-min)));
+      const boost=touched?Math.max(0,Math.min(1,(shown.value-40000)/10000)):0;
+      output.textContent=touched?formatBudget(Math.round(shown.value)):'Not selected';
+      if(fill)fill.style.transform='scaleX('+position+')';if(thumb)thumb.style.left=position*100+'%';
+      track?.classList.toggle('is-set',touched);
+      track?.classList.toggle('is-boosting',boost>0);
+      track?.style.setProperty('--budget-boost',boost.toFixed(4));
+    }
+    function budget(value,animate=false){
+      range.value=value;range.dataset.touched='1';range.setAttribute('aria-valuetext',formatBudget(value));
+      track?.classList.toggle('is-max',Number(value)===max);
+      chips.forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.budget)===Number(value))));
+      if(window.gsap)gsap.killTweensOf(shown);
+      if(window.gsap&&!paused&&animate)gsap.to(shown,{value:Number(value),duration:.65,ease:'power3.out',onUpdate:paintBudget});
+      else{shown.value=Number(value);paintBudget();}
+    }
+    function settleBudget(){
+      if(window.gsap){gsap.killTweensOf(shown);if(track){gsap.killTweensOf(track);gsap.set(track,{clearProps:'transform'});}}
+      shown.value=Number(range.value);paintBudget();
+    }
+    function resetBudget(){delete range.dataset.touched;range.setAttribute('aria-valuetext','Not selected');track?.classList.remove('is-max');chips.forEach(b=>b.setAttribute('aria-pressed','false'));settleBudget();}
+    budgetControllers.push({settle:settleBudget});paintBudget();
+    if(track)new IntersectionObserver(entries=>track.classList.toggle('is-in-view',entries[0].isIntersecting)).observe(track);
     range.addEventListener('input',()=>budget(range.value));
-    $$('[data-budget]',form).forEach(button=>button.addEventListener('click',()=>budget(button.dataset.budget)));
+    chips.forEach(button=>button.addEventListener('click',()=>budget(button.dataset.budget,true)));
     form.addEventListener('submit',async event=>{
       event.preventDefault();
       for(const input of $$('[name=name],[name=message]',form)){if(!input.value.trim()){input.value='';input.reportValidity();input.focus();return;}}
@@ -125,7 +222,7 @@
         if(typeof WEBHOOK_URL==='undefined'||!WEBHOOK_URL)throw new Error('No endpoint');
         const response=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:AbortSignal.timeout(20000)});
         if(!response.ok)throw new Error('Submission failed');
-        form.reset();delete range.dataset.touched;output.textContent='Not selected';$$('[data-budget]',form).forEach(b=>b.setAttribute('aria-pressed','false'));
+        form.reset();resetBudget();
         status.textContent='Your message was received. I’ll get back to you by email.';submit.textContent='Message sent ✓';
         // Prevent a second submission until the visitor edits the form again.
         form.addEventListener('input',()=>{submit.disabled=false;submit.textContent='Send Message ↗';},{once:true});
