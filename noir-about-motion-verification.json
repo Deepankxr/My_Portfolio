@@ -1,0 +1,648 @@
+{
+  "date": "2026-10-20",
+  "branch": "codex/noir-redesign",
+  "result": "passed",
+  "desktopDeepLink": {
+    "letters": [
+      {
+        "opacity": "0",
+        "transform": "matrix(1, 0, 0, 1, -22, 0)"
+      },
+      {
+        "opacity": "0",
+        "transform": "matrix(1, 0, 0, 1, 22, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 596.6081695556641,
+      "height": 359.4224853515625,
+      "left": 567.9296875,
+      "opacity": "0",
+      "right": 872.0546875,
+      "top": 237.18568420410156,
+      "transform": "matrix(0.96, 0, 0, 0.96, 0, -28)",
+      "visibility": "hidden",
+      "width": 304.125,
+      "x": 567.9296875,
+      "y": 237.18568420410156
+    },
+    "scrollY": 5262,
+    "story": 99.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, -428.309)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "desktopRestoredTop": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 633.59375,
+      "height": 374.3984375,
+      "left": 561.59375,
+      "opacity": "1",
+      "right": 878.390625,
+      "top": 259.1953125,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 316.796875,
+      "x": 561.59375,
+      "y": 259.1953125
+    },
+    "scrollY": 0,
+    "story": 5361.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 428.309)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "desktopEarlyDissolve": {
+    "letters": [
+      {
+        "opacity": "0.1899",
+        "transform": "matrix(1, 0, 0, 1, -17.8218, 0)"
+      },
+      {
+        "opacity": "0.1899",
+        "transform": "matrix(1, 0, 0, 1, 17.8218, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 613.2309417724609,
+      "height": 366.16162109375,
+      "left": 565.0784912109375,
+      "opacity": "0.4493",
+      "right": 874.9058227539062,
+      "top": 247.06932067871097,
+      "transform": "matrix(0.978, 0, 0, 0.978, 0, -15.4207)",
+      "visibility": "visible",
+      "width": 309.82733154296875,
+      "x": 565.0784912109375,
+      "y": 247.06932067871097
+    },
+    "scrollY": 414,
+    "story": 4947.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, -65.8723)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "historyReturnMidScroll": {
+    "letters": [
+      {
+        "opacity": "0.1899",
+        "transform": "matrix(1, 0, 0, 1, -17.8218, 0)"
+      },
+      {
+        "opacity": "0.1899",
+        "transform": "matrix(1, 0, 0, 1, 17.8218, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 613.2309417724609,
+      "height": 366.16162109375,
+      "left": 565.0784912109375,
+      "opacity": "0.4493",
+      "right": 874.9058227539062,
+      "top": 247.06932067871097,
+      "transform": "matrix(0.978, 0, 0, 0.978, 0, -15.4207)",
+      "visibility": "visible",
+      "width": 309.82733154296875,
+      "x": 565.0784912109375,
+      "y": 247.06932067871097
+    },
+    "scrollY": 414,
+    "story": 4947.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, -65.8732)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "historyRestoredTop": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 633.59375,
+      "height": 374.3984375,
+      "left": 561.59375,
+      "opacity": "1",
+      "right": 878.390625,
+      "top": 259.1953125,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 316.796875,
+      "x": 561.59375,
+      "y": 259.1953125
+    },
+    "scrollY": 0,
+    "story": 5361.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 428.309)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "historySecondReturnTop": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 633.59375,
+      "height": 374.3984375,
+      "left": 561.59375,
+      "opacity": "1",
+      "right": 878.390625,
+      "top": 259.1953125,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 316.796875,
+      "x": 561.59375,
+      "y": 259.1953125
+    },
+    "scrollY": 0,
+    "story": 5361.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 428.309)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "mobileTop": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 540,
+      "height": 270,
+      "left": 90,
+      "opacity": "1",
+      "right": 300,
+      "top": 270,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 210,
+      "x": 90,
+      "y": 270
+    },
+    "scrollY": 0,
+    "story": 4755.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 308.88)",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobileDeepLink": {
+    "letters": [
+      {
+        "opacity": "0",
+        "transform": "matrix(1, 0, 0, 1, -22, 0)"
+      },
+      {
+        "opacity": "0",
+        "transform": "matrix(1, 0, 0, 1, 22, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 505.5199890136719,
+      "height": 259.1999816894531,
+      "left": 94.20000457763672,
+      "opacity": "0",
+      "right": 295.7999801635742,
+      "top": 246.32000732421875,
+      "transform": "matrix(0.96, 0, 0, 0.96, 0, -28)",
+      "visibility": "hidden",
+      "width": 201.5999755859375,
+      "x": 94.20000457763672,
+      "y": 246.32000732421875
+    },
+    "scrollY": 4656,
+    "story": 99.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, -308.88)",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobileReturnedTop": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 540,
+      "height": 270,
+      "left": 90,
+      "opacity": "1",
+      "right": 300,
+      "top": 270,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 210,
+      "x": 90,
+      "y": 270
+    },
+    "scrollY": 0,
+    "story": 4755.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 308.88)",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobileDissolve": {
+    "letters": [
+      {
+        "opacity": "0.5821",
+        "transform": "matrix(1, 0, 0, 1, -9.1942, 0)"
+      },
+      {
+        "opacity": "0.5821",
+        "transform": "matrix(1, 0, 0, 1, 9.1942, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 534.164306640625,
+      "height": 268.16400146484375,
+      "left": 90.71399688720705,
+      "opacity": "0.8309",
+      "right": 299.28601837158203,
+      "top": 266.00030517578125,
+      "transform": "matrix(0.9932, 0, 0, 0.9932, 0, -4.7341)",
+      "visibility": "visible",
+      "width": 208.572021484375,
+      "x": 90.71399688720705,
+      "y": 266.00030517578125
+    },
+    "scrollY": 185.5,
+    "story": 4570,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 212.972)",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "reducedMotion": {
+    "motion": "paused",
+    "portraitPosition": "absolute",
+    "portraitOpacity": "1",
+    "letterOpacity": [
+      "1",
+      "1"
+    ]
+  },
+  "pauseControl": {
+    "motion": "paused",
+    "position": "absolute",
+    "pressed": "true"
+  },
+  "resumeAtFooter": {
+    "letters": [
+      {
+        "opacity": "0",
+        "transform": "matrix(1, 0, 0, 1, -22, 0)"
+      },
+      {
+        "opacity": "0",
+        "transform": "matrix(1, 0, 0, 1, 22, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 505.5199890136719,
+      "height": 259.1999816894531,
+      "left": 94.20000457763672,
+      "opacity": "0",
+      "right": 295.7999801635742,
+      "top": 246.32000732421875,
+      "transform": "matrix(0.96, 0, 0, 0.96, 0, -28)",
+      "visibility": "hidden",
+      "width": 201.5999755859375,
+      "x": 94.20000457763672,
+      "y": 246.32000732421875
+    },
+    "scrollY": 9198,
+    "story": -4442.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, -308.88)",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobileAfterControlsTop": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 540,
+      "height": 270,
+      "left": 90,
+      "opacity": "1",
+      "right": 300,
+      "top": 270,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 210,
+      "x": 90,
+      "y": 270
+    },
+    "scrollY": 0,
+    "story": 4755.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 308.88)",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "tabletTop": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 545,
+      "height": 300,
+      "left": 280,
+      "opacity": "1",
+      "right": 520,
+      "top": 245,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 240,
+      "x": 280,
+      "y": 245
+    },
+    "scrollY": 0,
+    "story": 4606.6171875,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 343.2)",
+    "viewport": [
+      800,
+      900
+    ]
+  },
+  "desktopWheel240": {
+    "letters": [
+      {
+        "opacity": "0.5584",
+        "transform": "matrix(1, 0, 0, 1, -9.7151, 0)"
+      },
+      {
+        "opacity": "0.5584",
+        "transform": "matrix(1, 0, 0, 1, 9.7151, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 626.7234954833984,
+      "height": 371.62786865234375,
+      "left": 562.765869140625,
+      "opacity": "0.814",
+      "right": 877.2184448242188,
+      "top": 255.0956268310547,
+      "transform": "matrix(0.9926, 0, 0, 0.9926, 0, -5.2079)",
+      "visibility": "visible",
+      "width": 314.45257568359375,
+      "x": 562.765869140625,
+      "y": 255.0956268310547
+    },
+    "scrollY": 240,
+    "story": 5121.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 279.825)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "desktopIdleStability": {
+    "letters": [
+      {
+        "opacity": "0.5584",
+        "transform": "matrix(1, 0, 0, 1, -9.7151, 0)"
+      },
+      {
+        "opacity": "0.5584",
+        "transform": "matrix(1, 0, 0, 1, 9.7151, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 626.7234954833984,
+      "height": 371.62786865234375,
+      "left": 562.765869140625,
+      "opacity": "0.814",
+      "right": 877.2184448242188,
+      "top": 255.0956268310547,
+      "transform": "matrix(0.9926, 0, 0, 0.9926, 0, -5.2079)",
+      "visibility": "visible",
+      "width": 314.45257568359375,
+      "x": 562.765869140625,
+      "y": 255.0956268310547
+    },
+    "scrollY": 240,
+    "story": 5121.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 279.825)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "desktopMidDissolve": {
+    "letters": [
+      {
+        "opacity": "0.1899",
+        "transform": "matrix(1, 0, 0, 1, -17.8218, 0)"
+      },
+      {
+        "opacity": "0.1899",
+        "transform": "matrix(1, 0, 0, 1, 17.8218, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 613.2309417724609,
+      "height": 366.16162109375,
+      "left": 565.0784912109375,
+      "opacity": "0.4493",
+      "right": 874.9058227539062,
+      "top": 247.06932067871097,
+      "transform": "matrix(0.978, 0, 0, 0.978, 0, -15.4207)",
+      "visibility": "visible",
+      "width": 309.82733154296875,
+      "x": 565.0784912109375,
+      "y": 247.06932067871097
+    },
+    "scrollY": 414,
+    "story": 4947.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, -65.8723)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "desktopFinalReversal": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 633.59375,
+      "height": 374.3984375,
+      "left": 561.59375,
+      "opacity": "1",
+      "right": 878.390625,
+      "top": 259.1953125,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 316.796875,
+      "x": 561.59375,
+      "y": 259.1953125
+    },
+    "scrollY": 0,
+    "story": 5361.5,
+    "url": "http://127.0.0.1:8767/about/#speaking",
+    "veil": "matrix(1, 0, 0, 1, 0, 428.309)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "consoleErrors": [],
+  "finalPreview": {
+    "letters": [
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "opacity": "1",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      }
+    ],
+    "overflow": false,
+    "portrait": {
+      "bottom": 633.59375,
+      "height": 374.3984375,
+      "left": 561.59375,
+      "opacity": "1",
+      "right": 878.390625,
+      "top": 259.1953125,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "visibility": "visible",
+      "width": 316.796875,
+      "x": 561.59375,
+      "y": 259.1953125
+    },
+    "scrollY": 0,
+    "story": 5361.5,
+    "url": "http://127.0.0.1:8767/about/",
+    "veil": "matrix(1, 0, 0, 1, 0, 428.309)",
+    "viewport": [
+      1440,
+      960
+    ]
+  },
+  "tabletTypography": {
+    "width": 800,
+    "fontSize": 96,
+    "lineHeight": 86.4,
+    "nameHeight": 86.3984375,
+    "whiteSpace": "nowrap"
+  },
+  "static_validation": {
+    "javascript_syntax": "passed",
+    "contact_handler_regression": "passed; mocked network only",
+    "pages_checked": 26,
+    "local_references_checked": 959,
+    "original_essays_preserved": 17,
+    "privacy_copy_preserved": true,
+    "diff_whitespace": "passed"
+  }
+}

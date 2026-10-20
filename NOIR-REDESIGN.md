@@ -125,9 +125,41 @@ The previous Lenis controller competed with CSS smooth scrolling, producing
 lag and unstable scroll positions. Its controller, ticker and script include
 have been removed from every generated page. GSAP still observes native scroll
 positions for reveals, reading progress and the About portrait dissolve.
-CSS smooth scrolling applies to intentional in-page navigation only, with
-enough clearance beneath the fixed header on desktop and mobile.
+Native anchor navigation keeps enough clearance beneath the fixed header
+on desktop and mobile. The About correction below also removes CSS smooth
+scrolling, which could interfere with ScrollTrigger refresh measurements.
 Generated CSS/JS URLs include content hashes so subsequent navigation loads
 the corrected assets. Browser checks in `noir-scroll-verification.json` cover
 repeated wheel input, direction changes, idle stability, menu scroll locking,
 anchor landing positions, the portrait dissolve and article reading progress.
+
+
+## About navigation and portrait motion, 20 October 2026
+
+The homepage speaking photograph still opens `/about/#speaking`. The About
+hero now uses one reversible GSAP timeline with explicit starting values,
+rather than two ScrollTriggers competing over the portrait's visibility.
+Load, font readiness, hash navigation and browser history restores synchronize
+that timeline with the native scroll position. A `pageshow` handler rebuilds
+animations after a back/forward cache restore; `pagehide` releases them.
+
+The portrait stays centered, lifts by at most 28px and recedes to 96% scale.
+A feathered veil and edge vignette dissolve it into the current theme's
+background. Only transforms and opacity animate. There is no fullscreen
+zoom, downward fly-out, pinning, scroll controller or new dependency. The
+caption and summary fade before they cross the photograph. Pause motion and
+reduced-motion preferences keep the photograph static in the hero.
+
+The name now fits tightly around a smaller portrait on desktop. On mobile it
+reads as one continuous name above the photograph. Tablet typography stays
+on a single line. All generated pages receive new content-hashed assets.
+
+References consulted:
+- [Motion: scroll-linked animation](https://motion.dev/docs/scroll)
+- [GSAP: competing ScrollTriggers and CSS smooth-scroll refresh mistakes](https://gsap.com/resources/st-mistakes/)
+- [GSAP ScrollTrigger: scrubbed timelines](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
+
+Browser regression evidence and measured states are saved in
+`noir-about-motion-verification.json`; before-story, restored-top and
+mid-dissolve screenshots are in `noir-previews/`. This change is local to
+`codex/noir-redesign` and has not been pushed or deployed.

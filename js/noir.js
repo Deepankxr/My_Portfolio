@@ -4,7 +4,7 @@
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
   const html = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let paused = reduced.matches, motionContext, wordTimer;
+  let paused = reduced.matches, motionContext, wordTimer, portraitExit;
   $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 
   const menu=$('#menu'), toggle=$('.menu-toggle');
@@ -48,8 +48,19 @@
       const out=word.animate([{transform:'translateY(0)',opacity:1},{transform:'translateY(-110%)',opacity:0}],{duration:300,easing:'ease-in'});out.onfinish=next;
     },3600);
   }
+  function syncMotion(){
+    if(paused||!motionContext||!window.ScrollTrigger)return;
+    ScrollTrigger.refresh();
+    // Hash navigation and browser history may restore a position after setup.
+    // Resolve the scrub immediately, so no stale hidden state survives a restore.
+    if(portraitExit){
+      portraitExit.scrollTrigger.update();
+      portraitExit.scrollTrigger.getTween()?.progress(1);
+      portraitExit.progress(portraitExit.scrollTrigger.progress);
+    }
+  }
   function initMotion(){
-    stopWords();motionContext?.revert();motionContext=null;
+    stopWords();motionContext?.revert();motionContext=null;portraitExit=null;
     html.dataset.motion=paused?'paused':'on';hover?.classList.remove('active');
     $$('[data-motion-toggle]').forEach(b=>{b.textContent=paused?'Play motion':'Pause motion';b.setAttribute('aria-pressed',String(paused));});
     word?.getAnimations().forEach(a=>a.cancel());if(word){word.textContent=words[0];wordIndex=0;}
@@ -63,17 +74,23 @@
         gsap.utils.toArray('.reveal').forEach(el=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 94%',once:true},clearProps:'transform,opacity'}));
         const portrait=$('.about-portrait');
         if(portrait){
-          gsap.from('.about-name span',{x:i=>i?35:-35,opacity:0,duration:1.2,ease:'expo.out'});
-          gsap.timeline({scrollTrigger:{trigger:'.about-hero',start:'top top',end:'bottom top',scrub:.65}})
-            .to(portrait,{x:()=>innerWidth*(innerWidth<768?.08:.18),y:()=>innerHeight*.08,scale:.94,opacity:.08,duration:1,ease:'none'},0)
-            .to('.portrait-blend',{opacity:.9,duration:1,ease:'none'},0)
-            .to('.about-name',{opacity:0,y:-35,duration:.5,ease:'none'},0)
-            .to('.about-caption,.about-summary,.about-story-link',{opacity:0,duration:.2,ease:'none'},0);
-          gsap.to(portrait,{autoAlpha:0,ease:'none',scrollTrigger:{trigger:'#story',start:'top 20%',end:'top top',scrub:true}});
+          // One owner per property. Explicit starting values remain reversible
+          // even when this document first opens far below the hero at #speaking.
+          // A translated feathered veil supplies the dissolve using only
+          // transforms and opacity; neither scroll input nor image scale grows.
+          portraitExit=gsap.timeline({
+            defaults:{ease:'none'},
+            scrollTrigger:{id:'about-portrait-exit',trigger:'.about-hero',start:'top top',end:'bottom 18%',scrub:.35,invalidateOnRefresh:true}
+          })
+            .fromTo(portrait,{y:0,scale:1,autoAlpha:1},{y:-28,scale:.96,autoAlpha:0,duration:1,ease:'power1.inOut'},0)
+            .fromTo('.portrait-dissolve',{y:0,yPercent:52},{yPercent:-52,duration:.9,ease:'power1.inOut'},.04)
+            .fromTo('.portrait-blend',{opacity:.12},{opacity:1,duration:.8},.08)
+            .fromTo('.about-name span',{x:0,opacity:1},{x:i=>i?22:-22,opacity:0,duration:.6},.04)
+            .fromTo('.about-caption,.about-summary,.about-story-link',{y:0,opacity:1},{y:-12,opacity:0,duration:.14,ease:'power1.out'},0);
         }
         if($('.reading-progress'))gsap.to('.reading-progress>span',{scaleX:1,ease:'none',scrollTrigger:{trigger:'.post-body',start:'top 20%',end:'bottom 80%',scrub:true}});
       });
-      document.fonts.ready.then(()=>ScrollTrigger.refresh());
+      document.fonts.ready.then(syncMotion);
     }else{
       // No animation dependency may make content inaccessible.
       const portrait=$('.about-portrait');if(portrait)portrait.style.position='absolute';
@@ -83,7 +100,10 @@
   $$('[data-motion-toggle]').forEach(b=>b.addEventListener('click',()=>{paused=!paused;initMotion();}));
   reduced.addEventListener('change',event=>{paused=event.matches;initMotion();});
   document.addEventListener('visibilitychange',()=>document.hidden?stopWords():startWords());
-  window.addEventListener('pagehide',()=>{stopWords();motionContext?.revert();});
+  window.addEventListener('load',syncMotion);
+  window.addEventListener('hashchange',syncMotion);
+  window.addEventListener('pagehide',()=>{stopWords();motionContext?.revert();motionContext=null;portraitExit=null;});
+  window.addEventListener('pageshow',event=>{if(event.persisted)initMotion();syncMotion();});
   initMotion();
 
   // Contact: keep the original field names, payload and page sources.
