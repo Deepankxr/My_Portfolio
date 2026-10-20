@@ -117,3 +117,17 @@ source code or project content is shipped.
 Motion is limited to headline state changes, pointer feedback, content reveals,
 navigation and the requested About portrait dissolve. The home photograph
 stays static, and all content remains available without animation libraries.
+
+## Scroll correction, 20 October 2026
+
+Wheel, trackpad and touch scrolling now use the browser's native behavior.
+The previous Lenis controller competed with CSS smooth scrolling, producing
+lag and unstable scroll positions. Its controller, ticker and script include
+have been removed from every generated page. GSAP still observes native scroll
+positions for reveals, reading progress and the About portrait dissolve.
+CSS smooth scrolling applies to intentional in-page navigation only, with
+enough clearance beneath the fixed header on desktop and mobile.
+Generated CSS/JS URLs include content hashes so subsequent navigation loads
+the corrected assets. Browser checks in `noir-scroll-verification.json` cover
+repeated wheel input, direction changes, idle stability, menu scroll locking,
+anchor landing positions, the portrait dissolve and article reading progress.

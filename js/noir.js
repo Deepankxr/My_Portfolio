@@ -4,7 +4,7 @@
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
   const html = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let paused = reduced.matches, motionContext, wordTimer, lenis;
+  let paused = reduced.matches, motionContext, wordTimer;
   $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 
   const menu=$('#menu'), toggle=$('.menu-toggle');
@@ -12,7 +12,6 @@
     const open=!!menu?.open;
     document.body.classList.toggle('dialog-open',open);
     toggle?.setAttribute('aria-expanded',String(open));
-    if(open)lenis?.stop();else lenis?.start();
   };
   toggle?.addEventListener('click',()=>{menu.showModal();lockMenu();});
   $('[data-close-menu]')?.addEventListener('click',()=>menu.close());
@@ -50,19 +49,15 @@
     },3600);
   }
   function initMotion(){
-    stopWords();motionContext?.revert();motionContext=null;window.gsap?.ticker.remove(lenisTick);lenis?.destroy();lenis=null;
+    stopWords();motionContext?.revert();motionContext=null;
     html.dataset.motion=paused?'paused':'on';hover?.classList.remove('active');
     $$('[data-motion-toggle]').forEach(b=>{b.textContent=paused?'Play motion':'Pause motion';b.setAttribute('aria-pressed',String(paused));});
     word?.getAnimations().forEach(a=>a.cancel());if(word){word.textContent=words[0];wordIndex=0;}
     if(paused){$('.about-portrait')?.removeAttribute('style');return;}
-    if(window.Lenis){
-      lenis=new Lenis({duration:1.05,smoothWheel:true,anchors:true});
-      // Lenis uses a single shared animation ticker, and is destroyed on pause.
-      if(window.gsap){gsap.ticker.add(lenisTick);}
-      else lenis.destroy(),lenis=null;
-    }
+    // Let the browser own wheel, trackpad and touch scrolling. GSAP observes
+    // native scroll positions without intercepting input or writing scrollY.
     if(window.gsap&&window.ScrollTrigger){
-      gsap.registerPlugin(ScrollTrigger);lenis?.on('scroll',ScrollTrigger.update);
+      gsap.registerPlugin(ScrollTrigger);
       motionContext=gsap.context(()=>{
         if(hero)gsap.from('.hero-role,.hero-line>span,.portrait-pill,.hero-bottom',{y:30,opacity:0,duration:1.1,stagger:.08,ease:'expo.out',clearProps:'transform,opacity'});
         gsap.utils.toArray('.reveal').forEach(el=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 94%',once:true},clearProps:'transform,opacity'}));
@@ -85,11 +80,10 @@
     }
     startWords();
   }
-  function lenisTick(t){lenis?.raf(t*1000);}
   $$('[data-motion-toggle]').forEach(b=>b.addEventListener('click',()=>{paused=!paused;initMotion();}));
   reduced.addEventListener('change',event=>{paused=event.matches;initMotion();});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopWords();lenis?.stop();}else{startWords();if(!menu?.open)lenis?.start();}});
-  window.addEventListener('pagehide',()=>{stopWords();motionContext?.revert();lenis?.destroy();window.gsap?.ticker.remove(lenisTick);});
+  document.addEventListener('visibilitychange',()=>document.hidden?stopWords():startWords());
+  window.addEventListener('pagehide',()=>{stopWords();motionContext?.revert();});
   initMotion();
 
   // Contact: keep the original field names, payload and page sources.
@@ -129,7 +123,7 @@
       rows.forEach(row=>{const text=row.textContent.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');const show=(topic==='all'||row.dataset.topic===topic)&&text.includes(query);row.hidden=!show;if(show){visible++;minutes+=Number(row.dataset.minutes);}});
       buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===topic)));count.textContent=visible+' '+(visible===1?'essay':'essays')+' · '+minutes+' minutes of reading';empty.hidden=visible>0;clear.disabled=!q;
       if(update){const url=new URL(location.href);topic==='all'?url.searchParams.delete('topic'):url.searchParams.set('topic',topic);q?url.searchParams.set('q',search.value.trim()):url.searchParams.delete('q');history[push?'pushState':'replaceState'](null,'',url);}
-      lenis?.resize();window.ScrollTrigger?.refresh();
+      window.ScrollTrigger?.refresh();
     }
     function readUrl(){const params=new URLSearchParams(location.search);const t=params.get('topic')||'all';topic=categories.has(t)?t:'all';search.value=(params.get('q')||'').slice(0,80);render(false);}
     search.addEventListener('input',()=>render());buttons.forEach(b=>b.addEventListener('click',()=>{topic=b.dataset.topic;render(true,true);}));

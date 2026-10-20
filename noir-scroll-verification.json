@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-20",
+  "nativeScrollController": true,
+  "halfPage": {
+    "before": {
+      "classes": "",
+      "customScrollerLoaded": false,
+      "max": 9303,
+      "viewport": 853,
+      "y": 427
+    },
+    "after": {
+      "classes": "",
+      "max": 9303,
+      "y": 853.5
+    }
+  },
+  "directionChanges": [
+    {
+      "direction": "down",
+      "max": 9303,
+      "y": 1152
+    },
+    {
+      "direction": "down",
+      "max": 9303,
+      "y": 1450.5
+    },
+    {
+      "direction": "down",
+      "max": 9303,
+      "y": 1749
+    },
+    {
+      "direction": "down",
+      "max": 9303,
+      "y": 2047.5
+    },
+    {
+      "direction": "up",
+      "max": 9303,
+      "y": 1834.5
+    },
+    {
+      "direction": "up",
+      "max": 9303,
+      "y": 1621
+    },
+    {
+      "direction": "up",
+      "max": 9303,
+      "y": 1408
+    }
+  ],
+  "afterIdle": {
+    "max": 9303,
+    "y": 1408
+  },
+  "menu": {
+    "open": {
+      "bodyOverflow": "hidden",
+      "menuOpen": true,
+      "y": 1408
+    },
+    "closed": {
+      "menuOpen": false,
+      "y": 1408
+    }
+  },
+  "portrait": {
+    "before": {
+      "opacity": "1",
+      "width": 210,
+      "y": 0
+    },
+    "after": {
+      "opacity": "0.5033",
+      "width": 203.19598388671875,
+      "y": 426.5
+    }
+  },
+  "anchor": {
+    "settled": {
+      "hash": "#work",
+      "max": 9303,
+      "targetTop": 99.96875,
+      "y": 1501
+    },
+    "afterWheel": {
+      "max": 9303,
+      "y": 1799.5
+    }
+  },
+  "article": {
+    "before": {
+      "max": 3614,
+      "y": 0
+    },
+    "after": {
+      "y": 1109,
+      "max": 3614,
+      "progress": "matrix(0.3454, 0, 0, 1, 0, 0)"
+    }
+  },
+  "consoleErrors": []
+}

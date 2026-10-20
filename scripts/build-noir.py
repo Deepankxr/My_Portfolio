@@ -5,6 +5,7 @@ from pathlib import Path
 from html import escape
 import json
 import re
+from hashlib import sha256
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,6 +23,9 @@ def slug(s): return re.sub(r'[^a-z0-9]+','-',s.lower()).strip('-')
 def write(path,text):
     target=ROOT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(text)
 def link(path,p): return p+path
+def asset_url(path,p=''):
+    version=sha256((ROOT/path).read_bytes()).hexdigest()[:10]
+    return f'{p}{path}?v={version}'
 
 def header(p='',active='',home=False):
     return f'''<a class="skip" href="#main">Skip to content</a>
@@ -47,8 +51,8 @@ def page(path,title,description,body,p='',active='',kind='',home=False,old_head=
         head+='''<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Deepankar Bhadrasen","url":"https://deepankar.xyz/","jobTitle":"AI Automation Engineer","worksFor":{"@type":"Organization","name":"TrueHorizon AI"},"address":{"@type":"PostalAddress","addressLocality":"Bhopal","addressCountry":"IN"},"email":"sales@deepankar.xyz","sameAs":["https://www.linkedin.com/in/deepankarbhadrasen/"],"knowsAbout":["AI Automation","n8n","Document Intelligence","Sales Pipeline Automation","AI Agents","Full-Stack Development"]}</script>'''
     result=f'''<!doctype html>
 <html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171717"><title>{e(title)}</title>{head}
-<link rel="icon" type="image/svg+xml" href="{p}favicon.svg"><link rel="preload" href="{p}assets/fonts/archivo-variable.ttf" as="font" type="font/ttf" crossorigin><script src="{p}js/noir-theme.js"></script><link rel="stylesheet" href="{p}css/noir.css">
-<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script><script defer src="{p}js/config.js"></script><script defer src="{p}js/noir.js"></script></head>
+<link rel="icon" type="image/svg+xml" href="{p}favicon.svg"><link rel="preload" href="{p}assets/fonts/archivo-variable.ttf" as="font" type="font/ttf" crossorigin><script src="{p}js/noir-theme.js"></script><link rel="stylesheet" href="{asset_url('css/noir.css',p)}">
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script><script defer src="{p}js/config.js"></script><script defer src="{asset_url('js/noir.js',p)}"></script></head>
 <body class="{kind}">{header(p,active,home)}<main id="main">{body}</main>{footer(p)}</body></html>'''
     write(path,result)
 
